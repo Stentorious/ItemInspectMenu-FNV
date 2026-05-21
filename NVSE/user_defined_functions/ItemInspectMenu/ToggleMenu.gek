@@ -7,7 +7,7 @@ float fRotX
 float fRotY
 float fRotZ
 float fTargetSize
-ref rCameraOverlay
+ref rCamera
 ref rItem
 ref rBase
 ref rMessage
@@ -17,7 +17,7 @@ string_var sDescription
 
 begin Function {iToggle}
 
-	rCameraOverlay = Goo1.AuxVarGetRef "*InspectMenu" 6
+	rCamera = Goo1.AuxVarGetRef "*InspectMenu" 6
 	iMenuID = GetActiveMenuMode
 
 	PlaySound UIMenuMode 1
@@ -45,8 +45,8 @@ begin Function {iToggle}
 			SetUIFloatAlt "BarterMenu\visible" 1
 		endif
 
-		if eval ModelHasBlock rCameraOverlay "ItemInspectMenu"
-			rCameraOverlay.RemoveNifBlock "ItemInspectMenu"
+		if eval ModelHasBlock rCamera "ItemInspectMenu"
+			rCamera.RemoveNifBlock "ItemInspectMenu"
 		endif
 
 		; Reset background blur
@@ -78,8 +78,8 @@ begin Function {iToggle}
 		fRotZ = AuxVarGetFlt "*InspectMenu" 5 rBase
 	endif
 
-	InsertNode rCameraOverlay 3 "ItemInspectMenu"
-	InsertNode rCameraOverlay 3 "ItemInspectMenu|ItemInspectMenuOffset"
+	InsertNode rCamera 3 "ItemInspectMenu"
+	InsertNode rCamera 3 "ItemInspectMenu|ItemInspectMenuOffset"
 	sModelPath = "ItemInspectMenu|"
 
 	; Attach model
@@ -108,7 +108,7 @@ begin Function {iToggle}
 	endif
 
 	; Attach mesh
-	AttachModel rCameraOverlay 3 ("ItemInspectMenuOffset|" + sModelPath)
+	AttachModel rCamera 3 ("ItemInspectMenuOffset|" + sModelPath)
 	CallAfterFrames 0 (begin function {}
 		ref rTemp = Goo1.AuxVarGetRef "*InspectMenu" 6
 		array_var aWeaponBlocks = rTemp.GetChildBlocks "ItemInspectMenuOffset"
@@ -124,16 +124,16 @@ begin Function {iToggle}
 	Goo1.AuxVarSetFlt "*InspectMenu" 0 4
 
 	; Set scale and offset from cam
-	aNiBounds = rCameraOverlay.GetNiBound "ItemInspectMenuOffset" 1
-	rCameraOverlay.SetNifTrans "ItemInspectMenuOffset" (aNiBounds[0] * -1) (aNiBounds[1] * -1) (aNiBounds[2] * -1)
+	aNiBounds = rCamera.GetNiBound "ItemInspectMenuOffset" 1
+	rCamera.SetNifTrans "ItemInspectMenuOffset" (aNiBounds[0] * -1) (aNiBounds[1] * -1) (aNiBounds[2] * -1)
 	fTargetSize = aNiBounds[3] + 20
-	rCameraOverlay.SetNifTrans "ItemInspectMenu" 0 fTargetSize 0
+	rCamera.SetNifTrans "ItemInspectMenu" 0 fTargetSize 0
 
 	; Orthographic camera
 	if eval Goo1.AuxVarGetFlt "*InspectMenu_INI" 9
 		fTargetSize = 0.65 / (GetMaxOf (aNiBounds[3]) 0.1)
 		fTargetSize = Clamp fTargetSize 0.001 0.05
-		rCameraOverlay.SetNifScale "ItemInspectMenu" fTargetSize
+		rCamera.SetNifScale "ItemInspectMenu" fTargetSize
 		Goo1.AuxVarSetFlt "*InspectMenu" fTargetSize 2
 	endif
 	Goo1.AuxVarSetFlt "*InspectMenu" fTargetSize 2
@@ -152,7 +152,7 @@ begin Function {iToggle}
 			fRotZ = 106
 		endif
 	endif
-	rCameraOverlay.SetNifRot "ItemInspectMenu" fRotX fRotY fRotZ
+	rCamera.SetNifRot "ItemInspectMenu" fRotX fRotY fRotZ
 
 	; Update player controls
 	DK 1				; ESC
