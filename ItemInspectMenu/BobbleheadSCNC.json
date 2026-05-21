@@ -1,0 +1,12 @@
+{
+	"showOnce": 1,
+	"description": {
+		"first": "BobbleheadSCNCBuffMessage",
+		"default": "BobbleheadSCNCMessage"
+	},
+	"rotation": {
+		"x": -15,
+		"y": 0,
+		"z": 200
+	}
+}

@@ -1,0 +1,259 @@
+﻿<_ItemInspectMenu+Controls> <copy src="sibling(HUDMainMenu)" trait="_ItemInspectMenu+Controls" /> </_ItemInspectMenu+Controls>
+<_ItemInspectMenu+Name> <copy src="sibling(HUDMainMenu)" trait="_ItemInspectMenu+Name" /> </_ItemInspectMenu+Name>
+<_ItemInspectMenu+Description> <copy src="sibling(HUDMainMenu)" trait="_ItemInspectMenu+Description" /> </_ItemInspectMenu+Description>
+<_ItemInspectMenu+Stats> <copy src="sibling(HUDMainMenu)" trait="_ItemInspectMenu+Stats" /> </_ItemInspectMenu+Stats>
+<_ItemInspectMenu+Init> 0 </_ItemInspectMenu+Init>
+<_ItemInspectMenu+Enabled> 0 </_ItemInspectMenu+Enabled>
+
+<rect name="ItemInspectMenu">
+
+	<visible> <copy src="io()" trait="_ItemInspectMenu+Enabled" /> </visible>
+
+	<text name="Title">
+		<visible> <copy src="io()" trait="_ItemInspectMenu+Name" /> </visible>
+		<x>
+			<copy src="screen()" trait="width" />
+			<div> 2 </div>
+		</x>
+		<y> 75 </y>
+		<justify> &center; </justify>
+		<font> 1 </font>
+		<zoom> 150 </zoom>
+		<string></string>
+	</text>
+
+	<text name="Description">
+		<visible> <copy src="io()" trait="_ItemInspectMenu+Description" /> </visible>
+		<x> <copy src="sibling(Title)" trait="x" /></x>
+		<y>
+			<copy src="sibling(Title)" trait="y" />
+			<add> 100 </add>
+		</y>
+		<justify> &center; </justify>
+		<wrapwidth> 1200 </wrapwidth>
+		<font> 3 </font>
+		<zoom> 100 </zoom>
+		<string></string>
+	</text>
+
+	<rect name="Controls">
+
+		<_BackgroundPad> 8 </_BackgroundPad>
+		<_width>
+			<copy src="child(Exit)" trait="_x" />
+			<add src="child(Exit)" trait="_width" />
+			<add> 7 </add>
+		</_width>
+		<_height>
+			<copy src="child(Exit)" trait="y" />
+			<add src="child(Exit)" trait="height" />
+		</_height>
+		<_systemcolor> 1 </_systemcolor>
+		<_font> 7 </_font>
+
+		<visible> <copy src="io()" trait="_ItemInspectMenu+Controls" /> </visible>
+		<locus> 1 </locus>
+		<x>
+			<copy src="screen()" trait="width" />
+			<sub src="child(WindowBackground)" trait="width" />
+			<div> 2 </div>
+		</x>
+		<y>
+			<copy src="screen()" trait="height" />
+			<sub src="child(WindowBackground)" trait="height" />
+			<sub> 25 </sub>
+		</y>
+
+		<image name="WindowBackground">
+			<visible> 1 </visible>
+			<alpha> 175 </alpha>
+			<depth> 0 </depth>
+			<x>
+				<copy> 0 </copy>
+				<sub src="parent()" trait="_BackgroundPad" />
+			</x>
+			<y>
+				<copy> 0 </copy>
+				<sub src="parent()" trait="_BackgroundPad" />
+			</y>
+			<width>
+				<copy src="parent()" trait="_width" />
+				<add>
+					<copy src="parent()" trait="_BackgroundPad" />
+					<mul> 2 </mul>
+				</add>
+			</width>
+			<height>
+				<copy src="parent()" trait="_height" />
+				<add>
+					<copy src="parent()" trait="_BackgroundPad" />
+					<mul> 2 </mul>
+				</add>
+			</height>
+			<zoom> &scale; </zoom>
+			<systemcolor> 0 </systemcolor>
+			<red> 0 </red>
+			<green> 0 </green>
+			<blue> 0 </blue>
+			<filename> Interface\Shared\solid.dds </filename>
+		</image>
+
+		<image name="InnerBackground">
+			<visible> 1 </visible>
+			<alpha> 30 </alpha>
+			<locus> 1 </locus>
+			<depth> 1 </depth>
+			<x> 0 </x>
+			<y> 0 </y>
+			<width> <copy src="parent()" trait="_width"/> </width>
+			<height> <copy src="parent()" trait="_height"/> </height>
+			<zoom> -1 </zoom>
+			<brightness> 255 </brightness>
+			<filename> Interface\Shared\solid.dds </filename>
+		</image>
+
+		<rect name="Rotate">
+			<include src="text_box.xml"/>
+			<visible> 1 </visible>
+			<_x> 0 </_x>
+			<_horbuf> 20 </_horbuf>
+			<_verbuf> 15 </_verbuf>
+			<_width>
+				<copy src="me()" trait="width" />
+				<add>
+					<copy src="child(PCShortcutLabel)" trait="width" />
+					<add> 12.5 </add>
+					<onlyif src="child(PCShortcutLabel)" trait="visible" />
+				</add>
+				<add>
+					<copy src="child(xbox_button)" trait="width" />
+					<sub> 27.5 </sub>
+					<onlyifnot src="child(PCShortcutLabel)" trait="visible" />
+				</add>
+			</_width>
+			<justify> &left; </justify>
+			<string> Rotate: </string>
+			<_line_alpha> 255 </_line_alpha>
+			<target> 0 </target>
+			<_xbox_button> &xbuttonrs; </_xbox_button>
+			<_PCButtonText> Mouse) </_PCButtonText>
+			<font> 3 </font>
+			<_button_placement> &right; </_button_placement>
+		</rect>
+
+		<rect name="Zoom">
+			<include src="text_box.xml"/>
+			<visible> 1 </visible>
+			<_x>
+				<copy src="sibling(Rotate)" trait="_x" />
+				<add src="sibling(Rotate)" trait="_width" />
+			</_x>
+			<_horbuf> 20 </_horbuf>
+			<_verbuf> 15 </_verbuf>
+			<_width>
+				<copy src="me()" trait="width" />
+				<add>
+					<copy src="child(PCShortcutLabel)" trait="width" />
+					<add> 12.5 </add>
+					<onlyif src="child(PCShortcutLabel)" trait="visible" />
+				</add>
+				<add>
+					<copy src="child(xbox_button)" trait="width" />
+					<sub> 27.5 </sub>
+					<onlyifnot src="child(PCShortcutLabel)" trait="visible" />
+				</add>
+			</_width>
+			<justify> &left; </justify>
+			<string> Zoom: </string>
+			<_line_alpha> 255 </_line_alpha>
+			<target> 0 </target>
+			<_PCButtonText_0> Wheel) </_PCButtonText_0>
+			<_PCButtonText_1> LT/RT) </_PCButtonText_1>
+			<_ButtonPromptTemp> <copy src="globals" trait="_Has360Controller"/> </_ButtonPromptTemp>
+			<_ButtonPrompt>
+				<copy src="me()" trait="_ButtonPromptTemp"/>
+				<copy src="me()" trait="_PCButtonText_"/>
+			</_ButtonPrompt>
+			<_PCButtonText> <copy src="me()" trait="_ButtonPrompt"/> </_PCButtonText>
+			<font> 3 </font>
+			<_button_placement> &right; </_button_placement>
+		</rect>
+
+		<rect name="Exit">
+			<include src="text_box.xml"/>
+			<visible> 1 </visible>
+			<_x>
+				<copy src="sibling(Zoom)" trait="_x" />
+				<add src="sibling(Zoom)" trait="_width" />
+			</_x>
+			<_horbuf> 20 </_horbuf>
+			<_verbuf> 15 </_verbuf>
+			<_width>
+				<copy src="me()" trait="width" />
+				<add>
+					<copy src="child(PCShortcutLabel)" trait="width" />
+					<add> 12.5 </add>
+					<onlyif src="child(PCShortcutLabel)" trait="visible" />
+				</add>
+				<add>
+					<copy src="child(xbox_button)" trait="width" />
+					<sub> 27.5 </sub>
+					<onlyifnot src="child(PCShortcutLabel)" trait="visible" />
+				</add>
+			</_width>
+			<justify> &left; </justify>
+			<string> Exit: </string>
+			<_line_alpha> 255 </_line_alpha>
+			<target> 0 </target>
+			<_xbox_button> &xbuttonb; </_xbox_button>
+			<_PCButtonText> Tab) </_PCButtonText>
+			<font> 3 </font>
+			<_button_placement> &right; </_button_placement>
+		</rect>
+
+		<!-- Headlines -->
+		<rect name="Headlines">
+
+			<visible> 1 </visible>
+			<locus> 1 </locus>
+			<depth> 10 </depth>
+			<x> 0 </x>
+			<y> 0 </y>
+
+			<image name="Headline_VL">
+				<x>
+					<copy> 0 </copy>
+					<sub src="globals()" trait="_line_thickness" />
+				</x>
+				<width> <copy src="globals()" trait="_line_thickness" /> </width>
+				<height> <copy src="grandparent()" trait="_height" /> </height>
+				<filename> Interface\Shared\solid.dds </filename>
+			</image>
+			<image name="Headline_VR">
+				<x> <copy src="grandparent()" trait="_width" /> </x>
+				<width> <copy src="sibling(Headline_VL)" trait="width" /> </width>
+				<height> <copy src="sibling(Headline_VL)" trait="height" /> </height>
+				<filename> Interface\Shared\solid.dds </filename>
+			</image>
+			<image name="Headline_HT">
+				<x> <copy src="sibling(Headline_VL)" trait="x" /> </x>
+				<y> <copy src="me()" trait="x" /> </y>
+				<width>
+					<copy src="grandparent()" trait="_width" />
+					<add src="globals()" trait="_line_thickness" />
+					<add src="globals()" trait="_line_thickness" />
+				</width>
+				<height> <copy src="globals()" trait="_line_thickness" /> </height>
+				<filename> Interface\Shared\solid.dds </filename>
+			</image>
+			<image name="Headline_HB">
+				<x> <copy src="sibling(Headline_HT)" trait="x" /> </x>
+				<y> <copy src="grandparent()" trait="_height" /> </y>
+				<width> <copy src="sibling(Headline_HT)" trait="width" /> </width>
+				<height> <copy src="sibling(Headline_HT)" trait="height" /> </height>
+				<filename> Interface\Shared\solid.dds </filename>
+			</image>
+
+		</rect>
+	</rect>
+</rect>

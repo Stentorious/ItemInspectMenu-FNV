@@ -1,0 +1,12 @@
+{
+	"showOnce": 1,
+	"description": {
+		"first": "BobbleheadMEDIBuffMessage",
+		"default": "BobbleheadMEDIMessage"
+	},
+	"rotation": {
+		"x": -15,
+		"y": 0,
+		"z": 200
+	}
+}

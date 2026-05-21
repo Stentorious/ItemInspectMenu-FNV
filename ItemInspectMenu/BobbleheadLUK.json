@@ -1,0 +1,12 @@
+{
+	"showOnce": 1,
+	"description": {
+		"first": "BobbleheadLUKBuffMessage",
+		"default": "BobbleheadLUKMessage"
+	},
+	"rotation": {
+		"x": -15,
+		"y": 0,
+		"z": 200
+	}
+}

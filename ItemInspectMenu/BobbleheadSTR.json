@@ -1,0 +1,12 @@
+{
+	"showOnce": 1,
+	"description": {
+		"first": "BobbleheadUARMBuffMessage",
+		"default": "BobbleheadUARMMessage"
+	},
+	"rotation": {
+		"x": -15,
+		"y": 0,
+		"z": 200
+	}
+}

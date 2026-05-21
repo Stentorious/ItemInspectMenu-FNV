@@ -1,0 +1,222 @@
+int iToggle
+
+int iMenuID
+int iType
+int iRotation
+float fRotX
+float fRotY
+float fRotZ
+float fTargetSize
+ref rCameraOverlay
+ref rItem
+ref rBase
+ref rMessage
+array_var aNiBounds
+string_var sModelPath
+string_var sDescription
+
+begin Function {iToggle}
+
+	rCameraOverlay = Goo1.AuxVarGetRef "*InspectMenu" 6
+	iMenuID = GetActiveMenuMode
+
+	PlaySound UIMenuMode 1
+
+	; Close photo mode
+	if eval iToggle == 0
+
+		if eval MenuMode 1002 == 1 && GetController
+			TapButton 512
+		endif
+
+		Player.SetActorAlpha 1
+
+		CallWhen ({} => EK 1) ({} => IsKeyPressed 1 2 == 0)
+		CallWhen ({} => EK 15) ({} => IsKeyPressed 15 2 == 0)
+		CallWhen ({} => EnableButton 16) ({} => IsButtonPressed 16 == 0)
+		CallWhen ({} => EnableButton 8192) ({} => IsButtonPressed 8192 == 0)
+
+		; Toggle menus
+		SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" 0
+		SetUIFloatAlt "HUDMainMenu\visible" 1
+		if eval iMenuID == 1008
+			SetUIFloatAlt "ContainerMenu\visible" 1
+		elseif eval iMenuID == 1053
+			SetUIFloatAlt "BarterMenu\visible" 1
+		endif
+
+		if eval ModelHasBlock rCameraOverlay "ItemInspectMenu"
+			rCameraOverlay.RemoveNifBlock "ItemInspectMenu"
+		endif
+
+		; Reset background blur
+		RIMOD PopupBackgroundFX
+		SetImageSpaceModTrait PopupBackgroundFX 45 (Goo1.AuxVarGetFlt "*InspectMenu" 5)
+
+		Goo1.AuxVarSetFlt "*InspectMenu" 0 0
+
+		return
+	endif
+
+	Goo1.AuxVarSetFlt "*InspectMenu" iToggle 0
+
+	; Get item ref
+	rItem = Goo1.AuxVarGetRef "*InspectMenu" 1
+	rBase = rItem.GBO
+	iType = GetType rItem
+
+	; Hide Pip-Boy
+	if eval iToggle == 1
+		Player.SetActorAlpha 0
+	endif
+
+	; Override rotation
+	if eval AuxVarType "*InspectMenu" 3 rBase == 1
+		iRotation = 1
+		fRotX = AuxVarGetFlt "*InspectMenu" 3 rBase
+		fRotY = AuxVarGetFlt "*InspectMenu" 4 rBase
+		fRotZ = AuxVarGetFlt "*InspectMenu" 5 rBase
+	endif
+
+	InsertNode rCameraOverlay 3 "ItemInspectMenu"
+	InsertNode rCameraOverlay 3 "ItemInspectMenu|ItemInspectMenuOffset"
+	sModelPath = "ItemInspectMenu|"
+
+	; Attach model
+	sModelPath = rItem.GetBipedModelPath 2
+	if eval sModelPath == ""
+		if eval rItem.GetType == 40
+			if eval (sModelPath = GetWeaponWorldModelPath rBase) == ""
+				sModelPath = GetWeaponModel rBase (rItem.GetWeaponRefModFlags)
+			endif
+		else
+			sModelPath = GetModelPath rItem
+		endif
+
+	; Default biped model rotation
+	else
+		iRotation = 1
+		if eval (GetBit (rItem.GetEquipmentSlotsMask) 2)
+			fRotX = -60
+			fRotY = -10
+			fRotZ = -110
+		else
+			fRotX = -20
+			fRotY = -5
+			fRotZ = 160
+		endif
+	endif
+
+	; Attach mesh
+	AttachModel rCameraOverlay 3 ("ItemInspectMenuOffset|" + sModelPath)
+	CallAfterFrames 0 (begin function {}
+		ref rTemp = Goo1.AuxVarGetRef "*InspectMenu" 6
+		array_var aWeaponBlocks = rTemp.GetChildBlocks "ItemInspectMenuOffset"
+		int iSize = ar_Size aWeaponBlocks
+		while (iSize -= 1) > -1
+			rTemp.SetNifBlockFlag (aWeaponBlocks[iSize]) 0 0
+		loop
+		aWeaponBlocks = Ar_Null
+	end) 1
+
+	; Reset inertia
+	Goo1.AuxVarSetFlt "*InspectMenu" 0 3
+	Goo1.AuxVarSetFlt "*InspectMenu" 0 4
+
+	; Set scale and offset from cam
+	aNiBounds = rCameraOverlay.GetNiBound "ItemInspectMenuOffset" 1
+	rCameraOverlay.SetNifTrans "ItemInspectMenuOffset" (aNiBounds[0] * -1) (aNiBounds[1] * -1) (aNiBounds[2] * -1)
+	fTargetSize = aNiBounds[3] + 20
+	rCameraOverlay.SetNifTrans "ItemInspectMenu" 0 fTargetSize 0
+
+	; Orthographic camera
+	if eval Goo1.AuxVarGetFlt "*InspectMenu_INI" 9
+		fTargetSize = 0.65 / (GetMaxOf (aNiBounds[3]) 0.1)
+		fTargetSize = Clamp fTargetSize 0.001 0.05
+		rCameraOverlay.SetNifScale "ItemInspectMenu" fTargetSize
+		Goo1.AuxVarSetFlt "*InspectMenu" fTargetSize 2
+	endif
+	Goo1.AuxVarSetFlt "*InspectMenu" fTargetSize 2
+
+	aNiBounds = Ar_Null
+
+	; Apply starting rotation
+	if eval iRotation == 0
+		if eval iType == 40
+			fRotX = -90
+			fRotY = 0
+			fRotZ = 0
+		else
+			fRotX = -15
+			fRotY = 0
+			fRotZ = 106
+		endif
+	endif
+	rCameraOverlay.SetNifRot "ItemInspectMenu" fRotX fRotY fRotZ
+
+	; Update player controls
+	DK 1				; ESC
+	DK 15				; Tab
+	DisableButton 16	; Start
+	DisableButton 8192	; B
+
+	Goo1.AuxTimerStart "*InspectMenuLoop" 10 351
+
+	; Apply background blur
+	Goo1.AuxVarSetFlt "*InspectMenu" (GetImageSpaceModTrait PopupBackgroundFX 45) 5
+	SetImageSpaceModTrait PopupBackgroundFX 45 5
+	RIMOD PopupBackgroundFX
+	IMOD PopupBackgroundFX
+
+	; Init ItemInspectMenu
+	ShowTutorialMenu GenericDebugMsg
+	SetUIFloatAlt "TutorialMenu\NOGLOW_BRANCH\visible" 0
+	SetUIStringAlt "TutorialMenu\ItemInspectMenu\Title\string" "%z" (LnGetName (Goo1.AuxVarGetRef "*InspectMenu" 1))
+	SetUIFloatAlt "TutorialMenu\ItemInspectMenu\Controls\Zoom\PCShortcutLabel\visible" 1
+	SetUIFloatAlt "TutorialMenu\ItemInspectMenu\Controls\Zoom\xbox_button\visible" 0
+	SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Init" 1
+	SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" 1
+
+	; Item description
+
+	; First pick-up
+	if eval AuxVarType "*InspectMenu" 2 rBase == 4 && iToggle == 2
+		sDescription = AuxVarGetStr "*InspectMenu" 2 rBase
+	endif
+
+	; B42 Descriptions
+	if eval Goo1.AuxVarGetFlt "*InspectMenu_INI" 10 && sDescription == ""
+		if iType == 40
+			iType = 0
+		elseif iType == 24
+			iType = 1
+		elseif iType == 47 || iType == 25
+			iType = 2
+		elseif iType == 31
+			iType = 3
+		elseif iType == 41
+			iType = 4
+		endif
+		sDescription = GetINIString ("All\" + (GetEditorID rBase)) ("B42Descriptions\" + (GetModName (GetSourceModIndex rBase)) + "\" + $iType)
+	endif
+
+	; Default
+	if eval sDescription == "" && AuxVarType "*InspectMenu" 1 rBase == 4
+		sDescription = AuxVarGetStr "*InspectMenu" 1 rBase
+	endif
+
+	SetUIStringAlt "TutorialMenu\ItemInspectMenu\Description\string" (sDescription)
+
+	; Toggle menus
+	if eval Goo1.AuxVarGetFlt "*InspectMenu_INI" 5 == 0
+		SetUIFloatAlt "HUDMainMenu\visible" 0
+	endif
+	if eval iMenuID == 1008
+		SetUIFloatAlt "ContainerMenu\visible" 0
+	elseif eval iMenuID == 1053
+		SetUIFloatAlt "BarterMenu\visible" 0
+	endif
+
+	sv_Destruct sModelPath sDescription
+
+end

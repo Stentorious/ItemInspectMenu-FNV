@@ -1,0 +1,20 @@
+<hotrect name="BM_InspectButton">
+	<include src="text_box.xml"/>
+	<target>
+		<copy src="BM_Items_InventoryList" trait="_highlight_y" />
+		<gt> -1 </gt>
+		<or>
+			<copy src="BM_Container_InventoryList" trait="_highlight_y" />
+			<gt> -1 </gt>
+		</or>
+	</target>
+	<_y>
+		<copy src="sibling(BM_ButtonX)" trait="_y" />
+		<sub src="me" trait="height" />
+	</_y>
+	<_verbuf> 15 </_verbuf>
+	<justify> &right; </justify>
+	<_xbox_button> &xbuttony; </_xbox_button>
+	<_PCButtonText> <copy src="io()" trait="_ItemInspectMenu+PCPrompt" /> </_PCButtonText>
+	<string> Inspect </string>
+</hotrect>

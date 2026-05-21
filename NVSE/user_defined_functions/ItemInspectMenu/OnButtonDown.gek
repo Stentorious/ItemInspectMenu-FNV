@@ -1,0 +1,39 @@
+int	iKeyID
+
+int iMenuID
+ref rItem
+array_var aSupportedMenus
+
+begin Function {iKeyID}
+
+	if eval MenuMode 3
+		return
+	endif
+
+	iMenuID = GetActiveMenuMode
+
+	; Inspect item
+	if eval iKeyID == 32768
+		rItem = GetSelectedItemRef
+		aSupportedMenus = Ar_List 1002 1008 1053
+		if eval iMenuID == 1002 && IsButtonPressed 512 == 0
+			return
+		endif
+		if eval IsReference rItem && MenuMode iMenuID == 1 && MenuMode 1059 == 0 && (Ar_Find iMenuID aSupportedMenus) != Ar_BadNumericIndex
+			Goo1.AuxVarSetRef "*InspectMenu" rItem 1
+			Call (CompileScript "ItemInspectMenu\ToggleMenu.gek") 1
+		endif
+		aSupportedMenus = Ar_Null
+		return
+
+	; Ignore inputs
+	elseif eval GetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" != 1 || iMenuID != 1059
+		return
+
+	; Close ItemInspectMenu
+	elseif eval iKeyID == 8192 || iKeyID == 16
+		ClickMenuButton "TutorialMenu#3" 1
+		return
+	endif
+
+end

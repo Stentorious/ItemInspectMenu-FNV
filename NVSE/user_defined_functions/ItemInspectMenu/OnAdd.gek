@@ -1,0 +1,26 @@
+ref rItem
+ref rActor
+
+ref rBase
+
+begin Function {ref rItem, ref rActor}
+
+	if eval IsReference (rItem = GetAddedItemRefShowOff)
+		rBase = rItem.GBO
+		if eval (AuxVarGetFlt "*InspectMenu" 0 rBase || (rItem.IsQuestItem && Goo1.AuxVarGetFlt "*InspectMenu_INI" 7) || (IsItemUnique rBase && Goo1.AuxVarGetFlt "*InspectMenu_INI" 8))
+
+			; Is first time pickup
+			if eval AuxVarGetFlt "InspectMenu" 0 rBase
+				return
+			endif
+			AuxVarSetFlt "InspectMenu" 1 0 rBase
+
+			; Open inspect menu
+			Goo1.AuxVarSetRef "*InspectMenu" rItem 1
+			PlaySound UIPopUpExperienceUp 1
+			Call (CompileScript "ItemInspectMenu\ToggleMenu.gek") 2
+
+		endif
+	endif
+
+end

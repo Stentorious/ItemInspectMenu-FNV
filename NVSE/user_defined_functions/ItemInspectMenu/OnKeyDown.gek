@@ -1,0 +1,68 @@
+int	iKeyID
+
+int iMenuID
+float fScale
+float fPosX
+float fPosY
+float fPosZ
+ref rItem
+ref rCameraOverlay
+array_var aSupportedMenus
+
+begin Function {iKeyID}
+
+	if eval MenuMode 3
+		return
+	endif
+
+	iMenuID = GetActiveMenuMode
+
+	; Open ItemInspectMenu
+	if eval iKeyID == Goo1.AuxVarGetFlt "*InspectMenu_INI" 0
+		rItem = GetSelectedItemRef
+		aSupportedMenus = Ar_List 1002 1008 1053
+		if eval IsReference rItem && MenuMode iMenuID == 1 && MenuMode 1059 == 0 && (Ar_Find iMenuID aSupportedMenus) != Ar_BadNumericIndex
+			Goo1.AuxVarSetRef "*InspectMenu" rItem 1
+			Call (CompileScript "ItemInspectMenu\ToggleMenu.gek") 1
+		endif
+		aSupportedMenus = Ar_Null
+		return
+
+	; Ignore inputs
+	elseif eval GetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" != 1 || iMenuID != 1059
+		return
+
+	; Close ItemInspectMenu
+	elseif eval iKeyID == 1 || iKeyID == 15
+		ClickMenuButton "TutorialMenu#3" 1
+		return
+
+	; Zoom in/out
+	elseif eval iKeyID == 264 || iKeyID == 265
+
+		rCameraOverlay = Goo1.AuxVarGetRef "*InspectMenu" 6
+
+		; Orthographic
+		if eval Goo1.AuxVarGetFlt "*InspectMenu_INI" 9
+			fScale = rCameraOverlay.GetNifBlockScale "ItemInspectMenu"
+			if eval iKeyID == 264
+				fScale *= 1 - (Goo1.AuxVarGetFlt "*InspectMenu_INI" 3 * 0.05)
+			elseif eval iKeyID == 265
+				fScale *= 1 + (Goo1.AuxVarGetFlt "*InspectMenu_INI" 3 * 0.05)
+			endif
+			rCameraOverlay.SetNifBlockScale "ItemInspectMenu" (Clamp fScale ((Goo1.AuxVarGetFlt "*InspectMenu" 2) * 0.75) ((Goo1.AuxVarGetFlt "*InspectMenu" 2) * 1.35))
+
+		; Perspective
+		else
+			rCameraOverlay.GetNifBlockTranslationAlt "ItemInspectMenu" (fPosX) (fPosY) (fPosZ)
+			if eval iKeyID == 264
+				fPosY -= Goo1.AuxVarGetFlt "*InspectMenu_INI" 3
+			elseif eval iKeyID == 265
+				fPosY += Goo1.AuxVarGetFlt "*InspectMenu_INI" 3
+			endif
+			rCameraOverlay.SetNifTrans "ItemInspectMenu" 0 (Clamp fPosY ((Goo1.AuxVarGetFlt "*InspectMenu" 2) - 10) ((Goo1.AuxVarGetFlt "*InspectMenu" 2) + 20)) 0
+		endif
+
+	endif
+
+end

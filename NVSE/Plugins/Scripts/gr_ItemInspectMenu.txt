@@ -1,0 +1,147 @@
+; Item Inspect Menu - Stentorious
+
+; Check for requirements
+if eval GetNVSEVersionFull < 6.47
+	MessageBoxEx "Item Inspect Menu missing requirement!%rInstall xNVSE 6.4.8+."
+	return
+endif
+if GetPluginVersion "JohnnyGuitarNVSE" < 526
+	MessageBoxEx "Item Inspect Menu missing requirement!%rInstall latest JohnnyGuitar NVSE plugin."
+	return
+endif
+if GetPluginVersion "ShowOffNVSE Plugin" < 145
+	MessageBoxEx "Item Inspect Menu missing requirement!%rInstall latest ShowOff NVSE plugin."
+	return
+endif
+
+; Load INI settings
+Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Controls:iKeyBind" "Stentorious\ItemInspectMenu.ini" 20) 0
+Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityRotationMouse" "Stentorious\ItemInspectMenu.ini" 1) 1
+Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityRotationController" "Stentorious\ItemInspectMenu.ini" 1) 2
+Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityZoomMouse" "Stentorious\ItemInspectMenu.ini" 1) 3
+Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityZoomController" "Stentorious\ItemInspectMenu.ini" 1) 4
+Goo1.AuxVarSetFlt "*InspectMenu_INI" (eval GetINIFloat_Cached "Menu:bShowHUD" "Stentorious\ItemInspectMenu.ini" 1) 5
+Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Controls:fInertiaFriction" "Stentorious\ItemInspectMenu.ini" 1) 6
+Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "General:bQuestItems" "Stentorious\ItemInspectMenu.ini" 1) 7
+Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "General:bUniqueItems" "Stentorious\ItemInspectMenu.ini" 1) 8
+Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Menu:iCameraType" "Stentorious\ItemInspectMenu.ini" 0) 9
+Goo1.AuxVarSetFlt "*InspectMenu_INI" (eval IsModLoaded "B42Descriptions.esp") 10
+SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Name" (eval GetINIFloat_Cached "Menu:bShowItemName" "Stentorious\ItemInspectMenu.ini" 1)
+SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Stats" (eval GetINIFloat_Cached "Menu:bShowItemStats" "Stentorious\ItemInspectMenu.ini" 1)
+SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Controls" (eval GetINIFloat_Cached "Menu:bShowMenuControls" "Stentorious\ItemInspectMenu.ini" 1)
+
+; Event handlers
+SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 1	; Esc
+SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 15	; Tab
+SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 256	; Left Mouse
+SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 264	; Wheel Up
+SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 265	; Wheel Down
+SetEventHandler "OnButtonDown:40976" (CompileScript "ItemInspectMenu\OnButtonDown.gek")
+SetOnMenuCloseEventHandler (CompileScript "ItemInspectMenu\OnMenuClose.gek") 1 1059
+SetOnMenuCloseEventHandler (CompileScript "ItemInspectMenu\OnMenuClose.gek") 1 1013
+SetEventHandler "ShowOff:OnAdd" (CompileScript "ItemInspectMenu\OnAdd.gek") "second"::Player
+
+; Update keybind
+if eval (int iKeyID = Goo1.AuxVarGetFlt "*InspectMenu_INI" 0) > 0
+	SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 iKeyID
+	SetUIStringAlt "HUDMainMenu\_ItemInspectMenu+PCPrompt" "%k)" iKeyID
+endif
+
+; Init cache
+Goo1.AuxVarSetFlt "*InspectMenu" 0 0	; Menu state (0 = Closed, 1 = Inventory, 2 = On add)
+Goo1.AuxVarSetFlt "*InspectMenu" 0 1	; Menu ref
+Goo1.AuxVarSetFlt "*InspectMenu" 0 2	; Model bound radius
+Goo1.AuxVarSetFlt "*InspectMenu" 0 3	; Inertia X
+Goo1.AuxVarSetFlt "*InspectMenu" 0 4	; Inertia Y
+Goo1.AuxVarSetFlt "*InspectMenu" 0 5	; Background blur
+Goo1.AuxVarSetFlt "*InspectMenu" 0 6	; Camera ref
+
+; Sensitivity update
+if eval Goo1.AuxVarType "*_Controls:fMouseSensitivity" == 0
+	Goo1.AuxVarSetFlt "*_Controls:fMouseSensitivity" (GetNumericIniSetting "fMouseSensitivity:Controls" / 0.00125)
+	SetJohnnyOnSettingsUpdateEventHandler 1 ({} => Goo1.AuxVarSetFlt "*_Controls:fMouseSensitivity" (GetNumericIniSetting "fMouseSensitivity:Controls" / 0.00125))
+endif
+
+CloseFileSO "Stentorious\ItemInspectMenu.ini" 0
+
+; "*InspectMenu"
+; 0 - Show once flag
+; 1 - Description (Default)
+; 2 - Description (First)
+; 3 -> 5 - Rotation override
+
+; Load override configs
+int iIndex = 0
+int iSize
+ref rItem
+ref rMessage
+array_var aJSON
+string_var sJSONPath
+string_var sTemp
+array_var aCategories = ar_Construct "array"
+array_var aFiles = GetFiles "ItemInspectMenu" "*.json"
+if eval (iSize = ar_Size aFiles) > 0
+	PrintC "Item Inspect Menu: Loading JSON files..."
+	aFiles = Ar_Sort aFiles 1
+
+	while (iSize -= 1) > -1
+		sTemp = aFiles[iSize]
+		sJSONPath = sv_Construct "Data\ItemInspectMenu\%z" sTemp
+
+		; Check valid form
+		if eval IsFormValid (rItem = EditorIDToFormID (sTemp[0:-6])) == 0
+			;PrintC "Item Inspect Menu: Skipping -> %z" (sTemp[0:-6])
+			continue
+		endif
+
+		; Check valid JSON
+		if eval TestExpr (aJSON = ReadFromJSON (sJSONPath))
+		else
+			PrintC "Item Inspect Menu: Invalid -> %z" sJSONPath
+			continue
+		endif
+
+		; Show once
+		AuxVarSetFlt "*InspectMenu" (eval ar_HasKey aJSON "showOnce" && aJSON["showOnce"]) 0 rItem
+
+		; Description
+		if eval ar_HasKey aJSON "description" && ar_HasKey aJSON["description"] "default"
+
+			; Default
+			sTemp = aJSON["description"]["default"]
+			if eval IsFormValid (rMessage = EditorIDToFormID (sTemp)) && (GetType rMessage == 98 || GetType rMessage == 103)
+				sTemp = GetFormDescription rMessage
+			endif
+			AuxVarSetStr "*InspectMenu" (sTemp) 1 rItem
+
+			; First pick-up
+			if eval ar_HasKey aJSON["description"] "first"
+				sTemp = aJSON["description"]["first"]
+				if eval IsFormValid (rMessage = EditorIDToFormID (sTemp)) && (GetType rMessage == 98 || GetType rMessage == 103)
+					sTemp = GetFormDescription rMessage
+				endif
+			endif
+			AuxVarSetStr "*InspectMenu" (sTemp) 2 rItem
+
+		else
+			AuxVarSetFlt "*InspectMenu" 0 1 rItem
+			AuxVarSetFlt "*InspectMenu"	0 2 rItem
+		endif
+
+		; Starting rotation
+		if eval ar_HasKey aJSON "rotation"
+			AuxVarSetFlt "*InspectMenu" (aJSON["rotation"]["x"]) 3 rItem
+			AuxVarSetFlt "*InspectMenu" (aJSON["rotation"]["y"]) 4 rItem
+			AuxVarSetFlt "*InspectMenu" (aJSON["rotation"]["z"]) 5 rItem
+		endif
+
+		iIndex += 1
+
+	loop
+
+	PrintC "Item Inspect Menu: Loaded %g form profiles." iIndex
+
+endif
+
+aCategories = aFiles = aJSON = ar_Null
+sv_Destruct sJSONPath sTemp
