@@ -4,9 +4,5 @@
 		"first": "BobbleheadCHABuffMessage",
 		"default": "BobbleheadCHAMessage"
 	},
-	"rotation": {
-		"x": -15,
-		"y": 0,
-		"z": 200
-	}
+	"transform": "Bobblehead"
 }

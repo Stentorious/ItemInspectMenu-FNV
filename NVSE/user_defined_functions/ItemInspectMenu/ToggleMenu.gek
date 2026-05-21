@@ -160,6 +160,7 @@ begin Function {iToggle}
 	DisableButton 16	; Start
 	DisableButton 8192	; B
 
+	; Start input loop
 	Goo1.AuxTimerStart "*InspectMenuLoop" 10 351
 
 	; Apply background blur

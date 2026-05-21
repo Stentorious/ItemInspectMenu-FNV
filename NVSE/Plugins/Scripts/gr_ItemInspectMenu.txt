@@ -76,8 +76,10 @@ int iSize
 ref rItem
 ref rMessage
 array_var aJSON
+array_var aTransformJSON
 string_var sJSONPath
 string_var sTemp
+array_var aTransformMap = ar_Construct "stringmap"
 array_var aCategories = ar_Construct "array"
 array_var aFiles = GetFiles "ItemInspectMenu" "*.json"
 if eval (iSize = ar_Size aFiles) > 0
@@ -128,11 +130,41 @@ if eval (iSize = ar_Size aFiles) > 0
 			AuxVarSetFlt "*InspectMenu"	0 2 rItem
 		endif
 
-		; Starting rotation
-		if eval ar_HasKey aJSON "rotation"
-			AuxVarSetFlt "*InspectMenu" (aJSON["rotation"]["x"]) 3 rItem
-			AuxVarSetFlt "*InspectMenu" (aJSON["rotation"]["y"]) 4 rItem
-			AuxVarSetFlt "*InspectMenu" (aJSON["rotation"]["z"]) 5 rItem
+		; Starting transform
+		if eval ar_HasKey aJSON "transform"
+
+			; Load transform from JSON
+			sTemp = aJSON["transform"]
+			if eval ar_HasKey aTransformMap (sTemp) == 0
+				aTransformMap[(sTemp)] = ar_Construct "stringmap"
+				aTransformMap[(sTemp)]["rotation"] = ar_Construct "stringmap"
+				sJSONPath = ("ItemInspectMenu\Transforms\" + (sTemp) + ".json")
+
+				; Missing JSON (Set default values)
+				if eval FileExists (sJSONPath) == 0
+					PrintC "Item Inspect Menu: Missing Transform JSON -> %z" ((sTemp) + ".json")
+					aTransformMap[(sTemp)]["rotation"]["x"] = 0
+					aTransformMap[(sTemp)]["rotation"]["y"] = 0
+					aTransformMap[(sTemp)]["rotation"]["z"] = 0
+				else
+					; Check valid JSON
+					sJSONPath = sv_Construct "Data\%z" sJSONPath
+					if eval TestExpr (aTransformJSON = ReadFromJSON (sJSONPath))
+					else
+						PrintC "Item Inspect Menu: Invalid -> %z" sJSONPath
+						continue
+					endif
+					aTransformMap[(sTemp)]["rotation"]["x"] = (aTransformJSON["rotation"]["x"])
+					aTransformMap[(sTemp)]["rotation"]["y"] = (aTransformJSON["rotation"]["y"])
+					aTransformMap[(sTemp)]["rotation"]["z"] = (aTransformJSON["rotation"]["z"])
+				endif
+
+			endif
+
+			; Set rotation from map
+			AuxVarSetFlt "*InspectMenu" (aTransformMap[(sTemp)]["rotation"]["x"]) 3 rItem
+			AuxVarSetFlt "*InspectMenu" (aTransformMap[(sTemp)]["rotation"]["y"]) 4 rItem
+			AuxVarSetFlt "*InspectMenu" (aTransformMap[(sTemp)]["rotation"]["z"]) 5 rItem
 		endif
 
 		iIndex += 1
@@ -143,5 +175,5 @@ if eval (iSize = ar_Size aFiles) > 0
 
 endif
 
-aCategories = aFiles = aJSON = ar_Null
+aCategories = aFiles = aJSON = aTransformJSON = aTransformMap = ar_Null
 sv_Destruct sJSONPath sTemp
