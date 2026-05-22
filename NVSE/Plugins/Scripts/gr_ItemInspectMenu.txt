@@ -15,17 +15,17 @@ if GetPluginVersion "ShowOffNVSE Plugin" < 145
 endif
 
 ; Load INI settings
-Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Controls:iKeyBind" "Stentorious\ItemInspectMenu.ini" 20) 0
-Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityRotationMouse" "Stentorious\ItemInspectMenu.ini" 1) 1
-Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityRotationController" "Stentorious\ItemInspectMenu.ini" 1) 2
-Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityZoomMouse" "Stentorious\ItemInspectMenu.ini" 1) 3
-Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityZoomController" "Stentorious\ItemInspectMenu.ini" 1) 4
-Goo1.AuxVarSetFlt "*InspectMenu_INI" (eval GetINIFloat_Cached "Menu:bShowHUD" "Stentorious\ItemInspectMenu.ini" 1) 5
-Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Controls:fInertiaFriction" "Stentorious\ItemInspectMenu.ini" 1) 6
-Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "General:bQuestItems" "Stentorious\ItemInspectMenu.ini" 1) 7
-Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "General:bUniqueItems" "Stentorious\ItemInspectMenu.ini" 1) 8
-Goo1.AuxVarSetFlt "*InspectMenu_INI" (GetINIFloat_Cached "Menu:iCameraType" "Stentorious\ItemInspectMenu.ini" 0) 9
-Goo1.AuxVarSetFlt "*InspectMenu_INI" (eval IsModLoaded "B42Descriptions.esp") 10
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:iKeyBind" "Stentorious\ItemInspectMenu.ini" 20) 0
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityRotationMouse" "Stentorious\ItemInspectMenu.ini" 1) 1
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityRotationController" "Stentorious\ItemInspectMenu.ini" 1) 2
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityZoomMouse" "Stentorious\ItemInspectMenu.ini" 1) 3
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityZoomController" "Stentorious\ItemInspectMenu.ini" 1) 4
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (eval GetINIFloat_Cached "Menu:bShowHUD" "Stentorious\ItemInspectMenu.ini" 1) 5
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:fInertiaFriction" "Stentorious\ItemInspectMenu.ini" 1) 6
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "General:bQuestItems" "Stentorious\ItemInspectMenu.ini" 1) 7
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "General:bUniqueItems" "Stentorious\ItemInspectMenu.ini" 1) 8
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Menu:iCameraType" "Stentorious\ItemInspectMenu.ini" 0) 9
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (eval IsModLoaded "B42Descriptions.esp") 10
 SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Name" (eval GetINIFloat_Cached "Menu:bShowItemName" "Stentorious\ItemInspectMenu.ini" 1)
 SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Stats" (eval GetINIFloat_Cached "Menu:bShowItemStats" "Stentorious\ItemInspectMenu.ini" 1)
 SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Controls" (eval GetINIFloat_Cached "Menu:bShowMenuControls" "Stentorious\ItemInspectMenu.ini" 1)
@@ -42,19 +42,19 @@ SetOnMenuCloseEventHandler (CompileScript "ItemInspectMenu\OnMenuClose.gek") 1 1
 SetEventHandler "ShowOff:OnAdd" (CompileScript "ItemInspectMenu\OnAdd.gek") "second"::Player
 
 ; Update keybind
-if eval (int iKeyID = Goo1.AuxVarGetFlt "*InspectMenu_INI" 0) > 0
+if eval (int iKeyID = Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 0) > 0
 	SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 iKeyID
 	SetUIStringAlt "HUDMainMenu\_ItemInspectMenu+PCPrompt" "%k)" iKeyID
 endif
 
 ; Init cache
-Goo1.AuxVarSetFlt "*InspectMenu" 0 0	; Menu state (0 = Closed, 1 = Inventory, 2 = On add)
-Goo1.AuxVarSetFlt "*InspectMenu" 0 1	; Menu ref
-Goo1.AuxVarSetFlt "*InspectMenu" 0 2	; Model bound radius
-Goo1.AuxVarSetFlt "*InspectMenu" 0 3	; Inertia X
-Goo1.AuxVarSetFlt "*InspectMenu" 0 4	; Inertia Y
-Goo1.AuxVarSetFlt "*InspectMenu" 0 5	; Background blur
-Goo1.AuxVarSetFlt "*InspectMenu" 0 6	; Camera ref
+Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 0	; Menu state (0 = Closed, 1 = Inventory, 2 = On add)
+Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 1	; Menu ref
+Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 2	; Model bound radius
+Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 3	; Inertia X
+Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 4	; Inertia Y
+Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 5	; Background blur
+Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 6	; Camera ref
 
 ; Sensitivity update
 if eval Goo1.AuxVarType "*_Controls:fMouseSensitivity" == 0
@@ -64,116 +64,105 @@ endif
 
 CloseFileSO "Stentorious\ItemInspectMenu.ini" 0
 
-; "*InspectMenu"
-; 0 - Show once flag
-; 1 - Description (Default)
-; 2 - Description (First)
-; 3 -> 5 - Rotation override
+; "*ItemInspectMenu"
+; 0 - Transform
+; 1 - Show once flag
+; 2 - Description (Default)
+; 3 - Description (First)
 
-; Load override configs
-int iIndex = 0
+; Load JSONs
 int iSize
+int iCount
 ref rItem
-ref rMessage
 array_var aJSON
-array_var aTransformJSON
+array_var aForE
+array_var aTemp
 string_var sJSONPath
-string_var sTemp
-array_var aTransformMap = ar_Construct "stringmap"
-array_var aCategories = ar_Construct "array"
+
+; Item profiles
 array_var aFiles = GetFiles "ItemInspectMenu" "*.json"
 if eval (iSize = ar_Size aFiles) > 0
-	PrintC "Item Inspect Menu: Loading JSON files..."
+
+	PrintC "Item Inspect Menu: Loading item profiles..."
 	aFiles = Ar_Sort aFiles 1
 
 	while (iSize -= 1) > -1
-		sTemp = aFiles[iSize]
-		sJSONPath = sv_Construct "Data\ItemInspectMenu\%z" sTemp
-
-		; Check valid form
-		if eval IsFormValid (rItem = EditorIDToFormID (sTemp[0:-6])) == 0
-			;PrintC "Item Inspect Menu: Skipping -> %z" (sTemp[0:-6])
-			continue
-		endif
-
-		; Check valid JSON
+		; Validate JSON
+		sJSONPath = sv_Construct "Data\ItemInspectMenu\%z" (aFiles[iSize])
 		if eval TestExpr (aJSON = ReadFromJSON (sJSONPath))
 		else
 			PrintC "Item Inspect Menu: Invalid -> %z" sJSONPath
 			continue
 		endif
 
-		; Show once
-		AuxVarSetFlt "*InspectMenu" (eval ar_HasKey aJSON "showOnce" && aJSON["showOnce"]) 0 rItem
+		; Add to cache array
+		if eval (Ar_Size aJSON) > 0 && (TypeOf aJSON) == "StringMap"
+			foreach aForE <- aJSON
 
-		; Description
-		if eval ar_HasKey aJSON "description" && ar_HasKey aJSON["description"] "default"
-
-			; Default
-			sTemp = aJSON["description"]["default"]
-			if eval IsFormValid (rMessage = EditorIDToFormID (sTemp)) && (GetType rMessage == 98 || GetType rMessage == 103)
-				sTemp = GetFormDescription rMessage
-			endif
-			AuxVarSetStr "*InspectMenu" (sTemp) 1 rItem
-
-			; First pick-up
-			if eval ar_HasKey aJSON["description"] "first"
-				sTemp = aJSON["description"]["first"]
-				if eval IsFormValid (rMessage = EditorIDToFormID (sTemp)) && (GetType rMessage == 98 || GetType rMessage == 103)
-					sTemp = GetFormDescription rMessage
+				; Check valid form
+				if eval IsFormValid (rItem = EditorIDToFormID (aForE["key"])) == 0 || IsBaseForm rItem == 0
+					printc "Invalid: %z" (aForE["key"])
+					continue
 				endif
-			endif
-			AuxVarSetStr "*InspectMenu" (sTemp) 2 rItem
+				aTemp = *aForE
 
-		else
-			AuxVarSetFlt "*InspectMenu" 0 1 rItem
-			AuxVarSetFlt "*InspectMenu"	0 2 rItem
-		endif
-
-		; Starting transform
-		if eval ar_HasKey aJSON "transform"
-
-			; Load transform from JSON
-			sTemp = aJSON["transform"]
-			if eval ar_HasKey aTransformMap (sTemp) == 0
-				aTransformMap[(sTemp)] = ar_Construct "stringmap"
-				aTransformMap[(sTemp)]["rotation"] = ar_Construct "stringmap"
-				sJSONPath = ("ItemInspectMenu\Transforms\" + (sTemp) + ".json")
-
-				; Missing JSON (Set default values)
-				if eval FileExists (sJSONPath) == 0
-					PrintC "Item Inspect Menu: Missing Transform JSON -> %z" ((sTemp) + ".json")
-					aTransformMap[(sTemp)]["rotation"]["x"] = 0
-					aTransformMap[(sTemp)]["rotation"]["y"] = 0
-					aTransformMap[(sTemp)]["rotation"]["z"] = 0
+				; Transform
+				if eval ar_HasKey aTemp "transform"
+					AuxVarSetStr "*ItemInspectMenu" (aTemp["transform"]) 0 rItem
 				else
-					; Check valid JSON
-					sJSONPath = sv_Construct "Data\%z" sJSONPath
-					if eval TestExpr (aTransformJSON = ReadFromJSON (sJSONPath))
-					else
-						PrintC "Item Inspect Menu: Invalid -> %z" sJSONPath
-						continue
-					endif
-					aTransformMap[(sTemp)]["rotation"]["x"] = (aTransformJSON["rotation"]["x"])
-					aTransformMap[(sTemp)]["rotation"]["y"] = (aTransformJSON["rotation"]["y"])
-					aTransformMap[(sTemp)]["rotation"]["z"] = (aTransformJSON["rotation"]["z"])
+					AuxVarSetFlt "*ItemInspectMenu" 0 0 rItem
 				endif
 
-			endif
+				; Show once flag
+				AuxVarSetFlt "*ItemInspectMenu" (eval ar_HasKey aTemp "showOnce" && aTemp["showOnce"]) 1 rItem
 
-			; Set rotation from map
-			AuxVarSetFlt "*InspectMenu" (aTransformMap[(sTemp)]["rotation"]["x"]) 3 rItem
-			AuxVarSetFlt "*InspectMenu" (aTransformMap[(sTemp)]["rotation"]["y"]) 4 rItem
-			AuxVarSetFlt "*InspectMenu" (aTransformMap[(sTemp)]["rotation"]["z"]) 5 rItem
+				; Description
+				if eval ar_HasKey aTemp "description" && ar_HasKey aTemp["description"] "default"
+					; Default
+					AuxVarSetStr "*ItemInspectMenu" (aTemp["description"]["default"]) 2 rItem
+					; First pick-up
+					if eval ar_HasKey aTemp["description"] "first"
+						AuxVarSetStr "*ItemInspectMenu" (aTemp["description"]["first"]) 3 rItem
+					endif
+				endif
+
+				iCount += 1
+
+			loop
 		endif
-
-		iIndex += 1
-
 	loop
 
-	PrintC "Item Inspect Menu: Loaded %g form profiles." iIndex
+	PrintC "Item Inspect Menu: Loaded %g item profiles." iCount
 
 endif
 
-aCategories = aFiles = aJSON = aTransformJSON = aTransformMap = ar_Null
-sv_Destruct sJSONPath sTemp
+; Item transforms
+aFiles = GetFiles "ItemInspectMenu\Transforms" "*.json"
+aTemp = ar_Null
+aTemp = ar_Construct "stringmap"
+if eval (iSize = ar_Size aFiles) > 0
+
+	PrintC "Item Inspect Menu: Loading item transforms..."
+	aFiles = Ar_Sort aFiles 1
+
+	while (iSize -= 1) > -1
+		; Validate JSON
+		sJSONPath = sv_Construct "Data\ItemInspectMenu\Transforms\%z" (aFiles[iSize])
+		if eval TestExpr (aJSON = ReadFromJSON (sJSONPath))
+		else
+			PrintC "Item Inspect Menu: Invalid -> %z" sJSONPath
+			continue
+		endif
+		; Add to cache array
+		if eval (Ar_Size aJSON) > 0 && (TypeOf aJSON) == "StringMap"
+			ar_Cat aTemp aJSON 1
+		endif
+	loop
+
+	WriteToJSON aTemp "Data\ItemInspectMenu\_Cache\Transforms.json" "" 0 1 0 1
+	PrintC "Item Inspect Menu: Loaded %g item transforms." (Ar_Size aTemp)
+
+endif
+
+aJSON = aForE = aTemp = aFiles = ar_Null
+sv_Destruct sJSONPath

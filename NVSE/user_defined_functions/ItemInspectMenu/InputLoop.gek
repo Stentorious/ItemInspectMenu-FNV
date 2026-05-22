@@ -37,16 +37,16 @@ Begin Function {sTimerName, rOwnerForm, fTimeDelta}
 
 	sv_Destruct sTimerName
 
-	if eval Goo1.AuxVarGetFlt "*InspectMenu" 0 == 0
-		Goo1.AuxTimerStop "*InspectMenuLoop"
+	if eval Goo1.AuxVarGetFlt "*ItemInspectMenu" 0 == 0
+		Goo1.AuxTimerStop "*ItemInspectMenu_Loop"
 		return
 	endif
 
-	rCamera = Goo1.AuxVarGetRef "*InspectMenu" 6
+	rCamera = Goo1.AuxVarGetRef "*ItemInspectMenu" 6
 
 	if eval IsKeyPressed 256
 		GetCameraMovement (fInputX) (fInputY)
-		fSensitivity = (Goo1.AuxVarGetFlt "*InspectMenu_INI" 1) * 40
+		fSensitivity = (Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 1) * 40
 	elseif eval GetController
 
 		; Rotate
@@ -56,50 +56,50 @@ Begin Function {sTimerName, rOwnerForm, fTimeDelta}
 			fInputX /= fInputMag
 			fInputY /= fInputMag
 		endif
-		fSensitivity = (Goo1.AuxVarGetFlt "*InspectMenu_INI" 2) * (Goo1.AuxVarGetFlt "*_Controls:fMouseSensitivity")
+		fSensitivity = (Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 2) * (Goo1.AuxVarGetFlt "*_Controls:fMouseSensitivity")
 
 		; Zoom
 		float fTriggerLeft = GetLeftTrigger
 		float fTriggerRight = GetRightTrigger
 		if eval fTriggerRight > 0.01 || fTriggerLeft > 0.01
-			rCamera = Goo1.AuxVarGetRef "*InspectMenu" 6
+			rCamera = Goo1.AuxVarGetRef "*ItemInspectMenu" 6
 
 			; Orthographic
-			if eval Goo1.AuxVarGetFlt "*InspectMenu_INI" 9
+			if eval Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 9
 				fScale = rCamera.GetNifBlockScale "ItemInspectMenu"
 				if eval fTriggerRight > 0.01
-					fScale *= 1 - (fTriggerRight * Goo1.AuxVarGetFlt "*InspectMenu_INI" 3 * 0.0125)
+					fScale *= 1 - (fTriggerRight * Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 3 * 0.0125)
 				elseif eval fTriggerLeft > 0.01
-					fScale *= 1 + (fTriggerLeft * Goo1.AuxVarGetFlt "*InspectMenu_INI" 3 * 0.0125)
+					fScale *= 1 + (fTriggerLeft * Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 3 * 0.0125)
 				endif
-				rCamera.SetNifBlockScale "ItemInspectMenu" (Clamp fScale ((Goo1.AuxVarGetFlt "*InspectMenu" 2) * 0.75) ((Goo1.AuxVarGetFlt "*InspectMenu" 2) * 1.35))
+				rCamera.SetNifBlockScale "ItemInspectMenu" (Clamp fScale ((Goo1.AuxVarGetFlt "*ItemInspectMenu" 2) * 0.75) ((Goo1.AuxVarGetFlt "*ItemInspectMenu" 2) * 1.35))
 
 			; Perspective
 			else
 				rCamera.GetNifBlockTranslationAlt "ItemInspectMenu" (fPosX) (fPosY) (fPosZ)
 				if eval fTriggerRight > 0.01
-					fPosY -= fTriggerRight * Goo1.AuxVarGetFlt "*InspectMenu_INI" 4 * 0.5
+					fPosY -= fTriggerRight * Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 4 * 0.5
 				elseif eval fTriggerLeft > 0.01
-					fPosY += fTriggerLeft * Goo1.AuxVarGetFlt "*InspectMenu_INI" 4 * 0.5
+					fPosY += fTriggerLeft * Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 4 * 0.5
 				endif
-				rCamera.SetNifTrans "ItemInspectMenu" 0 (Clamp fPosY ((Goo1.AuxVarGetFlt "*InspectMenu" 2) - 10) ((Goo1.AuxVarGetFlt "*InspectMenu" 2) + 20)) 0
+				rCamera.SetNifTrans "ItemInspectMenu" 0 (Clamp fPosY ((Goo1.AuxVarGetFlt "*ItemInspectMenu" 2) - 10) ((Goo1.AuxVarGetFlt "*ItemInspectMenu" 2) + 20)) 0
 			endif
 		endif
 
 	else
 		; Gradually reduce the stored velocity
-		fFriction = 1 - (0.04 * (Goo1.AuxVarGetFlt "*InspectMenu_INI" 6))
-		fInputX = (Goo1.AuxVarGetFlt "*InspectMenu" 3) * fFriction
-		fInputY = (Goo1.AuxVarGetFlt "*InspectMenu" 4) * fFriction
+		fFriction = 1 - (0.04 * (Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 6))
+		fInputX = (Goo1.AuxVarGetFlt "*ItemInspectMenu" 3) * fFriction
+		fInputY = (Goo1.AuxVarGetFlt "*ItemInspectMenu" 4) * fFriction
 		if eval Abs fInputX < 0.0001 && Abs fInputY < 0.0001
 			fInputX = 0
 			fInputY = 0
 		endif
-		fSensitivity = (Goo1.AuxVarGetFlt "*InspectMenu_INI" 1) * 40
+		fSensitivity = (Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 1) * 40
 	endif
 
-	Goo1.AuxVarSetFlt "*InspectMenu" fInputX 3
-	Goo1.AuxVarSetFlt "*InspectMenu" fInputY 4
+	Goo1.AuxVarSetFlt "*ItemInspectMenu" fInputX 3
+	Goo1.AuxVarSetFlt "*ItemInspectMenu" fInputY 4
 
 	if eval fInputX != 0 || fInputY != 0
 

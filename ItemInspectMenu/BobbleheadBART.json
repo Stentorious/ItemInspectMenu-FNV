@@ -1,8 +1,0 @@
-{
-	"showOnce": 1,
-	"description": {
-		"first": "BobbleheadBARTBuffMessage",
-		"default": "BobbleheadBARTMessage"
-	},
-	"transform": "Bobblehead"
-}

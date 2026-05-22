@@ -20,7 +20,7 @@ begin Function {iKeyID}
 			return
 		endif
 		if eval IsReference rItem && MenuMode iMenuID == 1 && MenuMode 1059 == 0 && (Ar_Find iMenuID aSupportedMenus) != Ar_BadNumericIndex
-			Goo1.AuxVarSetRef "*InspectMenu" rItem 1
+			Goo1.AuxVarSetRef "*ItemInspectMenu" rItem 1
 			Call (CompileScript "ItemInspectMenu\ToggleMenu.gek") 1
 		endif
 		aSupportedMenus = Ar_Null

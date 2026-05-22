@@ -11,13 +11,14 @@ ref rCamera
 ref rItem
 ref rBase
 ref rMessage
+array_var aTransform
 array_var aNiBounds
 string_var sModelPath
 string_var sDescription
 
 begin Function {iToggle}
 
-	rCamera = Goo1.AuxVarGetRef "*InspectMenu" 6
+	rCamera = Goo1.AuxVarGetRef "*ItemInspectMenu" 6
 	iMenuID = GetActiveMenuMode
 
 	PlaySound UIMenuMode 1
@@ -51,17 +52,17 @@ begin Function {iToggle}
 
 		; Reset background blur
 		RIMOD PopupBackgroundFX
-		SetImageSpaceModTrait PopupBackgroundFX 45 (Goo1.AuxVarGetFlt "*InspectMenu" 5)
+		SetImageSpaceModTrait PopupBackgroundFX 45 (Goo1.AuxVarGetFlt "*ItemInspectMenu" 5)
 
-		Goo1.AuxVarSetFlt "*InspectMenu" 0 0
+		Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 0
 
 		return
 	endif
 
-	Goo1.AuxVarSetFlt "*InspectMenu" iToggle 0
+	Goo1.AuxVarSetFlt "*ItemInspectMenu" iToggle 0
 
 	; Get item ref
-	rItem = Goo1.AuxVarGetRef "*InspectMenu" 1
+	rItem = Goo1.AuxVarGetRef "*ItemInspectMenu" 1
 	rBase = rItem.GBO
 	iType = GetType rItem
 
@@ -71,11 +72,14 @@ begin Function {iToggle}
 	endif
 
 	; Override rotation
-	if eval AuxVarType "*InspectMenu" 3 rBase == 1
+	if eval AuxVarType "*ItemInspectMenu" 0 rBase == 4
+		printc "rotation override"
+		aTransform = ReadFromJSON "Data\ItemInspectMenu\_Cache\Transforms.json" ("/" + (AuxVarGetStr "*ItemInspectMenu" 0 rBase) + "/rotation") 0 1
+		printv  aTransform
+		fRotX = aTransform["x"]
+		fRotY = aTransform["y"]
+		fRotZ = aTransform["z"]
 		iRotation = 1
-		fRotX = AuxVarGetFlt "*InspectMenu" 3 rBase
-		fRotY = AuxVarGetFlt "*InspectMenu" 4 rBase
-		fRotZ = AuxVarGetFlt "*InspectMenu" 5 rBase
 	endif
 
 	InsertNode rCamera 3 "ItemInspectMenu"
@@ -110,7 +114,7 @@ begin Function {iToggle}
 	; Attach mesh
 	AttachModel rCamera 3 ("ItemInspectMenuOffset|" + sModelPath)
 	CallAfterFrames 0 (begin function {}
-		ref rTemp = Goo1.AuxVarGetRef "*InspectMenu" 6
+		ref rTemp = Goo1.AuxVarGetRef "*ItemInspectMenu" 6
 		array_var aWeaponBlocks = rTemp.GetChildBlocks "ItemInspectMenuOffset"
 		int iSize = ar_Size aWeaponBlocks
 		while (iSize -= 1) > -1
@@ -120,8 +124,8 @@ begin Function {iToggle}
 	end) 1
 
 	; Reset inertia
-	Goo1.AuxVarSetFlt "*InspectMenu" 0 3
-	Goo1.AuxVarSetFlt "*InspectMenu" 0 4
+	Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 3
+	Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 4
 
 	; Set scale and offset from cam
 	aNiBounds = rCamera.GetNiBound "ItemInspectMenuOffset" 1
@@ -130,13 +134,13 @@ begin Function {iToggle}
 	rCamera.SetNifTrans "ItemInspectMenu" 0 fTargetSize 0
 
 	; Orthographic camera
-	if eval Goo1.AuxVarGetFlt "*InspectMenu_INI" 9
+	if eval Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 9
 		fTargetSize = 0.65 / (GetMaxOf (aNiBounds[3]) 0.1)
 		fTargetSize = Clamp fTargetSize 0.001 0.05
 		rCamera.SetNifScale "ItemInspectMenu" fTargetSize
-		Goo1.AuxVarSetFlt "*InspectMenu" fTargetSize 2
+		Goo1.AuxVarSetFlt "*ItemInspectMenu" fTargetSize 2
 	endif
-	Goo1.AuxVarSetFlt "*InspectMenu" fTargetSize 2
+	Goo1.AuxVarSetFlt "*ItemInspectMenu" fTargetSize 2
 
 	aNiBounds = Ar_Null
 
@@ -161,10 +165,10 @@ begin Function {iToggle}
 	DisableButton 8192	; B
 
 	; Start input loop
-	Goo1.AuxTimerStart "*InspectMenuLoop" 10 351
+	Goo1.AuxTimerStart "*ItemInspectMenu_Loop" 10 351
 
 	; Apply background blur
-	Goo1.AuxVarSetFlt "*InspectMenu" (GetImageSpaceModTrait PopupBackgroundFX 45) 5
+	Goo1.AuxVarSetFlt "*ItemInspectMenu" (GetImageSpaceModTrait PopupBackgroundFX 45) 5
 	SetImageSpaceModTrait PopupBackgroundFX 45 5
 	RIMOD PopupBackgroundFX
 	IMOD PopupBackgroundFX
@@ -172,7 +176,7 @@ begin Function {iToggle}
 	; Init ItemInspectMenu
 	ShowTutorialMenu GenericDebugMsg
 	SetUIFloatAlt "TutorialMenu\NOGLOW_BRANCH\visible" 0
-	SetUIStringAlt "TutorialMenu\ItemInspectMenu\Title\string" "%z" (LnGetName (Goo1.AuxVarGetRef "*InspectMenu" 1))
+	SetUIStringAlt "TutorialMenu\ItemInspectMenu\Title\string" "%z" (LnGetName (Goo1.AuxVarGetRef "*ItemInspectMenu" 1))
 	SetUIFloatAlt "TutorialMenu\ItemInspectMenu\Controls\Zoom\PCShortcutLabel\visible" 1
 	SetUIFloatAlt "TutorialMenu\ItemInspectMenu\Controls\Zoom\xbox_button\visible" 0
 	SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Init" 1
@@ -181,12 +185,15 @@ begin Function {iToggle}
 	; Item description
 
 	; First pick-up
-	if eval AuxVarType "*InspectMenu" 2 rBase == 4 && iToggle == 2
-		sDescription = AuxVarGetStr "*InspectMenu" 2 rBase
+	if eval AuxVarType "*ItemInspectMenu" 3 rBase == 4 && iToggle == 2
+		sDescription = AuxVarGetStr "*ItemInspectMenu" 3 rBase
+		if eval IsFormValid (rMessage = EditorIDToFormID (sDescription)) && (GetType rMessage == 98 || GetType rMessage == 103)
+			sDescription = GetFormDescription rMessage
+		endif
 	endif
 
 	; B42 Descriptions
-	if eval Goo1.AuxVarGetFlt "*InspectMenu_INI" 10 && sDescription == ""
+	if eval Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 10 && sDescription == ""
 		if iType == 40
 			iType = 0
 		elseif iType == 24
@@ -202,14 +209,17 @@ begin Function {iToggle}
 	endif
 
 	; Default
-	if eval sDescription == "" && AuxVarType "*InspectMenu" 1 rBase == 4
-		sDescription = AuxVarGetStr "*InspectMenu" 1 rBase
+	if eval sDescription == "" && AuxVarType "*ItemInspectMenu" 2 rBase == 4
+		sDescription = AuxVarGetStr "*ItemInspectMenu" 2 rBase
+		if eval IsFormValid (rMessage = EditorIDToFormID (sDescription)) && (GetType rMessage == 98 || GetType rMessage == 103)
+			sDescription = GetFormDescription rMessage
+		endif
 	endif
 
 	SetUIStringAlt "TutorialMenu\ItemInspectMenu\Description\string" (sDescription)
 
 	; Toggle menus
-	if eval Goo1.AuxVarGetFlt "*InspectMenu_INI" 5 == 0
+	if eval Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 5 == 0
 		SetUIFloatAlt "HUDMainMenu\visible" 0
 	endif
 	if eval iMenuID == 1008

@@ -1,8 +1,0 @@
-{
-	"showOnce": 1,
-	"description": {
-		"first": "BobbleheadERGWBuffMessage",
-		"default": "BobbleheadERGWMessage"
-	},
-	"transform": "Bobblehead"
-}

@@ -1,8 +1,0 @@
-{
-	"showOnce": 1,
-	"description": {
-		"first": "BobbleheadSURBuffMessage",
-		"default": "BobbleheadSURMessage"
-	},
-	"transform": "Bobblehead"
-}

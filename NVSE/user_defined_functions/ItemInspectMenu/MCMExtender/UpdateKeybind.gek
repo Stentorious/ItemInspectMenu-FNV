@@ -10,7 +10,7 @@ Begin Function {fValue, iMenu, iSubmenu, iOption, aJSON}
 
 	; Update keybind
 	if eval iOption == 4
-		if eval (iKeybind = Goo1.AuxVarGetFlt "*InspectMenu_INI" 0) != fValue
+		if eval (iKeybind = Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 0) != fValue
 			if eval iKeybind > 0
 				SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 0 iKeybind
 			endif
@@ -18,15 +18,15 @@ Begin Function {fValue, iMenu, iSubmenu, iOption, aJSON}
 				SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 fValue
 				SetUIStringAlt "HUDMainMenu\_ItemInspectMenu+PCPrompt" "%k)" fValue
 			endif
-			Goo1.AuxVarSetFlt "*InspectMenu_INI" fValue 0
+			Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" fValue 0
 		endif
 
 	; Update camera type
 	elseif eval iOption == 11
 		if eval fValue
-			Goo1.AuxVarSetRef "*InspectMenu" (EditorIDToFormID "JG_CameraOverlayRef_PreUI_O") 6
+			Goo1.AuxVarSetRef "*ItemInspectMenu" (EditorIDToFormID "JG_CameraOverlayRef_PreUI_O") 6
 		else
-			Goo1.AuxVarSetRef "*InspectMenu" (EditorIDToFormID "JG_CameraOverlayRef_PreUI") 6
+			Goo1.AuxVarSetRef "*ItemInspectMenu" (EditorIDToFormID "JG_CameraOverlayRef_PreUI") 6
 		endif
 	endif
 

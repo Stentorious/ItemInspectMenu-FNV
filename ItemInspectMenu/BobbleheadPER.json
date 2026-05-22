@@ -1,8 +1,0 @@
-{
-	"showOnce": 1,
-	"description": {
-		"first": "BobbleheadPERBuffMessage",
-		"default": "BobbleheadPERMessage"
-	},
-	"transform": "Bobblehead"
-}

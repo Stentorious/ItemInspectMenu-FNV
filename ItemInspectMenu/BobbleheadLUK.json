@@ -1,8 +1,0 @@
-{
-	"showOnce": 1,
-	"description": {
-		"first": "BobbleheadLUKBuffMessage",
-		"default": "BobbleheadLUKMessage"
-	},
-	"transform": "Bobblehead"
-}

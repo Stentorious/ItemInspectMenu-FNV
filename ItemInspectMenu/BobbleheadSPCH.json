@@ -1,8 +1,0 @@
-{
-	"showOnce": 1,
-	"description": {
-		"first": "BobbleheadSPCHBuffMessage",
-		"default": "BobbleheadSPCHMessage"
-	},
-	"transform": "Bobblehead"
-}

@@ -1,0 +1,6 @@
+{
+	"Bobblehead": 	{ "rotation": { "x": -15, "y": 0, "z": 200 } },
+	"Book": 		{ "rotation": { "x": -90, "y": 0, "z": 0 } },
+	"Default": 		{ "rotation": { "x": 0, "y": 0, "z": 0 } },
+	"SMMG": 		{ "rotation": { "x": -90, "y": 0, "z": -90 } }
+}
