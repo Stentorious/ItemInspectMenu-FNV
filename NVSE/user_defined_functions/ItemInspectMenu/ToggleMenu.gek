@@ -7,6 +7,10 @@ float fRotX
 float fRotY
 float fRotZ
 float fTargetSize
+float fColorR
+float fColorG
+float fColorB
+float fTemp
 ref rCamera
 ref rItem
 ref rBase
@@ -54,6 +58,9 @@ begin Function {iToggle}
 		RIMOD PopupBackgroundFX
 		SetImageSpaceModTrait PopupBackgroundFX 45 (Goo1.AuxVarGetFlt "*ItemInspectMenu" 5)
 
+		; Reset lighting override
+		SetNumericGameSetting "iJG_Overlay_OverrideLighting" 0
+
 		Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 0
 
 		return
@@ -73,9 +80,7 @@ begin Function {iToggle}
 
 	; Override rotation
 	if eval AuxVarType "*ItemInspectMenu" 0 rBase == 4
-		printc "rotation override"
 		aTransform = ReadFromJSON "Data\ItemInspectMenu\_Cache\Transforms.json" ("/" + (AuxVarGetStr "*ItemInspectMenu" 0 rBase) + "/rotation") 0 1
-		printv  aTransform
 		fRotX = aTransform["x"]
 		fRotY = aTransform["y"]
 		fRotZ = aTransform["z"]
@@ -172,6 +177,29 @@ begin Function {iToggle}
 	SetImageSpaceModTrait PopupBackgroundFX 45 5
 	RIMOD PopupBackgroundFX
 	IMOD PopupBackgroundFX
+
+	; Apply lighting override
+	GetCurrentSkyColor 3 (fColorR) (fColorG) (fColorB)
+	V3NormalizeEx (fColorR) (fColorG) (fColorB) fColorR fColorG fColorB
+	if eval (fTemp = GetMaxOf fColorR fColorG fColorB) > 0
+		fColorR /= fTemp
+		fColorG /= fTemp
+		fColorB /= fTemp
+	endif
+	SetNumericGameSetting "fJG_Overlay_AmbientColor_R" fColorR
+	SetNumericGameSetting "fJG_Overlay_AmbientColor_G" fColorG
+	SetNumericGameSetting "fJG_Overlay_AmbientColor_B" fColorB
+	GetCurrentSkyColor 4 (fColorR) (fColorG) (fColorB)
+	V3NormalizeEx (fColorR) (fColorG) (fColorB) fColorR fColorG fColorB
+	if eval (fTemp = GetMaxOf fColorR fColorG fColorB) > 0
+		fColorR /= fTemp
+		fColorG /= fTemp
+		fColorB /= fTemp
+	endif
+	SetNumericGameSetting "fJG_Overlay_SunlightColor_R" fColorB
+	SetNumericGameSetting "fJG_Overlay_SunlightColor_G" fColorB
+	SetNumericGameSetting "fJG_Overlay_SunlightColor_B" fColorB
+	SetNumericGameSetting "iJG_Overlay_OverrideLighting" 5
 
 	; Init ItemInspectMenu
 	ShowTutorialMenu GenericDebugMsg
