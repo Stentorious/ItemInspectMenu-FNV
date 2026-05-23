@@ -9,7 +9,7 @@ int iKeybind
 Begin Function {fValue, iMenu, iSubmenu, iOption, aJSON}
 
 	; Update keybind
-	if eval iOption == 4
+	if eval iOption == 11
 		if eval (iKeybind = Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 0) != fValue
 			if eval iKeybind > 0
 				SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 0 iKeybind
@@ -22,7 +22,7 @@ Begin Function {fValue, iMenu, iSubmenu, iOption, aJSON}
 		endif
 
 	; Update camera type
-	elseif eval iOption == 11
+	elseif eval iOption == 4
 		if eval fValue
 			Goo1.AuxVarSetRef "*ItemInspectMenu" (EditorIDToFormID "JG_CameraOverlayRef_PreUI_O") 6
 		else

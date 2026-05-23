@@ -37,63 +37,19 @@
 				},
 
 				"9": {
-					"title": "$Menu",
-					"enable": 1,
-					"type": 0
-				},
-				"11": {
-					"title": "$CameraType",
-					"type": 6,
-					"enable": 1,
-					"mouse": "$CameraTypeHelp",
-					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 9, "configINI": "Menu:iCameraType", "default": 0 } ],
-					"textOff": "$Perspective",
-					"textOn": "$Orthographic",
-					"call": { "type": "file", "value": "ItemInspectMenu/MCMExtender/UpdateKeybind.gek" }
-				},
-				"13": {
-					"title": "$ShowItemName",
-					"enable": 1,
-					"type": 5,
-					"mouse": "$ShowItemNameHelp",
-					"vars": [ { "uiTrait": "HUDMainMenu/_ItemInspectMenu+Name", "configINI": "Menu:bShowItemName", "default": 1 } ]
-				},
-				"15": {
-					"title": "$ShowItemStats",
-					"enable": 1,
-					"type": 5,
-					"mouse": "$ShowItemStatsHelp",
-					"vars": [ { "uiTrait": "HUDMainMenu/_ItemInspectMenu+Stats", "configINI": "Menu:bShowItemStats", "default": 1 } ]
-				},
-				"17": {
-					"title": "$ShowItemControls",
-					"enable": 1,
-					"type": 5,
-					"mouse": "$ShowItemControlsHelp",
-					"vars": [ { "uiTrait": "HUDMainMenu/_ItemInspectMenu+Controls", "configINI": "Menu:bShowMenuControls", "default": 1 } ]
-				},
-				"19": {
-					"title": "$ShowHUD",
-					"type": 5,
-					"enable": 1,
-					"mouse": "$ShowHUDHelp",
-					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 5, "configINI": "Menu:bShowHUD", "default": 1 } ]
-				},
-
-				"2": {
 					"title": "$Controls",
 					"enable": 1,
 					"type": 0
 				},
-				"4": {
+				"11": {
 					"title": "$Keybind",
 					"enable": 1,
 					"type": 3,
 					"mouse": "$KeybindHelp",
 					"vars": [{ "configINI": "Controls:iKeyBind", "default": 20 }],
-					"call": { "type": "file", "value": "ItemInspectMenu/MCMExtender/UpdateKeybind.gek" }
+					"call": { "type": "file", "value": "ItemInspectMenu/MCMExtender/UpdateOption.gek" }
 				},
-				"6": {
+				"13": {
 					"title": "$InertiaFriction",
 					"type": 2.5,
 					"enable": 1,
@@ -102,7 +58,7 @@
 					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 6, "configINI": "Controls:fInertiaFriction", "default": 1 } ],
 					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0, "valueMax": 2 }
 				},
-				"8": {
+				"15": {
 					"title": "$RotationSensitivityMouse",
 					"type": 2.5,
 					"enable": 1,
@@ -111,7 +67,7 @@
 					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 1, "configINI": "Controls:fSensitivityRotationMouse", "default": 1 } ],
 					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
 				},
-				"10": {
+				"17": {
 					"title": "$RotationSensitivityController",
 					"type": 2.5,
 					"enable": 1,
@@ -120,7 +76,7 @@
 					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 2, "configINI": "Controls:fSensitivityRotationController", "default": 1 } ],
 					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
 				},
-				"12": {
+				"19": {
 					"title": "$ZoomSensitivityMouse",
 					"type": 2.5,
 					"enable": 1,
@@ -129,7 +85,7 @@
 					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 3, "configINI": "Controls:fSensitivityZoomMouse", "default": 1 } ],
 					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
 				},
-				"14": {
+				"21": {
 					"title": "$ZoomSensitivityController",
 					"type": 2.5,
 					"enable": 1,
@@ -137,6 +93,50 @@
 					"mouse": "$ZoomSensitivityHelp",
 					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 4, "configINI": "Controls:fSensitivityZoomController", "default": 1 } ],
 					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
+				},
+
+				"2": {
+					"title": "$Menu",
+					"enable": 1,
+					"type": 0
+				},
+				"4": {
+					"title": "$CameraType",
+					"type": 6,
+					"enable": 1,
+					"mouse": "$CameraTypeHelp",
+					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 9, "configINI": "Menu:iCameraType", "default": 0 } ],
+					"textOff": "$Perspective",
+					"textOn": "$Orthographic",
+					"call": { "type": "file", "value": "ItemInspectMenu/MCMExtender/UpdateOption.gek" }
+				},
+				"6": {
+					"title": "$ShowItemName",
+					"enable": 1,
+					"type": 5,
+					"mouse": "$ShowItemNameHelp",
+					"vars": [ { "uiTrait": "HUDMainMenu/_ItemInspectMenu+Name", "configINI": "Menu:bShowItemName", "default": 1 } ]
+				},
+				"8": {
+					"title": "$ShowItemStats",
+					"enable": 1,
+					"type": 5,
+					"mouse": "$ShowItemStatsHelp",
+					"vars": [ { "uiTrait": "HUDMainMenu/_ItemInspectMenu+Stats", "configINI": "Menu:bShowItemStats", "default": 1 } ]
+				},
+				"10": {
+					"title": "$ShowItemControls",
+					"enable": 1,
+					"type": 5,
+					"mouse": "$ShowItemControlsHelp",
+					"vars": [ { "uiTrait": "HUDMainMenu/_ItemInspectMenu+Controls", "configINI": "Menu:bShowMenuControls", "default": 1 } ]
+				},
+				"12": {
+					"title": "$ShowHUD",
+					"type": 5,
+					"enable": 1,
+					"mouse": "$ShowHUDHelp",
+					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 5, "configINI": "Menu:bShowHUD", "default": 1 } ]
 				}
 			}
 		}

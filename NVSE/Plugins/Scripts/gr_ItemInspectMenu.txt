@@ -49,7 +49,7 @@ endif
 
 ; Init cache
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 0	; Menu state (0 = Closed, 1 = Inventory, 2 = On add)
-Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 1	; Menu ref
+Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 1	; Item ref
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 2	; Model bound radius
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 3	; Inertia X
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 4	; Inertia Y
