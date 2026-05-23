@@ -1,9 +1,11 @@
-; Rebuild camera ref
-if eval Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 9
-	Goo1.AuxVarSetRef "*ItemInspectMenu" (EditorIDToFormID "JG_CameraOverlayRef_PreUI_O") 6
-else
-	Goo1.AuxVarSetRef "*ItemInspectMenu" (EditorIDToFormID "JG_CameraOverlayRef_PreUI") 6
-endif
-
 ; Aux timers
 Goo1.SetOnAuxTimerUpdateHandler 1 (CompileScript "ItemInspectMenu\InputLoop.gek") "*ItemInspectMenu_Loop"
+
+; Rebuild camera ref
+CallAfterFrames 0 (begin Function {}
+	if eval Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 9
+		Goo1.AuxVarSetRef "*ItemInspectMenu" (EditorIDToFormID "JG_CameraOverlayRef_PreUI_O") 6
+	else
+		Goo1.AuxVarSetRef "*ItemInspectMenu" (EditorIDToFormID "JG_CameraOverlayRef_PreUI") 6
+	endif
+end)
