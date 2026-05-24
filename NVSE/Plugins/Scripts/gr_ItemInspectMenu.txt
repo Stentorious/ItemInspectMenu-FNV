@@ -26,6 +26,7 @@ Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "General:bQuestItem
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "General:bUniqueItems" "Stentorious\ItemInspectMenu.ini" 1) 8
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Menu:iCameraType" "Stentorious\ItemInspectMenu.ini" 0) 9
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (eval IsModLoaded "B42Descriptions.esp") 10
+SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Vignette" (GetINIFloat_Cached "Menu:iVignetteIntensity" "Stentorious\ItemInspectMenu.ini" 50)
 SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Name" (eval GetINIFloat_Cached "Menu:bShowItemName" "Stentorious\ItemInspectMenu.ini" 1)
 SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Stats" (eval GetINIFloat_Cached "Menu:bShowItemStats" "Stentorious\ItemInspectMenu.ini" 1)
 SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Controls" (eval GetINIFloat_Cached "Menu:bShowMenuControls" "Stentorious\ItemInspectMenu.ini" 1)
@@ -101,7 +102,7 @@ if eval (iSize = ar_Size aFiles) > 0
 
 				; Check valid form
 				if eval IsFormValid (rItem = EditorIDToFormID (aForE["key"])) == 0 || IsBaseForm rItem == 0
-					printc "Invalid: %z" (aForE["key"])
+					PrintC "Invalid: %z" (aForE["key"])
 					continue
 				endif
 				aTemp = *aForE

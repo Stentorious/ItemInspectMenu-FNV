@@ -2,6 +2,7 @@
 <_ItemInspectMenu+Name> <copy src="sibling(HUDMainMenu)" trait="_ItemInspectMenu+Name" /> </_ItemInspectMenu+Name>
 <_ItemInspectMenu+Description> <copy src="sibling(HUDMainMenu)" trait="_ItemInspectMenu+Description" /> </_ItemInspectMenu+Description>
 <_ItemInspectMenu+Stats> <copy src="sibling(HUDMainMenu)" trait="_ItemInspectMenu+Stats" /> </_ItemInspectMenu+Stats>
+<_ItemInspectMenu+Vignette> <copy src="sibling(HUDMainMenu)" trait="_ItemInspectMenu+Vignette" /> </_ItemInspectMenu+Vignette>
 <_ItemInspectMenu+Init> 0 </_ItemInspectMenu+Init>
 <_ItemInspectMenu+Enabled> 0 </_ItemInspectMenu+Enabled>
 
@@ -256,4 +257,30 @@
 
 		</rect>
 	</rect>
+
+	<image name="Vignette">
+		<visible> 1 </visible>
+		<alpha>
+			<copy src="io()" trait="_ItemInspectMenu+Vignette" />
+			<mul> 2.5 </mul>
+		</alpha>
+		<depth> -150 </depth>
+		<x> -10 </x>
+		<y> -10 </y>
+		<width>
+			<copy src="screen()" trait="width" />
+			<add> 20 </add>
+		</width>
+		<height>
+			<copy src="screen()" trait="height" />
+			<add> 20 </add>
+		</height>
+		<zoom> &scale; </zoom>
+		<systemcolor> 0 </systemcolor>
+		<red> 0 </red>
+		<green> 0 </green>
+		<blue> 0 </blue>
+		<filename> Interface\Stentorious\_Common\Overlay\vignette.dds </filename>
+	</image>
+
 </rect>

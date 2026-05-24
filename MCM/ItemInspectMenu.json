@@ -137,6 +137,21 @@
 					"enable": 1,
 					"mouse": "$ShowHUDHelp",
 					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 5, "configINI": "Menu:bShowHUD", "default": 1 } ]
+				},
+				"14": {
+					"title": "$VignetteIntensity",
+					"type": 2,
+					"enable": 1,
+					"suffix": "%",
+					"mouse": "$VignetteIntensityHelp",
+					"vars": [ { "uiTrait": "HUDMainMenu/_ItemInspectMenu+Vignette", "configINI": "Menu:iVignetteIntensity", "default": 50 } ],
+					"scale": {
+						"valueDecimal": 0,
+						"valueIncrement": 1,
+						"valueMin": 0,
+						"valueMax": 100,
+						"suffix": "%"
+					}
 				}
 			}
 		}
