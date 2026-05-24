@@ -1,6 +1,30 @@
 {
-	"Bobblehead": 	{ "rotation": { "x": -15, "y": 0, "z": 200 } },
-	"Book": 		{ "rotation": { "x": -90, "y": 0, "z": 0 } },
-	"Default": 		{ "rotation": { "x": 0, "y": 0, "z": 0 } },
-	"SMMG": 		{ "rotation": { "x": -90, "y": 0, "z": -90 } }
+    "bobblehead": {
+        "rotation": {
+            "x": -15.0,
+            "y": 0.0,
+            "z": 200.0
+        }
+    },
+    "book": {
+        "rotation": {
+            "x": -90.0,
+            "y": 0.0,
+            "z": 0.0
+        }
+    },
+    "default": {
+        "rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+        }
+    },
+    "rocketLauncher": {
+        "rotation": {
+            "x": -90.0,
+            "y": 0.0,
+            "z": -90.0
+        }
+    }
 }
