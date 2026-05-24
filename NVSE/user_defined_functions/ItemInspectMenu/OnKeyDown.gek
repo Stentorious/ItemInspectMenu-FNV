@@ -1,13 +1,15 @@
 int	iKeyID
 
 int iMenuID
+int iTransformFlag
 float fScale
 float fPosX
 float fPosY
 float fPosZ
 ref rItem
 ref rCamera
-array_var aSupportedMenus
+array_var aTemp
+array_var aForE
 
 begin Function {iKeyID}
 
@@ -20,12 +22,12 @@ begin Function {iKeyID}
 	; Open ItemInspectMenu
 	if eval iKeyID == Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 0
 		rItem = GetSelectedItemRef
-		aSupportedMenus = Ar_List 1002 1008 1053
-		if eval IsReference rItem && MenuMode iMenuID == 1 && MenuMode 1059 == 0 && (Ar_Find iMenuID aSupportedMenus) != Ar_BadNumericIndex
+		aTemp = Ar_List 1002 1008 1053
+		if eval IsReference rItem && MenuMode iMenuID == 1 && MenuMode 1059 == 0 && (Ar_Find iMenuID aTemp) != Ar_BadNumericIndex
 			Goo1.AuxVarSetRef "*ItemInspectMenu" rItem 1
 			Call (CompileScript "ItemInspectMenu\ToggleMenu.gek") 1
 		endif
-		aSupportedMenus = Ar_Null
+		aTemp = Ar_Null
 		return
 
 	; Ignore inputs
@@ -62,6 +64,32 @@ begin Function {iKeyID}
 			endif
 			rCamera.SetNifTrans "ItemInspectMenu" 0 (Clamp fPosY ((Goo1.AuxVarGetFlt "*ItemInspectMenu" 2) - 10) ((Goo1.AuxVarGetFlt "*ItemInspectMenu" 2) + 20)) 0
 		endif
+
+	;elseif eval iKeyID == 203
+	;elseif eval iKeyID == 205
+
+	; Update item transform
+	elseif eval iKeyID == 24
+		rCamera = Goo1.AuxVarGetRef "*ItemInspectMenu" 6
+		aTemp = rCamera.GetNifRot "ItemInspectMenu"
+		aTemp = Ar_Map "x"::(Flr (aTemp[0] + 0.5)) "y"::(Flr (aTemp[1] + 0.5)) "z"::(Flr (aTemp[2] + 0.5))
+		array_var aTransforms = ReadFromJSON "Data\ItemInspectMenu\_Cache\Transforms.json" ("") 0 1
+
+
+		ForEach aForE <- aTransforms
+			if eval aForE["value"]["rotation"] == aTemp
+				iTransformFlag = 1
+				Call (CompileScript "ItemInspectMenu\AddItemOverride.gek") (aForE["key"])
+				break
+			endif
+		loop
+
+		if eval iTransformFlag == 0
+			ShowTextInputMenu (CompileScript "ItemInspectMenu\AddItemTransform.gek") 200 100 "Add transform:"
+			SetTextInputExtendedProps 0 0 1 25 2
+		endif
+
+		aForE = aTransforms = aTemp = ar_Null
 
 	endif
 

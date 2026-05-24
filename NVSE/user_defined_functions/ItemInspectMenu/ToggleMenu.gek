@@ -86,8 +86,8 @@ begin Function {iToggle}
 	else
 		rItem = Goo1.AuxVarGetRef "*ItemInspectMenu" 1
 	endif
-
 	rBase = rItem.GBO
+	Goo1.AuxVarSetRef "*ItemInspectMenu" rBase 7
 	iType = GetType rBase
 
 	; Hide Pip-Boy
@@ -161,7 +161,6 @@ begin Function {iToggle}
 		fTargetSize = 0.65 / (GetMaxOf (aNiBounds[3]) 0.1)
 		fTargetSize = Clamp fTargetSize 0.001 0.05
 		rCamera.SetNifScale "ItemInspectMenu" fTargetSize
-		Goo1.AuxVarSetFlt "*ItemInspectMenu" fTargetSize 2
 	endif
 	Goo1.AuxVarSetFlt "*ItemInspectMenu" fTargetSize 2
 

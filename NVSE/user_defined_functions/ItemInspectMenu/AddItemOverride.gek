@@ -1,0 +1,14 @@
+string_var sTransform
+
+ref rBase
+
+begin Function {sTransform}
+
+	rBase = Goo1.AuxVarGetRef "*ItemInspectMenu" 7
+	WriteToJSON (Ar_Map "transform"::(sTransform)) "Data\ItemInspectMenu\_Default.json" ("/" + (GetEdID rBase)) 0 1 1
+	AuxVarSetStr "*ItemInspectMenu" 0 sTransform rBase
+	MessageEx "Update item override: %z:%z" (GetEdID rBase) (sTransform)
+
+	sv_Destruct sTransform
+
+end

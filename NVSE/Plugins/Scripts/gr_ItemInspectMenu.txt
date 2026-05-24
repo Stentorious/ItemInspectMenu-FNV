@@ -42,6 +42,15 @@ SetOnMenuCloseEventHandler (CompileScript "ItemInspectMenu\OnMenuClose.gek") 1 1
 SetOnMenuCloseEventHandler (CompileScript "ItemInspectMenu\OnMenuClose.gek") 1 1013
 SetEventHandler "ShowOff:OnAdd" (CompileScript "ItemInspectMenu\OnAdd.gek") "second"::Player
 
+; Debug
+if eval GetINIFloat_Cached "Developer:bDebug" "Stentorious\ItemInspectMenu.ini" 0
+	Goo1.AuxVarSetFlt "*ItemInspectMenu_Dev" (GetINIFloat_Cached "Developer:bShowAllItems" "Stentorious\ItemInspectMenu.ini" 1) 0
+	SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 24	; O
+	SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 25	; P
+	SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 203	; Left arrow
+	SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 205	; Right arrow
+endif
+
 ; Update keybind
 if eval (int iKeyID = Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 0) > 0
 	SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 iKeyID
@@ -56,6 +65,7 @@ Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 3	; Inertia X
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 4	; Inertia Y
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 5	; Background blur
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 6	; Camera ref
+Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 7	; Item baseform
 
 ; Sensitivity update
 if eval Goo1.AuxVarType "*_Controls:fMouseSensitivity" == 0

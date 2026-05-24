@@ -1,0 +1,20 @@
+string_var sTransform
+
+ref rCamera
+array_var aTransform
+array_var aEntry
+
+begin Function {sTransform}
+
+	rCamera = Goo1.AuxVarGetRef "*ItemInspectMenu" 6
+	aTransform = rCamera.GetNifRot "ItemInspectMenu"
+	aEntry = Ar_Map "rotation"::(Ar_Map "x"::(Flr (aTransform[0] + 0.5)) "y"::(Flr (aTransform[1] + 0.5)) "z"::(Flr (aTransform[2] + 0.5)))
+	WriteToJSON (aEntry) "Data\ItemInspectMenu\Transforms\_Default.json" ("/" + (sTransform)) 0 1 1
+	WriteToJSON (aEntry) "Data\ItemInspectMenu\_Cache\Transforms.json" ("/" + (sTransform)) 0 1 0
+	MessageEx "Add item transform: %z" sTransform
+	Call (CompileScript "ItemInspectMenu\AddItemOverride.gek") (sTransform)
+
+	aTransform = aEntry = Ar_Null
+	sv_Destruct sTransform
+
+end
