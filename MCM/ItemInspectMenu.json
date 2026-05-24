@@ -125,10 +125,10 @@
 					"vars": [ { "uiTrait": "HUDMainMenu/_ItemInspectMenu+Stats", "configINI": "Menu:bShowItemStats", "default": 1 } ]
 				},
 				"10": {
-					"title": "$ShowItemControls",
+					"title": "$ShowMenuControls",
 					"enable": 1,
 					"type": 5,
-					"mouse": "$ShowItemControlsHelp",
+					"mouse": "$ShowMenuControlsHelp",
 					"vars": [ { "uiTrait": "HUDMainMenu/_ItemInspectMenu+Controls", "configINI": "Menu:bShowMenuControls", "default": 1 } ]
 				},
 				"12": {
