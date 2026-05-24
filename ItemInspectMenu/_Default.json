@@ -1,57 +1,281 @@
 {
-	"BobbleheadAGL":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadAGLBuffMessage", "default": "BobbleheadAGLMessage" } },
-	"BobbleheadBART":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadBARTBuffMessage", "default": "BobbleheadBARTMessage" } },
-	"BobbleheadBGUN":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadBGUNBuffMessage", "default": "BobbleheadBGUNMessage" } },
-	"BobbleheadCHA":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadCHABuffMessage", "default": "BobbleheadCHAMessage" } },
-	"BobbleheadEND":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadENDBuffMessage", "default": "BobbleheadENDMessage" } },
-	"BobbleheadERGW":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadERGWBuffMessage", "default": "BobbleheadERGWMessage" } },
-	"BobbleheadEXPL":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadEXPLBuffMessage", "default": "BobbleheadEXPLMessage" } },
-	"BobbleheadINT":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadINTBuffMessage", "default": "BobbleheadINTMessage" } },
-	"BobbleheadLOCK":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadLOCKBuffMessage", "default": "BobbleheadLOCKMessage" } },
-	"BobbleheadLUK":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadLUKBuffMessage", "default": "BobbleheadLUKMessage" } },
-	"BobbleheadMEDI":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadMEDIBuffMessage", "default": "BobbleheadMEDIMessage" } },
-	"BobbleheadMELE":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadMELEBuffMessage", "default": "BobbleheadMELEMessage" } },
-	"BobbleheadPER":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadPERBuffMessage", "default": "BobbleheadPERMessage" } },
-	"BobbleheadREPR":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadREPRBuffMessage", "default": "BobbleheadREPRMessage" } },
-	"BobbleheadSCNC":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadSCNCBuffMessage", "default": "BobbleheadSCNCMessage" } },
-	"BobbleheadSGUN":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadSGUNBuffMessage", "default": "BobbleheadSGUNMessage" } },
-	"BobbleheadSNEK":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadSNEKBuffMessage", "default": "BobbleheadSNEKMessage" } },
-	"BobbleheadSPCH":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadSPCHBuffMessage", "default": "BobbleheadSPCHMessage" } },
-	"BobbleheadSTR":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadSTRBuffMessage", "default": "BobbleheadSTRMessage" } },
-	"BobbleheadSUR":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadSURBuffMessage", "default": "BobbleheadSURMessage" } },
-	"BobbleheadUARM":				{ "transform": "Bobblehead", "showOnce": 1, "description": { "first": "BobbleheadUARMBuffMessage", "default": "BobbleheadUARMMessage" } },
-
-	"BookSkillBarter": 				{ "transform": "Book" },
-	"BookSkillBigGuns": 			{ "transform": "Book" },
-	"BookSkillEnergyWeapons": 		{ "transform": "Book" },
-	"BookSkillExplosives": 			{ "transform": "Book" },
-	"BookSkillGuns": 				{ "transform": "Book" },
-	"BookSkillLockpicking": 		{ "transform": "Book" },
-	"BookSkillMedicine": 			{ "transform": "Book" },
-	"BookSkillMelee": 				{ "transform": "Book" },
-	"BookSkillRepair": 				{ "transform": "Book" },
-	"BookSkillScience": 			{ "transform": "Book" },
-	"BookSkillSneak": 				{ "transform": "Book" },
-	"BookSkillSpeech": 				{ "transform": "Book" },
-	"BookSkillSurvival": 			{ "transform": "Book" },
-	"BookSkillUnarmed": 			{ "transform": "Book" },
-	"MagazineNVBarter": 			{ "transform": "Book" },
-	"MagazineNVCritical": 			{ "transform": "Book" },
-	"MagazineNVEnergyWeapons": 		{ "transform": "Book" },
-	"MagazineNVExplosives": 		{ "transform": "Book" },
-	"MagazineNVGuns": 				{ "transform": "Book" },
-	"MagazineNVLockpick": 			{ "transform": "Book" },
-	"MagazineNVMedicine": 			{ "transform": "Book" },
-	"MagazineNVMeleeWeapons": 		{ "transform": "Book" },
-	"MagazineNVRepair": 			{ "transform": "Book" },
-	"MagazineNVScience": 			{ "transform": "Book" },
-	"MagazineNVSneak": 				{ "transform": "Book" },
-	"MagazineNVSpeech": 			{ "transform": "Book" },
-	"MagazineNVSurvival": 			{ "transform": "Book" },
-	"MagazineNVUnarmed": 			{ "transform": "Book" },
-
-	"NVDLC03WeapCyberdogGun": 		{ "transform": "Default" },
-	"NVDLC03WeapCyberdogGunFido": 	{ "transform": "Default" },
-	"NVDLC04WeapSMMG": 				{ "transform": "SMMG" },
-	"WeapMinigun": 					{ "transform": "Default" }
+    "BobbleheadAGL": {
+        "description": {
+            "default": "BobbleheadAGLMessage",
+            "first": "BobbleheadAGLBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadBART": {
+        "description": {
+            "default": "BobbleheadBARTMessage",
+            "first": "BobbleheadBARTBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadBGUN": {
+        "description": {
+            "default": "BobbleheadBGUNMessage",
+            "first": "BobbleheadBGUNBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadCHA": {
+        "description": {
+            "default": "BobbleheadCHAMessage",
+            "first": "BobbleheadCHABuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadEND": {
+        "description": {
+            "default": "BobbleheadENDMessage",
+            "first": "BobbleheadENDBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadERGW": {
+        "description": {
+            "default": "BobbleheadERGWMessage",
+            "first": "BobbleheadERGWBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadEXPL": {
+        "description": {
+            "default": "BobbleheadEXPLMessage",
+            "first": "BobbleheadEXPLBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadINT": {
+        "description": {
+            "default": "BobbleheadINTMessage",
+            "first": "BobbleheadINTBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadLOCK": {
+        "description": {
+            "default": "BobbleheadLOCKMessage",
+            "first": "BobbleheadLOCKBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadLUK": {
+        "description": {
+            "default": "BobbleheadLUKMessage",
+            "first": "BobbleheadLUKBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadMEDI": {
+        "description": {
+            "default": "BobbleheadMEDIMessage",
+            "first": "BobbleheadMEDIBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadMELE": {
+        "description": {
+            "default": "BobbleheadMELEMessage",
+            "first": "BobbleheadMELEBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadPER": {
+        "description": {
+            "default": "BobbleheadPERMessage",
+            "first": "BobbleheadPERBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadREPR": {
+        "description": {
+            "default": "BobbleheadREPRMessage",
+            "first": "BobbleheadREPRBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadSCNC": {
+        "description": {
+            "default": "BobbleheadSCNCMessage",
+            "first": "BobbleheadSCNCBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadSGUN": {
+        "description": {
+            "default": "BobbleheadSGUNMessage",
+            "first": "BobbleheadSGUNBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadSNEK": {
+        "description": {
+            "default": "BobbleheadSNEKMessage",
+            "first": "BobbleheadSNEKBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadSPCH": {
+        "description": {
+            "default": "BobbleheadSPCHMessage",
+            "first": "BobbleheadSPCHBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadSTR": {
+        "description": {
+            "default": "BobbleheadSTRMessage",
+            "first": "BobbleheadSTRBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadSUR": {
+        "description": {
+            "default": "BobbleheadSURMessage",
+            "first": "BobbleheadSURBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BobbleheadUARM": {
+        "description": {
+            "default": "BobbleheadUARMMessage",
+            "first": "BobbleheadUARMBuffMessage"
+        },
+        "showOnce": 1,
+        "transform": "bobblehead"
+    },
+    "BookSkillBarter": {
+        "transform": "book"
+    },
+    "BookSkillBigGuns": {
+        "transform": "book"
+    },
+    "BookSkillEnergyWeapons": {
+        "transform": "book"
+    },
+    "BookSkillExplosives": {
+        "transform": "book"
+    },
+    "BookSkillGuns": {
+        "transform": "book"
+    },
+    "BookSkillLockpicking": {
+        "transform": "book"
+    },
+    "BookSkillMedicine": {
+        "transform": "book"
+    },
+    "BookSkillMelee": {
+        "transform": "book"
+    },
+    "BookSkillRepair": {
+        "transform": "book"
+    },
+    "BookSkillScience": {
+        "transform": "book"
+    },
+    "BookSkillSneak": {
+        "transform": "book"
+    },
+    "BookSkillSpeech": {
+        "transform": "book"
+    },
+    "BookSkillSurvival": {
+        "transform": "book"
+    },
+    "BookSkillUnarmed": {
+        "transform": "book"
+    },
+    "MagazineNVBarter": {
+        "transform": "book"
+    },
+    "MagazineNVCritical": {
+        "transform": "book"
+    },
+    "MagazineNVEnergyWeapons": {
+        "transform": "book"
+    },
+    "MagazineNVExplosives": {
+        "transform": "book"
+    },
+    "MagazineNVGuns": {
+        "transform": "book"
+    },
+    "MagazineNVLockpick": {
+        "transform": "book"
+    },
+    "MagazineNVMedicine": {
+        "transform": "book"
+    },
+    "MagazineNVMeleeWeapons": {
+        "transform": "book"
+    },
+    "MagazineNVRepair": {
+        "transform": "book"
+    },
+    "MagazineNVScience": {
+        "transform": "book"
+    },
+    "MagazineNVSneak": {
+        "transform": "book"
+    },
+    "MagazineNVSpeech": {
+        "transform": "book"
+    },
+    "MagazineNVSurvival": {
+        "transform": "book"
+    },
+    "MagazineNVUnarmed": {
+        "transform": "book"
+    },
+    "NVDLC03WeapCyberdogGun": {
+        "transform": "default"
+    },
+    "NVDLC03WeapCyberdogGunFido": {
+        "transform": "default"
+    },
+    "NVDLC04WeapRedGlare": {
+        "transform": "rocketLauncher"
+    },
+    "NVDLC04WeapSMMG": {
+        "transform": "rocketLauncher"
+    },
+    "NVDLC05WeapFatmanUnique": {
+        "transform": "rocketLauncher"
+    },
+    "WeapMinigun": {
+        "transform": "default"
+    },
+    "WeapNVMissileLauncherUnique": {
+        "transform": "rocketLauncher"
+    },
+    "WeapUniqueMIRV": {
+        "transform": "rocketLauncher"
+    },
+    "WeapUniqueMissLauncher": {
+        "transform": "rocketLauncher"
+    }
 }
