@@ -25,30 +25,12 @@ begin Function {iToggle}
 	rCamera = Goo1.AuxVarGetRef "*ItemInspectMenu" 6
 	iMenuID = GetActiveMenuMode
 
-	PlaySound UIMenuMode 1
-
 	; Close photo mode
 	if eval iToggle == 0
 
-		if eval MenuMode 1002 == 1 && GetController
-			TapButton 512
-		endif
+		PlaySound UIMenuMode 1
 
 		Player.SetActorAlpha 1
-
-		CallWhen ({} => EK 1) ({} => IsKeyPressed 1 2 == 0)
-		CallWhen ({} => EK 15) ({} => IsKeyPressed 15 2 == 0)
-		CallWhen ({} => EnableButton 16) ({} => IsButtonPressed 16 == 0)
-		CallWhen ({} => EnableButton 8192) ({} => IsButtonPressed 8192 == 0)
-
-		; Toggle menus
-		SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" 0
-		SetUIFloatAlt "HUDMainMenu\visible" 1
-		if eval iMenuID == 1008
-			SetUIFloatAlt "ContainerMenu\visible" 1
-		elseif eval iMenuID == 1053
-			SetUIFloatAlt "BarterMenu\visible" 1
-		endif
 
 		if eval ModelHasBlock rCamera "ItemInspectMenu"
 			rCamera.RemoveNifBlock "ItemInspectMenu"
@@ -62,7 +44,31 @@ begin Function {iToggle}
 		SetNumericGameSetting "iJG_OverrideLightingValues" 0
 		SetNumericGameSetting "iJG_Overlay_OverrideLighting" 0
 
+		; Reset inspect menu
+		SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" 0
 		Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 0
+
+		; Item queue
+		if eval Goo1.AuxVarType "*ItemInspectMenu_Queue" 0 == 2 && iMenuID != 1013
+			CallAfterFrames 0 (CompileScript "ItemInspectMenu\ToggleMenu.gek") 2 2
+		else
+			; Reset controls
+			if eval MenuMode 1002 == 1 && GetController
+				TapButton 512
+			endif
+			CallWhen ({} => EK 1) ({} => IsKeyPressed 1 2 == 0)
+			CallWhen ({} => EK 15) ({} => IsKeyPressed 15 2 == 0)
+			CallWhen ({} => EnableButton 16) ({} => IsButtonPressed 16 == 0)
+			CallWhen ({} => EnableButton 8192) ({} => IsButtonPressed 8192 == 0)
+
+			; Toggle menus
+			SetUIFloatAlt "HUDMainMenu\visible" 1
+			if eval iMenuID == 1008
+				SetUIFloatAlt "ContainerMenu\visible" 1
+			elseif eval iMenuID == 1053
+				SetUIFloatAlt "BarterMenu\visible" 1
+			endif
+		endif
 
 		return
 	endif
@@ -70,12 +76,21 @@ begin Function {iToggle}
 	Goo1.AuxVarSetFlt "*ItemInspectMenu" iToggle 0
 
 	; Get item ref
-	rItem = Goo1.AuxVarGetRef "*ItemInspectMenu" 1
+	; Item queue
+	if eval Goo1.AuxVarType "*ItemInspectMenu_Queue" 0 == 2
+		rItem = Player.GetFirstRefForItem (Goo1.AuxVarGetRef "*ItemInspectMenu_Queue" 0)
+		Goo1.AuxVarErase "*ItemInspectMenu_Queue" 0
+		PlaySound UIPopUpExperienceUp 1
+	else
+		rItem = Goo1.AuxVarGetRef "*ItemInspectMenu" 1
+	endif
+
 	rBase = rItem.GBO
-	iType = GetType rItem
+	iType = GetType rBase
 
 	; Hide Pip-Boy
 	if eval iToggle == 1
+		PlaySound UIMenuMode 1
 		Player.SetActorAlpha 0
 	endif
 
@@ -93,20 +108,20 @@ begin Function {iToggle}
 	sModelPath = "ItemInspectMenu|"
 
 	; Attach model
-	sModelPath = rItem.GetBipedModelPath 2
+	sModelPath = GetBipedModelPath 2 rBase
 	if eval sModelPath == ""
-		if eval rItem.GetType == 40
+		if eval iType == 40
 			if eval (sModelPath = GetWeaponWorldModelPath rBase) == ""
 				sModelPath = GetWeaponModel rBase (rItem.GetWeaponRefModFlags)
 			endif
 		else
-			sModelPath = GetModelPath rItem
+			sModelPath = GetModelPath rBase
 		endif
 
 	; Default biped model rotation
 	else
 		iRotation = 1
-		if eval (GetBit (rItem.GetEquipmentSlotsMask) 2)
+		if eval (GetBit (GetEquipmentSlotsMask rBase) 2)
 			fRotX = -60
 			fRotY = -10
 			fRotZ = -110
@@ -183,7 +198,7 @@ begin Function {iToggle}
 	GetCurrentSkyColor 3 (fColorR) (fColorG) (fColorB)
 	; V3DotEx fColorR fColorG fColorB 0.2126 0.7152 0.0722
 	if eval (fTemp = V3Length fColorR fColorG fColorB) > 0
-		fTemp = GetMaxOf 1 (0.8 / fTemp)
+		fTemp = GetMaxOf 1 (0.85 / fTemp)
 		fColorR *= fTemp
 		fColorG *= fTemp
 		fColorB *= fTemp
@@ -198,10 +213,12 @@ begin Function {iToggle}
 	SetNumericGameSetting "iJG_OverrideLightingValues" 2
 	SetNumericGameSetting "iJG_Overlay_OverrideLighting" 5
 
-	; Init ItemInspectMenu
-	ShowTutorialMenu GenericDebugMsg
+	; Init TutorialMenu
+	if eval MenuMode 1059 == 0
+		ShowTutorialMenu GenericDebugMsg
+	endif
 	SetUIFloatAlt "TutorialMenu\NOGLOW_BRANCH\visible" 0
-	SetUIStringAlt "TutorialMenu\ItemInspectMenu\Title\string" "%z" (LnGetName (Goo1.AuxVarGetRef "*ItemInspectMenu" 1))
+	SetUIStringAlt "TutorialMenu\ItemInspectMenu\Title\string" "%z" (rItem.LnGetName)
 	SetUIFloatAlt "TutorialMenu\ItemInspectMenu\Controls\Zoom\PCShortcutLabel\visible" 1
 	SetUIFloatAlt "TutorialMenu\ItemInspectMenu\Controls\Zoom\xbox_button\visible" 0
 	SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Init" 1

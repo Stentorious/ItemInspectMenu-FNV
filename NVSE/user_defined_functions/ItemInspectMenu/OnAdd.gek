@@ -15,10 +15,13 @@ begin Function {ref rItem, ref rActor}
 			endif
 			AuxVarSetFlt "ItemInspectMenu" 1 0 rBase
 
+			; Add item to queue
+			Goo1.AuxVarSetRef "*ItemInspectMenu_Queue" rBase -1
+
 			; Open inspect menu
-			Goo1.AuxVarSetRef "*ItemInspectMenu" rItem 1
-			PlaySound UIPopUpExperienceUp 1
-			Call (CompileScript "ItemInspectMenu\ToggleMenu.gek") 2
+			if eval Goo1.AuxVarType "*ItemInspectMenu_Queue" 1 == 0
+				CallAfterFrames 0 (CompileScript "ItemInspectMenu\ToggleMenu.gek") 1 2
+			endif
 
 		endif
 	endif
