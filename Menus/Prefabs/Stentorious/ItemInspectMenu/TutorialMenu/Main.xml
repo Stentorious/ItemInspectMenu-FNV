@@ -116,6 +116,7 @@
 		<rect name="Rotate">
 			<include src="text_box.xml"/>
 			<visible> 1 </visible>
+			<depth> 2 </depth>
 			<_x> 0 </_x>
 			<_horbuf> 20 </_horbuf>
 			<_verbuf> 15 </_verbuf>
@@ -145,6 +146,7 @@
 		<rect name="Zoom">
 			<include src="text_box.xml"/>
 			<visible> 1 </visible>
+			<depth> 2 </depth>
 			<_x>
 				<copy src="sibling(Rotate)" trait="_x" />
 				<add src="sibling(Rotate)" trait="_width" />
@@ -183,6 +185,7 @@
 		<rect name="Exit">
 			<include src="text_box.xml"/>
 			<visible> 1 </visible>
+			<depth> 2 </depth>
 			<_x>
 				<copy src="sibling(Zoom)" trait="_x" />
 				<add src="sibling(Zoom)" trait="_width" />
