@@ -264,7 +264,7 @@
 			<copy src="io()" trait="_ItemInspectMenu+Vignette" />
 			<mul> 2.5 </mul>
 		</alpha>
-		<depth> -150 </depth>
+		<depth> -25000 </depth>
 		<x> -10 </x>
 		<y> -10 </y>
 		<width>
