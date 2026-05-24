@@ -65,6 +65,8 @@ begin Function {iToggle}
 			SetUIFloatAlt "HUDMainMenu\visible" 1
 			if eval iMenuID == 1008
 				SetUIFloatAlt "ContainerMenu\visible" 1
+			elseif eval iMenuID == 1009
+				SetUIFloatAlt "DialogMenu\visible" 1
 			elseif eval iMenuID == 1053
 				SetUIFloatAlt "BarterMenu\visible" 1
 			endif
@@ -266,6 +268,8 @@ begin Function {iToggle}
 	endif
 	if eval iMenuID == 1008
 		SetUIFloatAlt "ContainerMenu\visible" 0
+	elseif eval iMenuID == 1009
+		SetUIFloatAlt "DialogMenu\visible" 0
 	elseif eval iMenuID == 1053
 		SetUIFloatAlt "BarterMenu\visible" 0
 	endif
