@@ -59,6 +59,7 @@ begin Function {iToggle}
 		SetImageSpaceModTrait PopupBackgroundFX 45 (Goo1.AuxVarGetFlt "*ItemInspectMenu" 5)
 
 		; Reset lighting override
+		SetNumericGameSetting "iJG_OverrideLightingValues" 0
 		SetNumericGameSetting "iJG_Overlay_OverrideLighting" 0
 
 		Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 0
@@ -180,25 +181,21 @@ begin Function {iToggle}
 
 	; Apply lighting override
 	GetCurrentSkyColor 3 (fColorR) (fColorG) (fColorB)
-	V3NormalizeEx (fColorR) (fColorG) (fColorB) fColorR fColorG fColorB
-	if eval (fTemp = GetMaxOf fColorR fColorG fColorB) > 0
-		fColorR /= fTemp
-		fColorG /= fTemp
-		fColorB /= fTemp
+	; V3DotEx fColorR fColorG fColorB 0.2126 0.7152 0.0722
+	if eval (fTemp = V3Length fColorR fColorG fColorB) > 0
+		fTemp = GetMaxOf 1 (0.8 / fTemp)
+		fColorR *= fTemp
+		fColorG *= fTemp
+		fColorB *= fTemp
+	else
+		fColorR = 0.6
+		fColorG = 0.6
+		fColorB = 0.6
 	endif
 	SetNumericGameSetting "fJG_Overlay_AmbientColor_R" fColorR
 	SetNumericGameSetting "fJG_Overlay_AmbientColor_G" fColorG
 	SetNumericGameSetting "fJG_Overlay_AmbientColor_B" fColorB
-	GetCurrentSkyColor 4 (fColorR) (fColorG) (fColorB)
-	V3NormalizeEx (fColorR) (fColorG) (fColorB) fColorR fColorG fColorB
-	if eval (fTemp = GetMaxOf fColorR fColorG fColorB) > 0
-		fColorR /= fTemp
-		fColorG /= fTemp
-		fColorB /= fTemp
-	endif
-	SetNumericGameSetting "fJG_Overlay_SunlightColor_R" fColorB
-	SetNumericGameSetting "fJG_Overlay_SunlightColor_G" fColorB
-	SetNumericGameSetting "fJG_Overlay_SunlightColor_B" fColorB
+	SetNumericGameSetting "iJG_OverrideLightingValues" 2
 	SetNumericGameSetting "iJG_Overlay_OverrideLighting" 5
 
 	; Init ItemInspectMenu
