@@ -209,6 +209,15 @@
     "BookSkillUnarmed": {
         "transform": "book"
     },
+    "DLC03UniqueFlamer": {
+        "transform": "flamer"
+    },
+    "DLC03UniqueFlamer02": {
+        "transform": "flamer"
+    },
+    "DLC03WeapTeslaCannon": {
+        "transform": "rocketLauncher"
+    },
     "MagazineNVBarter": {
         "transform": "book"
     },
@@ -266,16 +275,43 @@
     "NVDLC05WeapFatmanUnique": {
         "transform": "rocketLauncher"
     },
+    "NVDLC05WeapFlamerUnique": {
+        "transform": "flamer"
+    },
+    "NVDLC05WeapGatlingLaserUnique": {
+        "transform": "default"
+    },
+    "WeapFatman": {
+        "transform": "rocketLauncher"
+    },
+    "WeapFlamer": {
+        "transform": "flamer"
+    },
     "WeapMinigun": {
         "transform": "default"
     },
+    "WeapMissileLauncher": {
+        "transform": "rocketLauncher"
+    },
     "WeapNVMissileLauncherUnique": {
         "transform": "rocketLauncher"
+    },
+    "WeapNVTeslaCannonUnique": {
+        "transform": "rocketLauncher"
+    },
+    "WeapTeslaCannon": {
+        "transform": "rocketLauncher"
+    },
+    "WeapUniqueBurnmaster": {
+        "transform": "flamer"
     },
     "WeapUniqueMIRV": {
         "transform": "rocketLauncher"
     },
     "WeapUniqueMissLauncher": {
         "transform": "rocketLauncher"
+    },
+    "WeapUniqueVengeance": {
+        "transform": "flamer"
     }
 }

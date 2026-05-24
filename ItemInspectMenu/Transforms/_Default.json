@@ -20,6 +20,13 @@
             "z": 0.0
         }
     },
+    "flamer": {
+        "rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 90.0
+        }
+    },
     "rocketLauncher": {
         "rotation": {
             "x": -90.0,
