@@ -1,3 +1,6 @@
+; Reset queue
+Goo1.AuxVarErase "*ItemInspectMenu_Queue"
+
 ; Aux timers
 Goo1.SetOnAuxTimerUpdateHandler 1 (CompileScript "ItemInspectMenu\InputLoop.gek") "*ItemInspectMenu_Loop"
 
