@@ -1,4 +1,11 @@
 {
+    "binoculars": {
+        "rotation": {
+            "x": 0.0,
+            "y": -30.0,
+            "z": 75.0
+        }
+    },
     "bobblehead": {
         "rotation": {
             "x": -15.0,
@@ -13,6 +20,27 @@
             "z": 0.0
         }
     },
+    "brassKnuckles": {
+        "rotation": {
+            "x": 90.0,
+            "y": 0.0,
+            "z": 90.0
+        }
+    },
+    "camera": {
+        "rotation": {
+            "x": 90.0,
+            "y": 90.0,
+            "z": 180.0
+        }
+    },
+    "deathclawGauntlet": {
+        "rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 180.0
+        }
+    },
     "default": {
         "rotation": {
             "x": 0.0,
@@ -20,18 +48,81 @@
             "z": 0.0
         }
     },
+    "dogtagFist": {
+        "rotation": {
+            "x": -15.0,
+            "y": 70.0,
+            "z": 15.0
+        }
+    },
     "flamer": {
         "rotation": {
             "x": 0.0,
             "y": 0.0,
+            "z": -90.0
+        }
+    },
+    "mantisGauntlet": {
+        "rotation": {
+            "x": 55.0,
+            "y": -2.0,
+            "z": 180.0
+        }
+    },
+    "mantisGauntletAlt": {
+        "rotation": {
+            "x": -23.0,
+            "y": 0.0,
+            "z": -168.0
+        }
+    },
+    "meleeWeap": {
+        "rotation": {
+            "x": 90.0,
+            "y": 0.0,
+            "z": -90.0
+        }
+    },
+    "mine": {
+        "rotation": {
+            "x": -30.0,
+            "y": 0.0,
+            "z": 180.0
+        }
+    },
+    "powerFist": {
+        "rotation": {
+            "x": 90.0,
+            "y": 0.0,
+            "z": 180.0
+        }
+    },
+    "ripper": {
+        "rotation": {
+            "x": 90.0,
+            "y": 0.0,
+            "z": -95.0
+        }
+    },
+    "steelKnuckles": {
+        "rotation": {
+            "x": -90.0,
+            "y": 90.0,
+            "z": -90.0
+        }
+    },
+    "throwingKnife": {
+        "rotation": {
+            "x": 45.0,
+            "y": 0.0,
             "z": 90.0
         }
     },
-    "rocketLauncher": {
+    "weaponMod": {
         "rotation": {
-            "x": -90.0,
+            "x": 30.0,
             "y": 0.0,
-            "z": -90.0
+            "z": 0.0
         }
     }
 }

@@ -209,14 +209,83 @@
     "BookSkillUnarmed": {
         "transform": "book"
     },
+    "DLC01UniqueWeapAutoAxe": {
+        "transform": "meleeWeap"
+    },
+    "DLC01UniqueWeapManOpener": {
+        "transform": "meleeWeap"
+    },
+    "DLC01UniqueWeapSteelKnuckles": {
+        "transform": "steelKnuckles"
+    },
+    "DLC01WeapAutoAxe": {
+        "transform": "meleeWeap"
+    },
+    "DLC01WeapSteelSaw": {
+        "transform": "meleeWeap"
+    },
+    "DLC02WeapKnifeCombatWasteland": {
+        "transform": "meleeWeap"
+    },
+    "DLC02WeapShockSwordWasteland": {
+        "transform": "meleeWeap"
+    },
     "DLC03UniqueFlamer": {
         "transform": "flamer"
     },
     "DLC03UniqueFlamer02": {
         "transform": "flamer"
     },
+    "DLC03UniqueGatlingLaser": {
+        "transform": "flamer"
+    },
+    "DLC03WeapShockHammer": {
+        "transform": "meleeWeap"
+    },
+    "DLC03WeapSuperSledge": {
+        "transform": "meleeWeap"
+    },
     "DLC03WeapTeslaCannon": {
-        "transform": "rocketLauncher"
+        "transform": "brassKnuckles"
+    },
+    "DLC04WeapAxe": {
+        "transform": "meleeWeap"
+    },
+    "DLC04WeapRitualKnife": {
+        "transform": "meleeWeap"
+    },
+    "DLC04WeapShovel": {
+        "transform": "meleeWeap"
+    },
+    "DLC04WeapToyKnife": {
+        "transform": "meleeWeap"
+    },
+    "DLC04WeapUniqueDismemberer": {
+        "transform": "meleeWeap"
+    },
+    "DLC04WeapUniqueFertilizerShovel": {
+        "transform": "meleeWeap"
+    },
+    "DLC05WeapBaton": {
+        "transform": "meleeWeap"
+    },
+    "DLC05WeapBatonUnique": {
+        "transform": "meleeWeap"
+    },
+    "DLC05WeapKatana": {
+        "transform": "meleeWeap"
+    },
+    "DLC05WeapMineCryo": {
+        "transform": "mine"
+    },
+    "DLC05WeapSamuraiSword": {
+        "transform": "meleeWeap"
+    },
+    "DLC05WeapSpanner": {
+        "transform": "meleeWeap"
+    },
+    "MS03Repellent": {
+        "transform": "meleeWeap"
     },
     "MagazineNVBarter": {
         "transform": "book"
@@ -260,56 +329,563 @@
     "MagazineNVUnarmed": {
         "transform": "book"
     },
+    "ModNVDLC02WarClubCasing": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC04RedGlareAlphaStrike": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC04RedGlareAutoLauncher": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC04RedGlareFarSighting": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC04SMMGExtendedMag": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC04SMMGMechanicalUpgrade": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC04SMMGRecoilCompensator": {
+        "transform": "weaponMod"
+    },
+    "ModNVMinigunDampedSubframe": {
+        "transform": "weaponMod"
+    },
+    "ModNVMinigunHighSpeedMotor": {
+        "transform": "weaponMod"
+    },
+    "ModNVMissileLauncherGuidanceSys": {
+        "transform": "weaponMod"
+    },
+    "ModNVMultiPlasRifleBarrel": {
+        "transform": "weaponMod"
+    },
+    "ModNVMultiPlasRifleCoils": {
+        "transform": "weaponMod"
+    },
+    "ModNVMultiPlasRifleMagneticAccelerator": {
+        "transform": "weaponMod"
+    },
+    "ModNVPlasmaCasterHSElectrode": {
+        "transform": "weaponMod"
+    },
+    "ModNVPlasmaRifleMagneticAccelerator": {
+        "transform": "weaponMod"
+    },
+    "ModNVServiceRifleForgedReceiver": {
+        "transform": "weaponMod"
+    },
+    "ModNVServiceRifleReflexSight": {
+        "transform": "weaponMod"
+    },
+    "ModNVServiceRifleUpgradedSprings": {
+        "transform": "weaponMod"
+    },
+    "ModNVSilenced22SMGDrums": {
+        "transform": "weaponMod"
+    },
+    "ModNVSniperRifleCarbonFiberParts": {
+        "transform": "weaponMod"
+    },
+    "ModNVSniperRifleSuppressor": {
+        "transform": "weaponMod"
+    },
+    "ModNVTrailCarbineLam": {
+        "transform": "weaponMod"
+    },
+    "ModNVTrailCarbineScope": {
+        "transform": "weaponMod"
+    },
+    "ModNVTrailCarbineSteel": {
+        "transform": "weaponMod"
+    },
+    "ModNVVarmintRifleExtMags": {
+        "transform": "weaponMod"
+    },
+    "ModNVVarmintRifleNightScope": {
+        "transform": "weaponMod"
+    },
+    "ModNVVarmintRifleSilencer": {
+        "transform": "weaponMod"
+    },
+    "ModTTWSilencedPistolFastTrigger": {
+        "transform": "weaponMod"
+    },
+    "NVCamera": {
+        "transform": "camera"
+    },
+    "NVDLC01WeapBearTrapFist": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC01WeapKnifeSpear": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC01WeapKnifeSpearClean": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC01WeapSpaceAgeKnife": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC01WeapSpaceAgeKnifeClean": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC01WeapSpaceAgeKnifeHeated": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC01WeapThrowingKnifeSpear": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC02WeapPowerFistUnique": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC02WeapTomahawk": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC02WeapWarClub": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC02WeapYaoGuaiGauntlet": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC02WeapYaoGuaiGauntletUnique": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC03WeapAntenna": {
+        "transform": "meleeWeap"
+    },
     "NVDLC03WeapCyberdogGun": {
-        "transform": "default"
+        "transform": "deathclawGauntlet"
     },
     "NVDLC03WeapCyberdogGunFido": {
-        "transform": "default"
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC03WeapGlovesCorrosive": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC03WeapGlovesDrKleinL": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC03WeapGlovesDrMobiusL": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC03WeapGlovesScientist": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC03WeapGlovesSterilizer": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC03WeapProtonAxe": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC03WeapProtonAxeInversal": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC03WeapProtonAxeInversalThrown": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC03WeapProtonAxeThrown": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC03WeapSaturniteFist": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC03WeapSaturniteFistHeat": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC03WeapTeslaCannonUniqueElijah": {
+        "transform": "brassKnuckles"
+    },
+    "NVDLC04WeapArcWelder": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC04WeapBladeWest": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC04WeapBowieKnife": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC04WeapBowieKnifeUnique": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC04WeapDeathclawGauntletUnique": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC04WeapDeathclawGauntletUniqueWildWasteland": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC04WeapFlagpole": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC04WeapIndustrialHand": {
+        "transform": "deathclawGauntlet"
     },
     "NVDLC04WeapRedGlare": {
-        "transform": "rocketLauncher"
+        "transform": "brassKnuckles"
     },
     "NVDLC04WeapSMMG": {
-        "transform": "rocketLauncher"
+        "transform": "brassKnuckles"
+    },
+    "NVDLC04WeapSatchelCharge": {
+        "transform": "mine"
+    },
+    "NVDLC05ModNVPlasmaDefenderHighCapTerminal": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVPlasmaDefenderScope": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVPlasmaDefenderSheathStabilizer": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVPlasmaPistolHighEnergyIonizer": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVPlasmaPistolMagneticAccelerator": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVPlasmaPistolRecycler": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVPowerFistChromedTubes": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVPowerFistHighCapValves": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVPowerFistPortedChambers": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVRipperCarbideTeeth": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVRipperHeavyDutyChain": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVRipperSilentMotor": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVTriBeamLaserRifleFocusOptics": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVTriBeamLaserRifleHDCapacitors": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVTriBeamLaserRifleHighCapTerminal": {
+        "transform": "weaponMod"
     },
     "NVDLC05WeapFatmanUnique": {
-        "transform": "rocketLauncher"
+        "transform": "brassKnuckles"
     },
     "NVDLC05WeapFlamerUnique": {
         "transform": "flamer"
     },
     "NVDLC05WeapGatlingLaserUnique": {
-        "transform": "default"
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC05WeapKatanaCustom": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC05WeapNVBallisticFistUnique": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC05WeapNVMantisGauntletUnique": {
+        "transform": "mantisGauntletAlt"
+    },
+    "NVDLC05WeapNVRebarClubUnique": {
+        "transform": "meleeWeap"
+    },
+    "NVDLC05WeapPowerFistUnique": {
+        "transform": "deathclawGauntlet"
+    },
+    "NVDLC05WeapShishkebabUnique": {
+        "transform": "meleeWeap"
+    },
+    "WeapBaseballBat": {
+        "transform": "meleeWeap"
+    },
+    "WeapBladedGauntlet": {
+        "transform": "deathclawGauntlet"
+    },
+    "WeapBladedGauntletUnique": {
+        "transform": "deathclawGauntlet"
+    },
+    "WeapBrassKnuckles": {
+        "transform": "steelKnuckles"
+    },
+    "WeapCattleProd": {
+        "transform": "meleeWeap"
+    },
+    "WeapChineseOfficerSword": {
+        "transform": "meleeWeap"
+    },
+    "WeapDCBumperSword": {
+        "transform": "meleeWeap"
+    },
+    "WeapDeathclawGauntlet": {
+        "transform": "deathclawGauntlet"
     },
     "WeapFatman": {
-        "transform": "rocketLauncher"
+        "transform": "brassKnuckles"
     },
     "WeapFlamer": {
         "transform": "flamer"
     },
+    "WeapGatlingLaser": {
+        "transform": "flamer"
+    },
+    "WeapKnife": {
+        "transform": "meleeWeap"
+    },
+    "WeapKnifeCombat": {
+        "transform": "meleeWeap"
+    },
+    "WeapLeadPipe": {
+        "transform": "meleeWeap"
+    },
+    "WeapMinePlasma": {
+        "transform": "mine"
+    },
+    "WeapMinePulse": {
+        "transform": "mine"
+    },
     "WeapMinigun": {
-        "transform": "default"
+        "transform": "deathclawGauntlet"
     },
     "WeapMissileLauncher": {
-        "transform": "rocketLauncher"
+        "transform": "brassKnuckles"
+    },
+    "WeapNV9iron": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVBallisticFist": {
+        "transform": "deathclawGauntlet"
+    },
+    "WeapNVBinoculars": {
+        "transform": "binoculars"
+    },
+    "WeapNVBoxingGloves": {
+        "transform": "flamer"
+    },
+    "WeapNVBoxingGoldenGloves": {
+        "transform": "flamer"
+    },
+    "WeapNVBoxingTape": {
+        "transform": "default"
+    },
+    "WeapNVBumperSword": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVCleaver": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVCleaverUnique": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVDisplacerGlove": {
+        "transform": "deathclawGauntlet"
+    },
+    "WeapNVDisplacerGloveUnique": {
+        "transform": "deathclawGauntlet"
+    },
+    "WeapNVDogTagFist": {
+        "transform": "dogtagFist"
+    },
+    "WeapNVDogTagFistUnique": {
+        "transform": "dogtagFist"
+    },
+    "WeapNVDressCane": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVDriverUnique": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVFireaxe": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVFireaxeUnique": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVHatchet": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVKnifeCombatUnique": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVLeadPipeUnique": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVLegateSword2": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVMachete": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVMacheteDeadSea": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVMacheteGladiator": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVMacheteGladius": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVMantisGauntlet": {
+        "transform": "mantisGauntlet"
     },
     "WeapNVMissileLauncherUnique": {
-        "transform": "rocketLauncher"
+        "transform": "brassKnuckles"
+    },
+    "WeapNVRebarClub": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVStraightRazor": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVStraightRazorUnique": {
+        "transform": "meleeWeap"
     },
     "WeapNVTeslaCannonUnique": {
-        "transform": "rocketLauncher"
+        "transform": "brassKnuckles"
+    },
+    "WeapNVThrowingHatchet": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVThrowingKnife": {
+        "transform": "throwingKnife"
+    },
+    "WeapNVThrowingSpear": {
+        "transform": "meleeWeap"
+    },
+    "WeapNVZapGlove": {
+        "transform": "deathclawGauntlet"
+    },
+    "WeapNVZapGloveUnique": {
+        "transform": "deathclawGauntlet"
+    },
+    "WeapNailBoard": {
+        "transform": "meleeWeap"
+    },
+    "WeapPoliceBaton": {
+        "transform": "meleeWeap"
+    },
+    "WeapPoolCue": {
+        "transform": "meleeWeap"
+    },
+    "WeapPowerFist": {
+        "transform": "powerFist"
+    },
+    "WeapPreordMachete": {
+        "transform": "meleeWeap"
+    },
+    "WeapRipper": {
+        "transform": "ripper"
+    },
+    "WeapRockItLauncher": {
+        "transform": "deathclawGauntlet"
+    },
+    "WeapRollingPin": {
+        "transform": "meleeWeap"
+    },
+    "WeapShishkebab": {
+        "transform": "meleeWeap"
+    },
+    "WeapShovel": {
+        "transform": "meleeWeap"
+    },
+    "WeapSledgehammer": {
+        "transform": "meleeWeap"
+    },
+    "WeapSpikedKnuckles": {
+        "transform": "brassKnuckles"
+    },
+    "WeapSuperSledge": {
+        "transform": "meleeWeap"
+    },
+    "WeapSuperSledgeUnique": {
+        "transform": "meleeWeap"
+    },
+    "WeapSwitchBlade": {
+        "transform": "meleeWeap"
     },
     "WeapTeslaCannon": {
-        "transform": "rocketLauncher"
+        "transform": "brassKnuckles"
+    },
+    "WeapThermicLance": {
+        "transform": "meleeWeap"
+    },
+    "WeapTireIron": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniqueAntSting": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniqueBoardOfEducation": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniqueBreaker": {
+        "transform": "meleeWeap"
     },
     "WeapUniqueBurnmaster": {
         "transform": "flamer"
     },
+    "WeapUniqueButchToothpick": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniqueCloversCleaver": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniqueCursebreaker": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniqueExcalibat": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniqueFawkesSuperSledge": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniqueHighwaymansFriendTireIron": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniqueJundersBrassKnuckles": {
+        "transform": "brassKnuckles"
+    },
+    "WeapUniqueKnifeCombat": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniqueLoveTap": {
+        "transform": "steelKnuckles"
+    },
     "WeapUniqueMIRV": {
-        "transform": "rocketLauncher"
+        "transform": "brassKnuckles"
+    },
+    "WeapUniqueMS18Minigun": {
+        "transform": "deathclawGauntlet"
     },
     "WeapUniqueMissLauncher": {
-        "transform": "rocketLauncher"
+        "transform": "brassKnuckles"
+    },
+    "WeapUniqueOGradysPoliceBaton": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniquePowerFist": {
+        "transform": "powerFist"
+    },
+    "WeapUniqueShocker": {
+        "transform": "powerFist"
+    },
+    "WeapUniqueStabhappy": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniqueTenderizer": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniqueTheBreak": {
+        "transform": "meleeWeap"
+    },
+    "WeapUniqueVancesChineseSword": {
+        "transform": "meleeWeap"
     },
     "WeapUniqueVengeance": {
         "transform": "flamer"
