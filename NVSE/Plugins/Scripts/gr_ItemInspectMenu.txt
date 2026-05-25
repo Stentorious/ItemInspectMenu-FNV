@@ -1,11 +1,11 @@
 ; Item Inspect Menu - Stentorious
 
 ; Check for requirements
-if eval GetNVSEVersionFull < 6.47
+if eval GetNVSEVersionFull < 6.48
 	MessageBoxEx "Item Inspect Menu missing requirement!%rInstall xNVSE 6.4.8+."
 	return
 endif
-if GetPluginVersion "JohnnyGuitarNVSE" < 526
+if GetPluginVersion "JohnnyGuitarNVSE" < 527
 	MessageBoxEx "Item Inspect Menu missing requirement!%rInstall latest JohnnyGuitar NVSE plugin."
 	return
 endif
@@ -43,7 +43,7 @@ SetOnMenuCloseEventHandler (CompileScript "ItemInspectMenu\OnMenuClose.gek") 1 1
 SetEventHandler "ShowOff:OnAdd" (CompileScript "ItemInspectMenu\OnAdd.gek") "second"::Player
 
 ; Debug
-if eval GetINIFloat_Cached "Developer:bDebug" "Stentorious\ItemInspectMenu.ini" 0
+if eval GetINIFloat_Cached "Developer:bDebug" "Stentorious\ItemInspectMenu.ini" 1
 	Goo1.AuxVarSetFlt "*ItemInspectMenu_Dev" (GetINIFloat_Cached "Developer:bShowAllItems" "Stentorious\ItemInspectMenu.ini" 1) 0
 	SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 24	; O
 	SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 25	; P
