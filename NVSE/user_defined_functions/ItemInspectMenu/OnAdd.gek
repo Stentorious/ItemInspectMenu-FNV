@@ -16,18 +16,20 @@ begin Function {ref rItem, ref rActor}
 			AuxVarSetFlt "ItemInspectMenu" 1 0 rBase
 
 			; Add item to queue
-			Goo1.AuxVarSetRef "*ItemInspectMenu_Queue" rBase -1
-
-			; Open inspect menu
-			if eval Goo1.AuxVarType "*ItemInspectMenu_Queue" 1 == 0
-				CallAfterFrames 0 (CompileScript "ItemInspectMenu\ToggleMenu.gek") 1 2
+			if eval Goo1.AuxVarGetRef "*ItemInspectMenu_Queue" -1 != rBase
+				Goo1.AuxVarSetRef "*ItemInspectMenu_Queue" rBase -1
+				if eval Goo1.AuxVarSize "*ItemInspectMenu_Queue" == 1 && Goo1.AuxVarGetFlt "*ItemInspectMenu" 0 == 0
+					CallAfterFrames 0 (CompileScript "ItemInspectMenu\ToggleMenu.gek") 1 2
+				endif
 			endif
 
 		; Show all items
 		elseif eval Goo1.AuxVarGetFlt "*ItemInspectMenu_Dev" 0
-			Goo1.AuxVarSetRef "*ItemInspectMenu_Queue" rBase -1
-			if eval Goo1.AuxVarType "*ItemInspectMenu_Queue" 1 == 0
-				CallAfterFrames 0 (CompileScript "ItemInspectMenu\ToggleMenu.gek") 1 2
+			if eval Goo1.AuxVarGetRef "*ItemInspectMenu_Queue" -1 != rBase
+				Goo1.AuxVarSetRef "*ItemInspectMenu_Queue" rBase -1
+				if eval Goo1.AuxVarSize "*ItemInspectMenu_Queue" == 1 && Goo1.AuxVarGetFlt "*ItemInspectMenu" 0 == 0
+					CallAfterFrames 0 (CompileScript "ItemInspectMenu\ToggleMenu.gek") 1 2
+				endif
 			endif
 		endif
 	endif

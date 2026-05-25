@@ -49,7 +49,7 @@ begin Function {iToggle}
 		Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 0
 
 		; Item queue
-		if eval Goo1.AuxVarType "*ItemInspectMenu_Queue" 0 == 2 && iMenuID != 1013
+		if eval Goo1.AuxVarSize "*ItemInspectMenu_Queue" > 0 && iMenuID != 1013
 			CallAfterFrames 0 (CompileScript "ItemInspectMenu\ToggleMenu.gek") 2 2
 		else
 			; Reset controls
@@ -79,8 +79,13 @@ begin Function {iToggle}
 
 	; Get item ref
 	; Item queue
-	if eval Goo1.AuxVarType "*ItemInspectMenu_Queue" 0 == 2
-		rItem = Player.GetFirstRefForItem (Goo1.AuxVarGetRef "*ItemInspectMenu_Queue" 0)
+	if eval Goo1.AuxVarSize "*ItemInspectMenu_Queue" > 0
+		; Find valid ref
+		while (rItem = Player.GetFirstRefForItem (Goo1.AuxVarGetRef "*ItemInspectMenu_Queue" 0)) == 0 && Goo1.AuxVarErase "*ItemInspectMenu_Queue" 0 > 0
+		loop
+		if eval IsReference rItem == 0
+			return
+		endif
 		Goo1.AuxVarErase "*ItemInspectMenu_Queue" 0
 		PlaySound UIPopUpExperienceUp 1
 	else
@@ -103,6 +108,7 @@ begin Function {iToggle}
 		fRotY = aTransform["y"]
 		fRotZ = aTransform["z"]
 		iRotation = 1
+		aTransform = ar_Null
 	endif
 
 	InsertNode rCamera 3 "ItemInspectMenu"
@@ -169,9 +175,9 @@ begin Function {iToggle}
 	; Apply starting rotation
 	if eval iRotation == 0
 		if eval iType == 40
-			fRotX = -90
+			fRotX = 90
 			fRotY = 0
-			fRotZ = 0
+			fRotZ = 180
 		else
 			fRotX = -15
 			fRotY = 0

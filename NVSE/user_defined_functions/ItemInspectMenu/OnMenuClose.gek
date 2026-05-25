@@ -6,7 +6,7 @@ begin Function {iMenuID}
 	if eval iMenuID == 1059 && Goo1.AuxVarGetFlt "*ItemInspectMenu" 0 > 0
 		Call (CompileScript "ItemInspectMenu\ToggleMenu.gek")
 	elseif iMenuID == 1013 && GetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Init" == 1
-		if eval Goo1.AuxVarType "*ItemInspectMenu_Queue" 0 == 2
+		if eval Goo1.AuxVarSize "*ItemInspectMenu_Queue" > 0
 			CallAfterFrames 0 (CompileScript "ItemInspectMenu\ToggleMenu.gek") 2 2
 			return
 		endif
