@@ -278,6 +278,12 @@
     "DLC05WeapMineCryo": {
         "transform": "mine"
     },
+    "DLC05WeapRobotCannon": {
+        "transform": "droneCannon"
+    },
+    "DLC05WeapRobotCannonUnique": {
+        "transform": "droneCannon"
+    },
     "DLC05WeapSamuraiSword": {
         "transform": "meleeWeap"
     },
