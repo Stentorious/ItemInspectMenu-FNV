@@ -683,6 +683,9 @@
     "WeapNVBumperSword": {
         "transform": "meleeWeap"
     },
+    "WeapNVChainsaw": {
+        "transform": "chainsaw"
+    },
     "WeapNVCleaver": {
         "transform": "meleeWeap"
     },
@@ -696,10 +699,10 @@
         "transform": "deathclawGauntlet"
     },
     "WeapNVDogTagFist": {
-        "transform": "dogtagFist"
+        "transform": "steelKnuckles"
     },
     "WeapNVDogTagFistUnique": {
-        "transform": "dogtagFist"
+        "transform": "steelKnuckles"
     },
     "WeapNVDressCane": {
         "transform": "meleeWeap"
@@ -745,6 +748,9 @@
     },
     "WeapNVRebarClub": {
         "transform": "meleeWeap"
+    },
+    "WeapNVSpikedKnucklesUnique": {
+        "transform": "book"
     },
     "WeapNVStraightRazor": {
         "transform": "meleeWeap"
