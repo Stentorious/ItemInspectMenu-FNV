@@ -103,21 +103,30 @@ Begin Function {sTimerName, rOwnerForm, fTimeDelta}
 
 	if eval fInputX != 0 || fInputY != 0
 
-		; Get initial quaternion
-		rCamera.GetNifBlockRotationAlt "ItemInspectMenu" (fRotX) (fRotY) (fRotZ) 2
-		QFromEEx (fQuatW) (fQuatX) (fQuatY) (fQuatZ) fRotX fRotY fRotZ 0
+		; Get cached quaternion
+		fQuatW = Goo1.AuxVarGetFlt "*ItemInspectMenu_Quat" 0
+		fQuatX = Goo1.AuxVarGetFlt "*ItemInspectMenu_Quat" 1
+		fQuatY = Goo1.AuxVarGetFlt "*ItemInspectMenu_Quat" 2
+		fQuatZ = Goo1.AuxVarGetFlt "*ItemInspectMenu_Quat" 3
 
-		; Create delta quaternions
+		; Create input delta quaternion
 		QFromAAEx (fDeltaW) (fDeltaX) (fDeltaY) (fDeltaZ) 0 0 1 (fInputX * fSensitivity)
 		QFromAAEx (fDeltaW_Y) (fDeltaX_Y) (fDeltaY_Y) (fDeltaZ_Y) 1 0 0 (fInputY * fSensitivity)
 		QMultQEx (fDeltaW) (fDeltaX) (fDeltaY) (fDeltaZ) fDeltaW_Y fDeltaX_Y fDeltaY_Y fDeltaZ_Y fDeltaW fDeltaX fDeltaY fDeltaZ
 
-		; Apply the delta to original orientation
+		; Apply input to orientation
 		QMultQEx (fQuatW) (fQuatX) (fQuatY) (fQuatZ) fQuatW fQuatX fQuatY fQuatZ fDeltaW fDeltaX fDeltaY fDeltaZ
+		QNormalizeEx (fQuatW) (fQuatX) (fQuatY) (fQuatZ) fQuatW fQuatX fQuatY fQuatZ
 
-		; Convert back and apply
+		; Convert to euler and apply to node
 		QToEEx (fRotX) (fRotY) (fRotZ) fQuatW fQuatX fQuatY fQuatZ 0
 		rCamera.SetNifRot "ItemInspectMenu" fRotX fRotY fRotZ 2
+
+		; Update quaternion
+		Goo1.AuxVarSetFlt "*ItemInspectMenu_Quat" fQuatW 0
+		Goo1.AuxVarSetFlt "*ItemInspectMenu_Quat" fQuatX 1
+		Goo1.AuxVarSetFlt "*ItemInspectMenu_Quat" fQuatY 2
+		Goo1.AuxVarSetFlt "*ItemInspectMenu_Quat" fQuatZ 3
 
 	endif
 

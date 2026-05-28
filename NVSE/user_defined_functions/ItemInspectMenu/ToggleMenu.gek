@@ -7,6 +7,10 @@ int iPosition
 float fRotX
 float fRotY
 float fRotZ
+float fQuatW
+float fQuatX
+float fQuatY
+float fQuatZ
 float fPosX
 float fPosY
 float fPosZ
@@ -203,7 +207,14 @@ begin Function {iToggle}
 			fRotZ = 106
 		endif
 	endif
-	rCamera.SetNifRot "ItemInspectMenu" fRotX fRotY fRotZ
+	rCamera.SetNifRot "ItemInspectMenu" fRotX fRotY fRotZ 2
+
+	; Cache starting quat
+	QFromEEx (fQuatW) (fQuatX) (fQuatY) (fQuatZ) fRotX fRotY fRotZ 0
+	Goo1.AuxVarSetFlt "*ItemInspectMenu_Quat" fQuatW 0
+	Goo1.AuxVarSetFlt "*ItemInspectMenu_Quat" fQuatX 1
+	Goo1.AuxVarSetFlt "*ItemInspectMenu_Quat" fQuatY 2
+	Goo1.AuxVarSetFlt "*ItemInspectMenu_Quat" fQuatZ 3
 
 	; Update player controls
 	DK 1				; ESC
@@ -249,6 +260,11 @@ begin Function {iToggle}
 	SetUIFloatAlt "TutorialMenu\ItemInspectMenu\Controls\Zoom\xbox_button\visible" 0
 	SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Init" 1
 	SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" 1
+
+	; Item card
+	if eval GetUIFloatAlt "TutorialMenu\ItemInspectMenu\ItemCard\visible" != -999
+		Call (CompileScript "ItemCards\ItemInspectMenu.gek") rItem
+	endif
 
 	; Item description
 
