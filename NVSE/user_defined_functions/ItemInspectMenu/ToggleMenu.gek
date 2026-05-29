@@ -144,16 +144,16 @@ begin Function {iToggle}
 
 	; Default biped model rotation
 	else
-		iRotation = 1
 		if eval (GetBit (GetEquipmentSlotsMask rBase) 2)
-			fRotX = -60
-			fRotY = -10
-			fRotZ = -110
+			fRotX = 20
+			fRotY = -55
+			fRotZ = 55
 		else
 			fRotX = -20
 			fRotY = -5
 			fRotZ = 160
 		endif
+		iRotation = 1
 	endif
 
 	; Attach mesh
@@ -202,9 +202,9 @@ begin Function {iToggle}
 			fRotY = 0
 			fRotZ = 180
 		else
-			fRotX = -15
-			fRotY = 0
-			fRotZ = 106
+			fRotX = -10
+			fRotY = -10
+			fRotZ = 130
 		endif
 	endif
 	rCamera.SetNifRot "ItemInspectMenu" fRotX fRotY fRotZ 2
@@ -261,8 +261,8 @@ begin Function {iToggle}
 	SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Init" 1
 	SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" 1
 
-	; Item card
-	if eval GetUIFloatAlt "TutorialMenu\ItemInspectMenu\ItemCard\visible" != -999
+	; Item Cards support
+	if eval Goo1.AuxVarGetFlt "*ItemCard_INI" 6
 		Call (CompileScript "ItemCards\ItemInspectMenu.gek") rItem
 	endif
 
