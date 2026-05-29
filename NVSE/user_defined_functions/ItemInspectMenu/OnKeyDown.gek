@@ -23,7 +23,7 @@ begin Function {iKeyID}
 	if eval iKeyID == Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 0
 		rItem = GetSelectedItemRef
 		aTemp = Ar_List 1002 1008 1053
-		if eval IsReference rItem && MenuMode iMenuID == 1 && MenuMode 1059 == 0 && (Ar_Find iMenuID aTemp) != Ar_BadNumericIndex
+		if eval IsReference rItem && (HasKeyword rItem "ItemInspectMenuBlacklist") == 0 && MenuMode iMenuID == 1 && MenuMode 1059 == 0 && (Ar_Find iMenuID aTemp) != Ar_BadNumericIndex
 			Goo1.AuxVarSetRef "*ItemInspectMenu" rItem 1
 			Call (CompileScript "ItemInspectMenu\ToggleMenu.gek") 1
 		endif

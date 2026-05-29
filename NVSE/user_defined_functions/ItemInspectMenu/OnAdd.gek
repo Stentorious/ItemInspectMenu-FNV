@@ -7,7 +7,7 @@ begin Function {ref rItem, ref rActor}
 
 	if eval IsReference (rItem = GetAddedItemRefShowOff)
 		rBase = rItem.GBO
-		if eval (AuxVarGetFlt "*ItemInspectMenu" 1 rBase || (rItem.IsQuestItem && Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 7) || (IsItemUnique rBase && Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 8))
+		if eval (AuxVarGetFlt "*ItemInspectMenu" 1 rBase || (rItem.IsQuestItem && Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 7) || (IsItemUnique rBase && Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 8)) && (HasKeyword rBase "ItemInspectMenuBlacklist") == 0
 
 			; Is first time pickup
 			if eval AuxVarGetFlt "ItemInspectMenu" 0 rBase
@@ -24,7 +24,7 @@ begin Function {ref rItem, ref rActor}
 			endif
 
 		; Show all items
-		elseif eval Goo1.AuxVarGetFlt "*ItemInspectMenu_Dev" 0
+		elseif eval Goo1.AuxVarGetFlt "*ItemInspectMenu_Dev" 0 && (HasKeyword rItem "ItemInspectMenuBlacklist") == 0
 			if eval Goo1.AuxVarGetRef "*ItemInspectMenu_Queue" -1 != rBase
 				Goo1.AuxVarSetRef "*ItemInspectMenu_Queue" rBase -1
 				if eval Goo1.AuxVarSize "*ItemInspectMenu_Queue" == 1 && Goo1.AuxVarGetFlt "*ItemInspectMenu" 0 == 0
