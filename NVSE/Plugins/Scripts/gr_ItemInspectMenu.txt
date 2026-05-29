@@ -13,6 +13,11 @@ if GetPluginVersion "ShowOffNVSE Plugin" < 145
 	MessageBoxEx "Item Inspect Menu missing requirement!%rInstall latest ShowOff NVSE plugin."
 	return
 endif
+;if GetPluginVersion "NewVegasReloaded" > -1 && GetPluginVersion "NewVegasReloaded" < 440
+;	MessageBoxEx "Item Inspect Menu incompatibility detected!%rInstall latest New Vegas Reloaded plugin."
+;	return
+;endif
+
 
 ; Load INI settings
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:iKeyBind" "Stentorious\ItemInspectMenu.ini" 20) 0
@@ -94,7 +99,6 @@ string_var sJSONPath
 array_var aFiles = GetFiles "ItemInspectMenu" "*.json"
 if eval (iSize = ar_Size aFiles) > 0
 
-	PrintC "Item Inspect Menu: Loading item profiles..."
 	aFiles = Ar_Sort aFiles 1
 
 	while (iSize -= 1) > -1
@@ -117,6 +121,12 @@ if eval (iSize = ar_Size aFiles) > 0
 				endif
 				aTemp = *aForE
 
+				; Inspect blacklist
+				if eval ar_HasKey aTemp "blacklist"
+					AssignKeyword rItem "ItemInspectMenuBlacklist"
+					continue
+				endif
+
 				; Transform
 				if eval ar_HasKey aTemp "transform"
 					AuxVarSetStr "*ItemInspectMenu" (aTemp["transform"]) 0 rItem
@@ -134,6 +144,9 @@ if eval (iSize = ar_Size aFiles) > 0
 					; First pick-up
 					if eval ar_HasKey aTemp["description"] "first"
 						AuxVarSetStr "*ItemInspectMenu" (aTemp["description"]["first"]) 3 rItem
+						if eval (rItem = EditorIDToFormID (aTemp["description"]["first"]))
+							SetMessageDisabled rItem 1
+						endif
 					endif
 				endif
 
@@ -153,7 +166,6 @@ aTemp = ar_Null
 aTemp = ar_Construct "stringmap"
 if eval (iSize = ar_Size aFiles) > 0
 
-	PrintC "Item Inspect Menu: Loading item transforms..."
 	aFiles = Ar_Sort aFiles 1
 
 	while (iSize -= 1) > -1
