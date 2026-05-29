@@ -1,4 +1,52 @@
 {
+    "AmmoElectronChargePack": {
+        "transform": "micro"
+    },
+    "AmmoElectronChargePackBulk": {
+        "transform": "micro"
+    },
+    "AmmoElectronChargePackMaxCharge": {
+        "transform": "micro"
+    },
+    "AmmoElectronChargePackOverCharge": {
+        "transform": "micro"
+    },
+    "AmmoMicroFusionCell": {
+        "transform": "micro"
+    },
+    "AmmoMicroFusionCellBulk": {
+        "transform": "micro"
+    },
+    "AmmoMicroFusionCellMaxCharge": {
+        "transform": "micro"
+    },
+    "AmmoMicroFusionCellOverCharge": {
+        "transform": "micro"
+    },
+    "AmmoNVDLC04Rocket": {
+        "transform": "energyCell"
+    },
+    "AmmoNVDLC04RocketHE": {
+        "transform": "energyCell"
+    },
+    "AmmoNVDLC04RocketIncendiary": {
+        "transform": "energyCell"
+    },
+    "AmmoSmallEnergyCell": {
+        "transform": "energyCell"
+    },
+    "AmmoSmallEnergyCellBulk": {
+        "transform": "energyCell"
+    },
+    "AmmoSmallEnergyCellMaxCharge": {
+        "transform": "energyCell"
+    },
+    "AmmoSmallEnergyCellOverCharge": {
+        "transform": "energyCell"
+    },
+    "BloodPack": {
+        "transform": "book"
+    },
     "BobbleheadAGL": {
         "description": {
             "default": "BobbleheadAGLMessage",
@@ -209,6 +257,9 @@
     "BookSkillUnarmed": {
         "transform": "book"
     },
+    "Buffout": {
+        "transform": "nukaCola"
+    },
     "DLC01UniqueWeapAutoAxe": {
         "transform": "meleeWeap"
     },
@@ -290,8 +341,32 @@
     "DLC05WeapSpanner": {
         "transform": "meleeWeap"
     },
+    "IrradiatedSSBottleFull": {
+        "transform": "nukaCola"
+    },
+    "IrradiatedScotch": {
+        "transform": "nukaCola"
+    },
+    "IrradiatedWhiskey": {
+        "transform": "nukaCola"
+    },
     "MS03Repellent": {
         "transform": "meleeWeap"
+    },
+    "MS05IceNukaCola": {
+        "transform": "nukaCola"
+    },
+    "MS05NukaColaQtm": {
+        "transform": "nukaCola"
+    },
+    "MS15Mentat01": {
+        "transform": "book"
+    },
+    "MS15Mentat02": {
+        "transform": "book"
+    },
+    "MS15Mentat03": {
+        "transform": "book"
     },
     "MagazineNVBarter": {
         "transform": "book"
@@ -335,7 +410,100 @@
     "MagazineNVUnarmed": {
         "transform": "book"
     },
+    "ModNV10mmPistolExtMags": {
+        "transform": "weaponMod"
+    },
+    "ModNV10mmPistolLaserSight": {
+        "transform": "weaponMod"
+    },
+    "ModNV10mmPistolSilencer": {
+        "transform": "weaponMod"
+    },
+    "ModNV10mmSMGExtMags": {
+        "transform": "weaponMod"
+    },
+    "ModNV10mmSMGRecoilCompensator": {
+        "transform": "weaponMod"
+    },
+    "ModNV127mmPistolSilencer": {
+        "transform": "weaponMod"
+    },
+    "ModNV127mmSubmachinegunSilencer": {
+        "transform": "weaponMod"
+    },
+    "ModNV357RevolverHDCylinder": {
+        "transform": "weaponMod"
+    },
+    "ModNV357RevolverLongBarrel": {
+        "transform": "weaponMod"
+    },
+    "ModNV44RevolverHeavyFrame": {
+        "transform": "weaponMod"
+    },
+    "ModNV44RevolverScope": {
+        "transform": "weaponMod"
+    },
+    "ModNV9mmPistolExtMags": {
+        "transform": "weaponMod"
+    },
+    "ModNV9mmPistolScope": {
+        "transform": "weaponMod"
+    },
+    "ModNV9mmSMGDrums": {
+        "transform": "weaponMod"
+    },
+    "ModNV9mmSMGLightBolt": {
+        "transform": "weaponMod"
+    },
+    "ModNVAssaultCarbineExtMags": {
+        "transform": "weaponMod"
+    },
+    "ModNVBrushGunForgedReceiver": {
+        "transform": "weaponMod"
+    },
+    "ModNVCowboyRepeaterCustomAction": {
+        "transform": "weaponMod"
+    },
+    "ModNVCowboyRepeaterLongTube": {
+        "transform": "weaponMod"
+    },
+    "ModNVCowboyRepeaterMapleStock": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC01AutoRifleUpgradedInternals": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC01BearTrapFistHeavyDutySprings": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC01HolorifleAdvancedCalibration": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC01HolorifleFocusOptics": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC01HolorifleReinforced": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC0245AutoPistolHDSlide": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC0245AutoPistolSights": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC0245AutoPistolSilencer": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC0245AutoSubmachinegunCompensator": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC0245AutoSubmachinegunDrums": {
+        "transform": "weaponMod"
+    },
     "ModNVDLC02WarClubCasing": {
+        "transform": "weaponMod"
+    },
+    "ModNVDLC02WarClubHonors": {
         "transform": "weaponMod"
     },
     "ModNVDLC04RedGlareAlphaStrike": {
@@ -354,6 +522,57 @@
         "transform": "weaponMod"
     },
     "ModNVDLC04SMMGRecoilCompensator": {
+        "transform": "weaponMod"
+    },
+    "ModNVFatManLittleBoyKit": {
+        "transform": "weaponMod"
+    },
+    "ModNVFlamerExpandedTanks": {
+        "transform": "weaponMod"
+    },
+    "ModNVGatlingLaserCFFrame": {
+        "transform": "weaponMod"
+    },
+    "ModNVGatlingLaserFocusOptics": {
+        "transform": "weaponMod"
+    },
+    "ModNVGrenadeMachinegunHSKit": {
+        "transform": "weaponMod"
+    },
+    "ModNVGrenadeRifleLongBarrel": {
+        "transform": "weaponMod"
+    },
+    "ModNVHuntingRifleCustomAction": {
+        "transform": "weaponMod"
+    },
+    "ModNVHuntingRifleExtMag": {
+        "transform": "weaponMod"
+    },
+    "ModNVHuntingRifleScope": {
+        "transform": "weaponMod"
+    },
+    "ModNVHuntingShotgunChoke": {
+        "transform": "weaponMod"
+    },
+    "ModNVHuntingShotgunLongTube": {
+        "transform": "weaponMod"
+    },
+    "ModNVLaserRCWRecycler": {
+        "transform": "weaponMod"
+    },
+    "ModNVLaserRifleBeamSplitter": {
+        "transform": "weaponMod"
+    },
+    "ModNVLaserRifleFocusOptics": {
+        "transform": "weaponMod"
+    },
+    "ModNVLaserRifleScope": {
+        "transform": "weaponMod"
+    },
+    "ModNVLightMGExpandedDrums": {
+        "transform": "weaponMod"
+    },
+    "ModNVMarksmanCarbineExtMags": {
         "transform": "weaponMod"
     },
     "ModNVMinigunDampedSubframe": {
@@ -416,11 +635,77 @@
     "ModNVVarmintRifleSilencer": {
         "transform": "weaponMod"
     },
+    "ModTTW32HuntingRifleExtMag": {
+        "transform": "weaponMod"
+    },
+    "ModTTW32HuntingRifleLongBarrel": {
+        "transform": "weaponMod"
+    },
+    "ModTTW32PistolLightAction": {
+        "transform": "weaponMod"
+    },
+    "ModTTW32RevolverBarrel": {
+        "transform": "weaponMod"
+    },
+    "ModTTWAssaultRifleBarrel": {
+        "transform": "weaponMod"
+    },
+    "ModTTWAssaultRifleDrums": {
+        "transform": "weaponMod"
+    },
+    "ModTTWChinesePistoRifledBarrel": {
+        "transform": "weaponMod"
+    },
+    "ModTTWChinesePistolBluing": {
+        "transform": "weaponMod"
+    },
+    "ModTTWChinesePistolExtendedMagazine": {
+        "transform": "weaponMod"
+    },
+    "ModTTWChineseRifleBarrel": {
+        "transform": "weaponMod"
+    },
+    "ModTTWChineseRifleForgedReceiver": {
+        "transform": "weaponMod"
+    },
+    "ModTTWCombatShotgunParts": {
+        "transform": "weaponMod"
+    },
+    "ModTTWCombatShotgunSights": {
+        "transform": "weaponMod"
+    },
+    "ModTTWCombatShotgunStock": {
+        "transform": "weaponMod"
+    },
+    "ModTTWDLC04RifleParts": {
+        "transform": "weaponMod"
+    },
+    "ModTTWDLC04RifleSights": {
+        "transform": "weaponMod"
+    },
+    "ModTTWDLC04ShotgunChoke": {
+        "transform": "weaponMod"
+    },
+    "ModTTWDLC04ShotgunStock": {
+        "transform": "weaponMod"
+    },
+    "ModTTWInfiltratorLaserSight": {
+        "transform": "weaponMod"
+    },
+    "ModTTWInfiltratorStock": {
+        "transform": "weaponMod"
+    },
     "ModTTWSilencedPistolFastTrigger": {
         "transform": "weaponMod"
     },
     "NVCamera": {
         "transform": "camera"
+    },
+    "NVCateye": {
+        "transform": "nukaCola"
+    },
+    "NVDLC01SierraMadreMartini": {
+        "transform": "nukaCola"
     },
     "NVDLC01WeapBearTrapFist": {
         "transform": "deathclawGauntlet"
@@ -443,6 +728,12 @@
     "NVDLC01WeapThrowingKnifeSpear": {
         "transform": "meleeWeap"
     },
+    "NVDLC02WastelandTequila": {
+        "transform": "nukaCola"
+    },
+    "NVDLC02WastelandTequilaLarge": {
+        "transform": "nukaCola"
+    },
     "NVDLC02WeapPowerFistUnique": {
         "transform": "deathclawGauntlet"
     },
@@ -457,6 +748,18 @@
     },
     "NVDLC02WeapYaoGuaiGauntletUnique": {
         "transform": "deathclawGauntlet"
+    },
+    "NVDLC03ModK9000MentatChow": {
+        "transform": "weaponMod"
+    },
+    "NVDLC03ModK9000ReslaRoil": {
+        "transform": "weaponMod"
+    },
+    "NVDLC03ModLAERAuxRecharger": {
+        "transform": "weaponMod"
+    },
+    "NVDLC03ModLAERPrismLens": {
+        "transform": "weaponMod"
     },
     "NVDLC03WeapAntenna": {
         "transform": "meleeWeap"
@@ -503,6 +806,12 @@
     "NVDLC03WeapTeslaCannonUniqueElijah": {
         "transform": "brassKnuckles"
     },
+    "NVDLC04AutoInjectStimpak": {
+        "transform": "nukaCola"
+    },
+    "NVDLC04AutoInjectSuperStimpak": {
+        "transform": "nukaCola"
+    },
     "NVDLC04WeapArcWelder": {
         "transform": "deathclawGauntlet"
     },
@@ -535,6 +844,87 @@
     },
     "NVDLC04WeapSatchelCharge": {
         "transform": "mine"
+    },
+    "NVDLC05AmmoElectronChargePackOptimized": {
+        "transform": "micro"
+    },
+    "NVDLC05AmmoMicroFusionCellOptimized": {
+        "transform": "micro"
+    },
+    "NVDLC05AmmoSmallEnergyCellOptimized": {
+        "transform": "energyCell"
+    },
+    "NVDLC05ModNV127mmSMGLaserSight": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNV127mmSMGStackedMagazine": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNV25mmGrenadeAPWExpandedDrum": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNV25mmGrenadeAPWLongBarrel": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNV25mmGrenadeAPWUpgradedInternals": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVAntiMaterielRifleCarbonFiberParts": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVAntiMaterielRifleCustomBolt": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVAntiMaterielRifleSuppressor": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVAssaultCarbineForgedReceiver": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVAssaultCarbineLightBolt": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVBaseballBatCorkCore": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVBaseballBatMapleBody": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVBaseballBatNails": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVChainsawAlloyFrame": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVChainsawCarbideTeeth": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVChainsawHeavyDutyChain": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVHuntingRevolverMatchBarrel": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVHuntingRevolverScope": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVHuntingRevolverSixShotCylinder": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVKatanaAuthenticBlade": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVKatanaBalancedGrip": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVKatanaProtectiveSheath": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVLaserPistolFocusOptics": {
+        "transform": "weaponMod"
+    },
+    "NVDLC05ModNVLaserPistolRecycler": {
+        "transform": "weaponMod"
     },
     "NVDLC05ModNVPlasmaDefenderHighCapTerminal": {
         "transform": "weaponMod"
@@ -607,6 +997,39 @@
     },
     "NVDLC05WeapShishkebabUnique": {
         "transform": "meleeWeap"
+    },
+    "NVFixer": {
+        "transform": "book"
+    },
+    "NVNukaColaQuartz": {
+        "transform": "nukaCola"
+    },
+    "NVNukaColaVictory": {
+        "transform": "nukaCola"
+    },
+    "NVReboundChem": {
+        "transform": "book"
+    },
+    "NukaCola": {
+        "transform": "nukaCola"
+    },
+    "PartyTimeMentats": {
+        "transform": "book"
+    },
+    "RadAway": {
+        "transform": "book"
+    },
+    "RumNukaCola": {
+        "transform": "nukaCola"
+    },
+    "SSBottleFull": {
+        "transform": "nukaCola"
+    },
+    "Scotch": {
+        "transform": "nukaCola"
+    },
+    "ScotchGood": {
+        "transform": "nukaCola"
     },
     "WeapBaseballBat": {
         "transform": "meleeWeap"
@@ -901,5 +1324,11 @@
     },
     "WeapUniqueVengeance": {
         "transform": "flamer"
+    },
+    "Whiskey": {
+        "transform": "nukaCola"
+    },
+    "WhiskeyDixon": {
+        "transform": "nukaCola"
     }
 }
