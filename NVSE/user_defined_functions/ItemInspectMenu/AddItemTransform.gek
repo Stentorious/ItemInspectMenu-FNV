@@ -7,7 +7,7 @@ array_var aEntry
 begin Function {sTransform}
 
 	rCamera = Goo1.AuxVarGetRef "*ItemInspectMenu" 6
-	aTransform = rCamera.GetNifRot "ItemInspectMenu"
+	aTransform = rCamera.GetNifRot "ItemInspectMenu" 2
 	aEntry = Ar_Map "rotation"::(Ar_Map "x"::(Flr (aTransform[0] + 0.5)) "y"::(Flr (aTransform[1] + 0.5)) "z"::(Flr (aTransform[2] + 0.5)))
 	WriteToJSON (aEntry) "Data\ItemInspectMenu\Transforms\_Default.json" ("/" + (sTransform)) 0 1 1
 	WriteToJSON (aEntry) "Data\ItemInspectMenu\_Cache\Transforms.json" ("/" + (sTransform)) 0 1 0

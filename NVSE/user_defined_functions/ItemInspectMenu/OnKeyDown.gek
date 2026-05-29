@@ -65,13 +65,10 @@ begin Function {iKeyID}
 			rCamera.SetNifTrans "ItemInspectMenu" 0 (Clamp fPosY ((Goo1.AuxVarGetFlt "*ItemInspectMenu" 2) - 10) ((Goo1.AuxVarGetFlt "*ItemInspectMenu" 2) + 20)) 0
 		endif
 
-	;elseif eval iKeyID == 203
-	;elseif eval iKeyID == 205
-
 	; Update item transform
 	elseif eval iKeyID == 24
 		rCamera = Goo1.AuxVarGetRef "*ItemInspectMenu" 6
-		aTemp = rCamera.GetNifRot "ItemInspectMenu"
+		aTemp = rCamera.GetNifRot "ItemInspectMenu" 2
 		aTemp = Ar_Map "x"::(Flr (aTemp[0] + 0.5)) "y"::(Flr (aTemp[1] + 0.5)) "z"::(Flr (aTemp[2] + 0.5))
 		array_var aTransforms = ReadFromJSON "Data\ItemInspectMenu\_Cache\Transforms.json" ("") 0 1
 
