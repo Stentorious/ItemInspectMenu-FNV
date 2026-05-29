@@ -1,7 +1,6 @@
 ﻿<_ItemInspectMenu+Controls> <copy src="sibling(HUDMainMenu)" trait="_ItemInspectMenu+Controls" /> </_ItemInspectMenu+Controls>
 <_ItemInspectMenu+Name> <copy src="sibling(HUDMainMenu)" trait="_ItemInspectMenu+Name" /> </_ItemInspectMenu+Name>
 <_ItemInspectMenu+Description> <copy src="sibling(HUDMainMenu)" trait="_ItemInspectMenu+Description" /> </_ItemInspectMenu+Description>
-<_ItemInspectMenu+Stats> <copy src="sibling(HUDMainMenu)" trait="_ItemInspectMenu+Stats" /> </_ItemInspectMenu+Stats>
 <_ItemInspectMenu+Vignette> <copy src="sibling(HUDMainMenu)" trait="_ItemInspectMenu+Vignette" /> </_ItemInspectMenu+Vignette>
 <_ItemInspectMenu+Init> 0 </_ItemInspectMenu+Init>
 <_ItemInspectMenu+Enabled> 0 </_ItemInspectMenu+Enabled>
@@ -18,7 +17,7 @@
 		</x>
 		<y> 75 </y>
 		<justify> &center; </justify>
-		<font> 1 </font>
+		<font> 7 </font>
 		<zoom> 150 </zoom>
 		<string></string>
 	</text>
@@ -50,7 +49,6 @@
 			<add src="child(Exit)" trait="height" />
 		</_height>
 		<_systemcolor> 1 </_systemcolor>
-		<_font> 7 </_font>
 
 		<visible> <copy src="io()" trait="_ItemInspectMenu+Controls" /> </visible>
 		<locus> 1 </locus>

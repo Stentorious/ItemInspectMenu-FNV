@@ -17,90 +17,11 @@
 			"enable": 1,
 			"options": {
 				"1": {
-					"title": "$General",
-					"enable": 1,
-					"type": 0
-				},
-				"3": {
-					"title": "$QuestItems",
-					"type": 5,
-					"enable": 1,
-					"mouse": "$QuestItemsHelp",
-					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 7, "configINI": "General:bQuestItems", "default": 1 } ]
-				},
-				"5": {
-					"title": "$UniqueItems",
-					"type": 5,
-					"enable": 1,
-					"mouse": "$UniqueItemsHelp",
-					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 8, "configINI": "General:bUniqueItems", "default": 1 } ]
-				},
-
-				"9": {
-					"title": "$Controls",
-					"enable": 1,
-					"type": 0
-				},
-				"11": {
-					"title": "$Keybind",
-					"enable": 1,
-					"type": 3,
-					"mouse": "$KeybindHelp",
-					"vars": [{ "configINI": "Controls:iKeyBind", "default": 20 }],
-					"call": { "type": "file", "value": "ItemInspectMenu/MCMExtender/UpdateOption.gek" }
-				},
-				"13": {
-					"title": "$InertiaFriction",
-					"type": 2.5,
-					"enable": 1,
-					"suffix": "x",
-					"mouse": "$InertiaFrictionHelp",
-					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 6, "configINI": "Controls:fInertiaFriction", "default": 1 } ],
-					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0, "valueMax": 2 }
-				},
-				"15": {
-					"title": "$RotationSensitivityMouse",
-					"type": 2.5,
-					"enable": 1,
-					"suffix": "x",
-					"mouse": "$RotationSensitivityHelp",
-					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 1, "configINI": "Controls:fSensitivityRotationMouse", "default": 1 } ],
-					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
-				},
-				"17": {
-					"title": "$RotationSensitivityController",
-					"type": 2.5,
-					"enable": 1,
-					"suffix": "x",
-					"mouse": "$RotationSensitivityHelp",
-					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 2, "configINI": "Controls:fSensitivityRotationController", "default": 1 } ],
-					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
-				},
-				"19": {
-					"title": "$ZoomSensitivityMouse",
-					"type": 2.5,
-					"enable": 1,
-					"suffix": "x",
-					"mouse": "$ZoomSensitivityHelp",
-					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 3, "configINI": "Controls:fSensitivityZoomMouse", "default": 1 } ],
-					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
-				},
-				"21": {
-					"title": "$ZoomSensitivityController",
-					"type": 2.5,
-					"enable": 1,
-					"suffix": "x",
-					"mouse": "$ZoomSensitivityHelp",
-					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 4, "configINI": "Controls:fSensitivityZoomController", "default": 1 } ],
-					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
-				},
-
-				"2": {
 					"title": "$Menu",
 					"enable": 1,
 					"type": 0
 				},
-				"4": {
+				"3": {
 					"title": "$CameraType",
 					"type": 6,
 					"enable": 1,
@@ -110,35 +31,35 @@
 					"textOn": "$Orthographic",
 					"call": { "type": "file", "value": "ItemInspectMenu/MCMExtender/UpdateOption.gek" }
 				},
-				"6": {
+				"5": {
 					"title": "$ShowItemName",
 					"enable": 1,
 					"type": 5,
 					"mouse": "$ShowItemNameHelp",
 					"vars": [ { "uiTrait": "HUDMainMenu/_ItemInspectMenu+Name", "configINI": "Menu:bShowItemName", "default": 1 } ]
 				},
-				"8": {
-					"title": "$ShowItemStats",
+				"7": {
+					"title": "$ShowItemDescription",
 					"enable": 1,
 					"type": 5,
-					"mouse": "$ShowItemStatsHelp",
-					"vars": [ { "uiTrait": "HUDMainMenu/_ItemInspectMenu+Stats", "configINI": "Menu:bShowItemStats", "default": 1 } ]
+					"mouse": "$ShowItemDescriptionHelp",
+					"vars": [ { "uiTrait": "HUDMainMenu/_ItemInspectMenu+Description", "configINI": "Menu:bShowItemDescription", "default": 1 } ]
 				},
-				"10": {
+				"9": {
 					"title": "$ShowMenuControls",
 					"enable": 1,
 					"type": 5,
 					"mouse": "$ShowMenuControlsHelp",
 					"vars": [ { "uiTrait": "HUDMainMenu/_ItemInspectMenu+Controls", "configINI": "Menu:bShowMenuControls", "default": 1 } ]
 				},
-				"12": {
+				"11": {
 					"title": "$ShowHUD",
 					"type": 5,
 					"enable": 1,
 					"mouse": "$ShowHUDHelp",
 					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 5, "configINI": "Menu:bShowHUD", "default": 1 } ]
 				},
-				"14": {
+				"13": {
 					"title": "$VignetteIntensity",
 					"type": 2,
 					"enable": 1,
@@ -152,6 +73,85 @@
 						"valueMax": 100,
 						"suffix": "%"
 					}
+				},
+
+				"17": {
+					"title": "$ItemPickup",
+					"enable": 1,
+					"type": 0
+				},
+				"19": {
+					"title": "$QuestItems",
+					"type": 5,
+					"enable": 1,
+					"mouse": "$QuestItemsHelp",
+					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 7, "configINI": "General:bQuestItems", "default": 1 } ]
+				},
+				"21": {
+					"title": "$UniqueItems",
+					"type": 5,
+					"enable": 1,
+					"mouse": "$UniqueItemsHelp",
+					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 8, "configINI": "General:bUniqueItems", "default": 1 } ]
+				},
+
+				"2": {
+					"title": "$Controls",
+					"enable": 1,
+					"type": 0
+				},
+				"4": {
+					"title": "$Keybind",
+					"enable": 1,
+					"type": 3,
+					"mouse": "$KeybindHelp",
+					"vars": [{ "configINI": "Controls:iKeyBind", "default": 20 }],
+					"call": { "type": "file", "value": "ItemInspectMenu/MCMExtender/UpdateOption.gek" }
+				},
+				"6": {
+					"title": "$InertiaFriction",
+					"type": 2.5,
+					"enable": 1,
+					"suffix": "x",
+					"mouse": "$InertiaFrictionHelp",
+					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 6, "configINI": "Controls:fInertiaFriction", "default": 1 } ],
+					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0, "valueMax": 2 }
+				},
+				"8": {
+					"title": "$RotationSensitivityMouse",
+					"type": 2.5,
+					"enable": 1,
+					"suffix": "x",
+					"mouse": "$RotationSensitivityHelp",
+					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 1, "configINI": "Controls:fSensitivityRotationMouse", "default": 1 } ],
+					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
+				},
+				"10": {
+					"title": "$RotationSensitivityController",
+					"type": 2.5,
+					"enable": 1,
+					"suffix": "x",
+					"mouse": "$RotationSensitivityHelp",
+					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 2, "configINI": "Controls:fSensitivityRotationController", "default": 1 } ],
+					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
+				},
+				"12": {
+					"title": "$ZoomSensitivityMouse",
+					"type": 2.5,
+					"enable": 1,
+					"suffix": "x",
+					"mouse": "$ZoomSensitivityHelp",
+					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 3, "configINI": "Controls:fSensitivityZoomMouse", "default": 1 } ],
+					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
+				},
+				"14": {
+					"title": "$ZoomSensitivityController",
+					"type": 2.5,
+					"enable": 1,
+					"suffix": "x",
+					"mouse": "$ZoomSensitivityHelp",
+					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 4, "configINI": "Controls:fSensitivityZoomController", "default": 1 } ],
+					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
 				}
 			}
 		}
