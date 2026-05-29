@@ -85,14 +85,14 @@
 					"type": 5,
 					"enable": 1,
 					"mouse": "$QuestItemsHelp",
-					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 7, "configINI": "General:bQuestItems", "default": 1 } ]
+					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 7, "configINI": "Items:bQuest", "default": 1 } ]
 				},
 				"21": {
 					"title": "$UniqueItems",
 					"type": 5,
 					"enable": 1,
 					"mouse": "$UniqueItemsHelp",
-					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 8, "configINI": "General:bUniqueItems", "default": 1 } ]
+					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 8, "configINI": "Items:bUnique", "default": 1 } ]
 				},
 
 				"2": {

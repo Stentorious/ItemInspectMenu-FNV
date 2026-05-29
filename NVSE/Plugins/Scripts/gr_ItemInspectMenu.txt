@@ -22,8 +22,8 @@ Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitiv
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityZoomController" "Stentorious\ItemInspectMenu.ini" 1) 4
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (eval GetINIFloat_Cached "Menu:bShowHUD" "Stentorious\ItemInspectMenu.ini" 1) 5
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:fInertiaFriction" "Stentorious\ItemInspectMenu.ini" 1) 6
-Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "General:bQuestItems" "Stentorious\ItemInspectMenu.ini" 1) 7
-Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "General:bUniqueItems" "Stentorious\ItemInspectMenu.ini" 1) 8
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Items:bQuest" "Stentorious\ItemInspectMenu.ini" 1) 7
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Items:bUnique" "Stentorious\ItemInspectMenu.ini" 1) 8
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Menu:iCameraType" "Stentorious\ItemInspectMenu.ini" 0) 9
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (eval IsModLoaded "B42Descriptions.esp") 10
 SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Vignette" (GetINIFloat_Cached "Menu:iVignetteIntensity" "Stentorious\ItemInspectMenu.ini" 50)
