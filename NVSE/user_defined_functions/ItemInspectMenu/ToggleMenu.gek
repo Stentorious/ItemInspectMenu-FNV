@@ -83,6 +83,12 @@ begin Function {iToggle}
 		return
 	endif
 
+	; Message box fix
+	if eval MenuMode 1001
+		CallWhen (CompileScript "ItemInspectMenu\ToggleMenu.gek") ({} => MenuMode 1001 == 0) 1 2
+		return
+	endif
+
 	Goo1.AuxVarSetFlt "*ItemInspectMenu" iToggle 0
 
 	; Get item ref
