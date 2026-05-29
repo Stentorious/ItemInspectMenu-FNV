@@ -187,8 +187,9 @@ begin Function {iToggle}
 
 	; Orthographic camera
 	if eval Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 9
-		fTargetSize = 0.65 / (GetMaxOf (aNiBounds[3]) 0.1)
-		fTargetSize = Clamp fTargetSize 0.001 0.05
+		fTemp = GetMaxOf (aNiBounds[3]) 0.1
+		fTargetSize = 0.12 / (Fsqrt fTemp)
+		fTargetSize = Clamp fTargetSize 0.001 0.04
 		rCamera.SetNifScale "ItemInspectMenu" fTargetSize
 	endif
 	Goo1.AuxVarSetFlt "*ItemInspectMenu" fTargetSize 2
@@ -204,7 +205,7 @@ begin Function {iToggle}
 		else
 			fRotX = -10
 			fRotY = -10
-			fRotZ = 130
+			fRotZ = 135
 		endif
 	endif
 	rCamera.SetNifRot "ItemInspectMenu" fRotX fRotY fRotZ 2
