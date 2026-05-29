@@ -7,6 +7,15 @@
 
 <rect name="ItemInspectMenu">
 
+	<_Font>
+		<copy> 3 </copy>
+		<onlyifnot src="globals()" trait="_duiHUDOffset" />
+		<add>
+			<copy> 6 </copy>
+			<onlyif src="globals()" trait="_duiHUDOffset" />
+		</add>
+	</_Font>
+
 	<visible> <copy src="io()" trait="_ItemInspectMenu+Enabled" /> </visible>
 
 	<text name="Title">
@@ -31,7 +40,7 @@
 		</y>
 		<justify> &center; </justify>
 		<wrapwidth> 1200 </wrapwidth>
-		<font> 3 </font>
+		<font> <copy src="parent()" trait="_Font" /> </font>
 		<zoom> 100 </zoom>
 		<string></string>
 	</text>
@@ -39,16 +48,25 @@
 	<rect name="Controls">
 
 		<_BackgroundPad> 8 </_BackgroundPad>
+		<_TextOffsetY>
+			<copy> -5 </copy>
+			<onlyif src="globals()" trait="_duiHUDOffset" />
+		</_TextOffsetY>
 		<_width>
-			<copy src="child(Exit)" trait="_x" />
-			<add src="child(Exit)" trait="_width" />
-			<add> 7 </add>
+			<copy src="child(Exit)" trait="x" />
+			<add src="child(Exit)" trait="width" />
+			<add src="me()" trait="_verbuf" />
+			<add> 2 </add>
 		</_width>
 		<_height>
 			<copy src="child(Exit)" trait="y" />
 			<add src="child(Exit)" trait="height" />
+			<sub src="me()" trait="_TextOffsetY" />
+			<sub src="me()" trait="_TextOffsetY" />
 		</_height>
 		<_systemcolor> 1 </_systemcolor>
+		<_horbuf> 20 </_horbuf>
+		<_verbuf> 15 </_verbuf>
 
 		<visible> <copy src="io()" trait="_ItemInspectMenu+Controls" /> </visible>
 		<locus> 1 </locus>
@@ -62,6 +80,65 @@
 			<sub src="child(WindowBackground)" trait="height" />
 			<sub> 25 </sub>
 		</y>
+
+		<text name="Rotate">
+			<visible> 1 </visible>
+			<depth> 2 </depth>
+			<x> <copy src="parent()" trait="_verbuf" /> </x>
+			<y>
+				<copy src="parent()" trait="_verbuf" />
+				<add src="parent()" trait="_TextOffsetY" />
+			</y>
+			<font> <copy src="grandparent()" trait="_Font" /> </font>
+			<justify> &left; </justify>
+			<string> <copy src="me()" trait="_prompt"/> </string>
+			<_prompt>
+				<copy src="globals" trait="_Has360Controller"/>
+				<copy src="me()" trait="_prompt_"/>
+			</_prompt>
+			<_prompt_0> Rotate:  Mouse) </_prompt_0>
+			<_prompt_1> Rotate:  RS) </_prompt_1>
+		</text>
+
+		<text name="Zoom">
+			<visible> 1 </visible>
+			<depth> 2 </depth>
+			<x>
+				<copy src="sibling(Rotate)" trait="x" />
+				<add src="sibling(Rotate)" trait="width" />
+				<add src="parent()" trait="_horbuf" />
+			</x>
+			<y> <copy src="sibling(Rotate)" trait="y" /> </y>
+			<font> <copy src="grandparent()" trait="_Font" /> </font>
+			<justify> &left; </justify>
+			<string> <copy src="me()" trait="_prompt"/> </string>
+			<_prompt>
+				<copy src="globals" trait="_Has360Controller"/>
+				<copy src="me()" trait="_prompt_"/>
+			</_prompt>
+			<_prompt_0> Zoom:  Wheel) </_prompt_0>
+			<_prompt_1> Zoom:  LT/RT) </_prompt_1>
+		</text>
+
+		<text name="Exit">
+			<visible> 1 </visible>
+			<depth> 2 </depth>
+			<x>
+				<copy src="sibling(Zoom)" trait="x" />
+				<add src="sibling(Zoom)" trait="width" />
+				<add src="parent()" trait="_horbuf" />
+			</x>
+			<y> <copy src="sibling(Rotate)" trait="y" /> </y>
+			<font> <copy src="grandparent()" trait="_Font" /> </font>
+			<justify> &left; </justify>
+			<string> <copy src="me()" trait="_prompt"/> </string>
+			<_prompt>
+				<copy src="globals" trait="_Has360Controller"/>
+				<copy src="me()" trait="_prompt_"/>
+			</_prompt>
+			<_prompt_0> Exit:  Tab) </_prompt_0>
+			<_prompt_1> Exit:  B) </_prompt_1>
+		</text>
 
 		<image name="WindowBackground">
 			<visible> 1 </visible>
@@ -77,17 +154,13 @@
 			</y>
 			<width>
 				<copy src="parent()" trait="_width" />
-				<add>
-					<copy src="parent()" trait="_BackgroundPad" />
-					<mul> 2 </mul>
-				</add>
+				<add src="parent()" trait="_BackgroundPad" />
+				<add src="parent()" trait="_BackgroundPad" />
 			</width>
 			<height>
 				<copy src="parent()" trait="_height" />
-				<add>
-					<copy src="parent()" trait="_BackgroundPad" />
-					<mul> 2 </mul>
-				</add>
+				<add src="parent()" trait="_BackgroundPad" />
+				<add src="parent()" trait="_BackgroundPad" />
 			</height>
 			<zoom> &scale; </zoom>
 			<systemcolor> 0 </systemcolor>
@@ -110,108 +183,6 @@
 			<brightness> 255 </brightness>
 			<filename> Interface\Shared\solid.dds </filename>
 		</image>
-
-		<rect name="Rotate">
-			<include src="text_box.xml"/>
-			<visible> 1 </visible>
-			<depth> 2 </depth>
-			<_x> 0 </_x>
-			<_horbuf> 20 </_horbuf>
-			<_verbuf> 15 </_verbuf>
-			<_width>
-				<copy src="me()" trait="width" />
-				<add>
-					<copy src="child(PCShortcutLabel)" trait="width" />
-					<add> 12.5 </add>
-					<onlyif src="child(PCShortcutLabel)" trait="visible" />
-				</add>
-				<add>
-					<copy src="child(xbox_button)" trait="width" />
-					<sub> 27.5 </sub>
-					<onlyifnot src="child(PCShortcutLabel)" trait="visible" />
-				</add>
-			</_width>
-			<justify> &left; </justify>
-			<string> Rotate: </string>
-			<_line_alpha> 255 </_line_alpha>
-			<target> 0 </target>
-			<_xbox_button> &xbuttonrs; </_xbox_button>
-			<_PCButtonText> Mouse) </_PCButtonText>
-			<font> 3 </font>
-			<_button_placement> &right; </_button_placement>
-		</rect>
-
-		<rect name="Zoom">
-			<include src="text_box.xml"/>
-			<visible> 1 </visible>
-			<depth> 2 </depth>
-			<_x>
-				<copy src="sibling(Rotate)" trait="_x" />
-				<add src="sibling(Rotate)" trait="_width" />
-			</_x>
-			<_horbuf> 20 </_horbuf>
-			<_verbuf> 15 </_verbuf>
-			<_width>
-				<copy src="me()" trait="width" />
-				<add>
-					<copy src="child(PCShortcutLabel)" trait="width" />
-					<add> 12.5 </add>
-					<onlyif src="child(PCShortcutLabel)" trait="visible" />
-				</add>
-				<add>
-					<copy src="child(xbox_button)" trait="width" />
-					<sub> 27.5 </sub>
-					<onlyifnot src="child(PCShortcutLabel)" trait="visible" />
-				</add>
-			</_width>
-			<justify> &left; </justify>
-			<string> Zoom: </string>
-			<_line_alpha> 255 </_line_alpha>
-			<target> 0 </target>
-			<_PCButtonText_0> Wheel) </_PCButtonText_0>
-			<_PCButtonText_1> LT/RT) </_PCButtonText_1>
-			<_ButtonPromptTemp> <copy src="globals" trait="_Has360Controller"/> </_ButtonPromptTemp>
-			<_ButtonPrompt>
-				<copy src="me()" trait="_ButtonPromptTemp"/>
-				<copy src="me()" trait="_PCButtonText_"/>
-			</_ButtonPrompt>
-			<_PCButtonText> <copy src="me()" trait="_ButtonPrompt"/> </_PCButtonText>
-			<font> 3 </font>
-			<_button_placement> &right; </_button_placement>
-		</rect>
-
-		<rect name="Exit">
-			<include src="text_box.xml"/>
-			<visible> 1 </visible>
-			<depth> 2 </depth>
-			<_x>
-				<copy src="sibling(Zoom)" trait="_x" />
-				<add src="sibling(Zoom)" trait="_width" />
-			</_x>
-			<_horbuf> 20 </_horbuf>
-			<_verbuf> 15 </_verbuf>
-			<_width>
-				<copy src="me()" trait="width" />
-				<add>
-					<copy src="child(PCShortcutLabel)" trait="width" />
-					<add> 12.5 </add>
-					<onlyif src="child(PCShortcutLabel)" trait="visible" />
-				</add>
-				<add>
-					<copy src="child(xbox_button)" trait="width" />
-					<sub> 27.5 </sub>
-					<onlyifnot src="child(PCShortcutLabel)" trait="visible" />
-				</add>
-			</_width>
-			<justify> &left; </justify>
-			<string> Exit: </string>
-			<_line_alpha> 255 </_line_alpha>
-			<target> 0 </target>
-			<_xbox_button> &xbuttonb; </_xbox_button>
-			<_PCButtonText> Tab) </_PCButtonText>
-			<font> 3 </font>
-			<_button_placement> &right; </_button_placement>
-		</rect>
 
 		<!-- Headlines -->
 		<rect name="Headlines">
