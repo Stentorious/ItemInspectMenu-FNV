@@ -44,6 +44,9 @@
     "AmmoSmallEnergyCellOverCharge": {
         "transform": "energyCell"
     },
+    "B42BArrowCraft": {
+        "blacklist": 1
+    },
     "BloodPack": {
         "transform": "book"
     },
