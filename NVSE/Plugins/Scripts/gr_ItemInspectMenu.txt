@@ -13,10 +13,10 @@ if GetPluginVersion "ShowOffNVSE Plugin" < 145
 	MessageBoxEx "Item Inspect Menu missing requirement!%rInstall latest ShowOff NVSE plugin."
 	return
 endif
-;if GetPluginVersion "NewVegasReloaded" > -1 && GetPluginVersion "NewVegasReloaded" < 440
-;	MessageBoxEx "Item Inspect Menu incompatibility detected!%rInstall latest New Vegas Reloaded plugin."
-;	return
-;endif
+if GetPluginVersion "NewVegasReloaded" > -1 && GetPluginVersion "NewVegasReloaded" < 441
+	MessageBoxEx "Item Inspect Menu incompatibility detected!%r%rInstall New Vegas Reloaded 4.4.1+"
+	return
+endif
 
 
 ; Load INI settings
