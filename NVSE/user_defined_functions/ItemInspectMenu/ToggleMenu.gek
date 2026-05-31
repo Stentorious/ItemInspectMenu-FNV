@@ -28,6 +28,7 @@ array_var aTransform
 array_var aNiBounds
 string_var sModelPath
 string_var sDescription
+string_var sTemp
 
 begin Function {iToggle}
 
@@ -158,6 +159,21 @@ begin Function {iToggle}
 			endif
 		else
 			sModelPath = GetModelPath rBase
+			if eval sModelPath == ""
+				; Note fallback
+				if eval iType == 49
+					sTemp = GetTexturePath rBase
+					if eval sTemp == "Interface\Icons\PipboyImages\Items\items_note.dds"
+						sModelPath = "clutter\junk\paper01.nif"
+					elseif eval sTemp == "Interface\Icons\PipboyImages\Items\item_holotap.dds"
+						sModelPath = "Clutter\Holodisk\Holodisk01.nif"
+					elseif eval GetNoteType rBase == 1
+						sModelPath = "clutter\junk\paper01.nif"
+					else
+						sModelPath = "Clutter\Holodisk\Holodisk01.nif"
+					endif
+				endif
+			endif
 		endif
 
 	; Default biped model rotation
@@ -220,6 +236,10 @@ begin Function {iToggle}
 			fRotX = 90
 			fRotY = 0
 			fRotZ = 180
+		elseif eval iType == 49
+			fRotX = 90
+			fRotY = 0
+			fRotZ = 0
 		else
 			fRotX = -10
 			fRotY = -10
@@ -339,6 +359,6 @@ begin Function {iToggle}
 		SetUIFloatAlt "BarterMenu\visible" 0
 	endif
 
-	sv_Destruct sModelPath sDescription
+	sv_Destruct sModelPath sDescription sTemp
 
 end
