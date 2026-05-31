@@ -101,14 +101,21 @@
 					"type": 0
 				},
 				"4": {
-					"title": "$Keybind",
+					"title": "$KeybindMenu",
 					"enable": 1,
 					"type": 3,
-					"mouse": "$KeybindHelp",
+					"mouse": "$KeybindMenuHelp",
 					"vars": [{ "configINI": "Controls:iKeyBind", "default": 20 }],
 					"call": { "type": "file", "value": "ItemInspectMenu/MCMExtender/UpdateOption.gek" }
 				},
 				"6": {
+					"title": "$HoldGrabToInspect",
+					"type": 5,
+					"enable": 1,
+					"mouse": "$HoldGrabToInspectHelp",
+					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 10, "configINI": "Controls:bHoldGrabToInspect", "default": 1 } ]
+				},
+				"8": {
 					"title": "$InertiaFriction",
 					"type": 2.5,
 					"enable": 1,
@@ -117,7 +124,7 @@
 					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 6, "configINI": "Controls:fInertiaFriction", "default": 1 } ],
 					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0, "valueMax": 2 }
 				},
-				"8": {
+				"10": {
 					"title": "$RotationSensitivityMouse",
 					"type": 2.5,
 					"enable": 1,
@@ -126,7 +133,7 @@
 					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 1, "configINI": "Controls:fSensitivityRotationMouse", "default": 1 } ],
 					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
 				},
-				"10": {
+				"12": {
 					"title": "$RotationSensitivityController",
 					"type": 2.5,
 					"enable": 1,
@@ -135,7 +142,7 @@
 					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 2, "configINI": "Controls:fSensitivityRotationController", "default": 1 } ],
 					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
 				},
-				"12": {
+				"14": {
 					"title": "$ZoomSensitivityMouse",
 					"type": 2.5,
 					"enable": 1,
@@ -144,7 +151,7 @@
 					"vars": [{ "form": "Goo1", "auxVar": "*ItemInspectMenu_INI", "key": 3, "configINI": "Controls:fSensitivityZoomMouse", "default": 1 } ],
 					"scale": { "valueDecimal": 2, "valueIncrement": 0.01, "valueMin": 0.5, "valueMax": 2 }
 				},
-				"14": {
+				"16": {
 					"title": "$ZoomSensitivityController",
 					"type": 2.5,
 					"enable": 1,

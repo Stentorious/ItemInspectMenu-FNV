@@ -31,7 +31,14 @@ begin Function {iKeyID}
 		return
 
 	; Ignore inputs
-	elseif eval GetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" != 1 || iMenuID != 1059
+	elseif eval GetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" < 1 || iMenuID != 1059
+		return
+
+	; Take item
+	elseif eval iKeyID == Goo1.AuxVarGetFlt "*ItemInspectMenu" 8 && Goo1.AuxVarGetFlt "*ItemInspectMenu" 0 == 3
+		ClickMenuButton "TutorialMenu#3" 1
+		rItem = Goo1.AuxVarGetRef "*ItemInspectMenu" 1
+		rItem.MoveToContainer Player
 		return
 
 	; Close ItemInspectMenu

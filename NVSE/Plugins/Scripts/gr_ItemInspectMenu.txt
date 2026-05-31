@@ -30,7 +30,8 @@ Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:fInertiaF
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Items:bQuest" "Stentorious\ItemInspectMenu.ini" 1) 7
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Items:bUnique" "Stentorious\ItemInspectMenu.ini" 1) 8
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Menu:iCameraType" "Stentorious\ItemInspectMenu.ini" 0) 9
-Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (eval IsModLoaded "B42Descriptions.esp") 10
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (eval GetINIFloat_Cached "Controls:bHoldGrabToInspect" "Stentorious\ItemInspectMenu.ini" 1) 10
+Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (eval IsModLoaded "B42Descriptions.esp") 11
 SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Vignette" (GetINIFloat_Cached "Menu:iVignetteIntensity" "Stentorious\ItemInspectMenu.ini" 50)
 SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Name" (eval GetINIFloat_Cached "Menu:bShowItemName" "Stentorious\ItemInspectMenu.ini" 1)
 SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Name" (eval GetINIFloat_Cached "Menu:bShowItemDescription" "Stentorious\ItemInspectMenu.ini" 1)
@@ -42,7 +43,7 @@ SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 15	; 
 SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 256	; Left Mouse
 SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 264	; Wheel Up
 SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 265	; Wheel Down
-SetEventHandler "OnButtonDown:40976" (CompileScript "ItemInspectMenu\OnButtonDown.gek")
+SetEventHandler "OnButtonDown:45072" (CompileScript "ItemInspectMenu\OnButtonDown.gek")
 SetOnMenuCloseEventHandler (CompileScript "ItemInspectMenu\OnMenuClose.gek") 1 1059
 SetOnMenuCloseEventHandler (CompileScript "ItemInspectMenu\OnMenuClose.gek") 1 1013
 SetEventHandler "ShowOff:OnAdd" (CompileScript "ItemInspectMenu\OnAdd.gek") "second"::Player
@@ -71,6 +72,7 @@ Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 4	; Inertia Y
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 5	; Background blur
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 6	; Camera ref
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 7	; Item baseform
+Goo1.AuxVarSetFlt "*ItemInspectMenu" -1 8	; Activate key
 
 ; Sensitivity update
 if eval Goo1.AuxVarType "*_Controls:fMouseSensitivity" == 0

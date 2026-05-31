@@ -82,7 +82,10 @@
 		</y>
 
 		<text name="Rotate">
-			<visible> 1 </visible>
+			<visible>
+				<copy src="io()" trait="_ItemInspectMenu+Enabled"/>
+				<neq> 3 </neq>
+			</visible>
 			<depth> 2 </depth>
 			<x> <copy src="parent()" trait="_verbuf" /> </x>
 			<y>
@@ -96,17 +99,18 @@
 				<copy src="globals" trait="_Has360Controller"/>
 				<copy src="me()" trait="_prompt_"/>
 			</_prompt>
-			<_prompt_0> Rotate:  Mouse) </_prompt_0>
-			<_prompt_1> Rotate:  RS) </_prompt_1>
+			<_prompt_0> Rotate: Mouse) </_prompt_0>
+			<_prompt_1> Rotate: RS) </_prompt_1>
 		</text>
 
 		<text name="Zoom">
 			<visible> 1 </visible>
 			<depth> 2 </depth>
 			<x>
-				<copy src="sibling(Rotate)" trait="x" />
-				<add src="sibling(Rotate)" trait="width" />
+				<copy src="sibling(Rotate)" trait="width" />
 				<add src="parent()" trait="_horbuf" />
+				<onlyif src="sibling(Rotate)" trait="visible" />
+				<add src="sibling(Rotate)" trait="x" />
 			</x>
 			<y> <copy src="sibling(Rotate)" trait="y" /> </y>
 			<font> <copy src="grandparent()" trait="_Font" /> </font>
@@ -114,10 +118,19 @@
 			<string> <copy src="me()" trait="_prompt"/> </string>
 			<_prompt>
 				<copy src="globals" trait="_Has360Controller"/>
+				<add>
+					<copy> 2 </copy>
+					<onlyif>
+						<copy src="io()" trait="_ItemInspectMenu+Enabled"/>
+						<eq> 3 </eq>
+					</onlyif>
+				</add>
 				<copy src="me()" trait="_prompt_"/>
 			</_prompt>
-			<_prompt_0> Zoom:  Wheel) </_prompt_0>
-			<_prompt_1> Zoom:  LT/RT) </_prompt_1>
+			<_prompt_0> Zoom: Wheel) </_prompt_0>
+			<_prompt_1> Zoom: LT/RT) </_prompt_1>
+			<_prompt_2> Take: &-sUActnActivate;) </_prompt_2>
+			<_prompt_3> Take: A) </_prompt_3>
 		</text>
 
 		<text name="Exit">
@@ -136,8 +149,8 @@
 				<copy src="globals" trait="_Has360Controller"/>
 				<copy src="me()" trait="_prompt_"/>
 			</_prompt>
-			<_prompt_0> Exit:  Tab) </_prompt_0>
-			<_prompt_1> Exit:  B) </_prompt_1>
+			<_prompt_0> Exit: Tab) </_prompt_0>
+			<_prompt_1> Exit: B) </_prompt_1>
 		</text>
 
 		<image name="WindowBackground">

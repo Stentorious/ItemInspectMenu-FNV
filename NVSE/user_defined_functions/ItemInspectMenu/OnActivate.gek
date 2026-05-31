@@ -1,0 +1,19 @@
+ref rActivator
+int iActivationFlag
+
+ref rItem
+
+begin Function {rActivator, iActivationFlag}
+
+	if eval GetCrosshairWater || Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 10 == 0
+		return
+	endif
+
+	; Disable pickup and open Item Inspect Menu
+	if eval IsReference (rItem = GetSelfAlt) && rItem.GetIsItem && IsControlPressed 27
+		SetFunctionValue 0
+		Goo1.AuxVarSetRef "*ItemInspectMenu" rItem 1
+		Call (CompileScript "ItemInspectMenu\ToggleMenu.gek") 3
+	endif
+
+end

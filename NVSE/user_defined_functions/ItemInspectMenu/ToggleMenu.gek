@@ -4,6 +4,7 @@ int iMenuID
 int iType
 int iRotation
 int iPosition
+int iTemp
 float fRotX
 float fRotY
 float fRotZ
@@ -52,6 +53,12 @@ begin Function {iToggle}
 		SetNumericGameSetting "iJG_OverrideLightingValues" 0
 		SetNumericGameSetting "iJG_Overlay_OverrideLighting" 0
 
+		; Reset world inspect
+		if eval Goo1.AuxVarGetFlt "*ItemInspectMenu" 8 > 0
+			SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 0 (Goo1.AuxVarGetFlt "*ItemInspectMenu" 8)
+			Goo1.AuxVarSetFlt "*ItemInspectMenu" -1 8
+		endif
+
 		; Reset inspect menu
 		SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" 0
 		Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 0
@@ -83,9 +90,14 @@ begin Function {iToggle}
 		return
 	endif
 
-	; Message box fix
-	if eval MenuMode 1001 || iMenuID == 1001
+	; MessageMenu fix
+	if eval iMenuID == 1001
 		CallWhen (CompileScript "ItemInspectMenu\ToggleMenu.gek") ({} => MenuMode 1001 == 0) 1 2
+		return
+
+	; BookMenu fix
+	elseif eval iMenuID == 1026
+		CallWhen (CompileScript "ItemInspectMenu\ToggleMenu.gek") ({} => MenuMode 1026 == 0) 1 2
 		return
 	endif
 
@@ -263,10 +275,16 @@ begin Function {iToggle}
 	endif
 	SetUIFloatAlt "TutorialMenu\NOGLOW_BRANCH\visible" 0
 	SetUIStringAlt "TutorialMenu\ItemInspectMenu\Title\string" "%z" (rItem.LnGetName)
-	SetUIFloatAlt "TutorialMenu\ItemInspectMenu\Controls\Zoom\PCShortcutLabel\visible" 1
-	SetUIFloatAlt "TutorialMenu\ItemInspectMenu\Controls\Zoom\xbox_button\visible" 0
 	SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Init" 1
-	SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" 1
+	SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" iToggle
+	SetUIFloatAlt "TutorialMenu\_PCButton_E" 0
+
+	; Take item handling
+	if eval iToggle == 3
+		iTemp = GetControl 5
+		SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 iTemp
+		Goo1.AuxVarSetFlt "*ItemInspectMenu" iTemp 8
+	endif
 
 	; Item Cards support
 	if eval Goo1.AuxVarGetFlt "*ItemCard_INI" 6
@@ -284,7 +302,7 @@ begin Function {iToggle}
 	endif
 
 	; B42 Descriptions
-	if eval Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 10 && sDescription == ""
+	if eval Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 11 && sDescription == ""
 		if iType == 40
 			iType = 0
 		elseif iType == 24
