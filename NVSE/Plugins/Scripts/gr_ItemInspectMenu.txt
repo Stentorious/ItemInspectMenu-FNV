@@ -73,6 +73,7 @@ Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 5	; Background blur
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 6	; Camera ref
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 7	; Item baseform
 Goo1.AuxVarSetFlt "*ItemInspectMenu" -1 8	; Activate key
+Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 9	; pipboyscreen y coord
 
 ; Sensitivity update
 if eval Goo1.AuxVarType "*_Controls:fMouseSensitivity" == 0

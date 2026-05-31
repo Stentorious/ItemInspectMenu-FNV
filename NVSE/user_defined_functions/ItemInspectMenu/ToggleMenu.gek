@@ -25,7 +25,6 @@ ref rItem
 ref rBase
 ref rMessage
 array_var aTransform
-array_var aNiBounds
 string_var sModelPath
 string_var sDescription
 string_var sTemp
@@ -40,7 +39,13 @@ begin Function {iToggle}
 
 		PlaySound UIMenuMode 1
 
+		; Reset player visibility
 		Player.SetActorAlpha 1
+		if eval ModelHasBlock Player "PipBoyArm1"
+			Player.SetNifScale "PipBoyArm1" 1 2
+		elseif ModelHasBlock Player "pipboyscreen:0"
+			Player.SetNifTrans "pipboyscreen:0" 0 (Goo1.AuxVarGetFlt "*ItemInspectMenu" 9) 0 2
+		endif
 
 		if eval ModelHasBlock rCamera "ItemInspectMenu"
 			rCamera.RemoveNifBlock "ItemInspectMenu"
@@ -129,6 +134,13 @@ begin Function {iToggle}
 	if eval iToggle == 1
 		PlaySound UIMenuMode 1
 		Player.SetActorAlpha 0
+		if eval ModelHasBlock Player "PipBoyArm1"
+			Player.SetNifScale "PipBoyArm1" 0 2
+		elseif ModelHasBlock Player "pipboyscreen:0"
+			aTransform = Player.GetNifTrans "pipboyscreen:0" 0 2
+			Goo1.AuxVarSetFlt "*ItemInspectMenu" (aTransform[1]) 9
+			Player.SetNifTrans "pipboyscreen:0" 0 1000 0 2
+		endif
 	endif
 
 	; Override rotation
@@ -146,7 +158,6 @@ begin Function {iToggle}
 			fPosZ = aTransform["position"]["z"]
 			iPosition = 1
 		endif
-		aTransform = ar_Null
 	endif
 
 	InsertNode rCamera 3 "ItemInspectMenu"
@@ -210,28 +221,26 @@ begin Function {iToggle}
 	Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 4
 
 	; Set scale and offset from cam
-	aNiBounds = rCamera.GetNiBound "ItemInspectMenuOffset" 1
+	aTransform = rCamera.GetNiBound "ItemInspectMenuOffset" 1
 
 	; Apply starting position offset
 	if eval iPosition == 0
-		fPosX = aNiBounds[0] * -1
-		fPosY = aNiBounds[1] * -1
-		fPosZ = aNiBounds[2] * -1
+		fPosX = aTransform[0] * -1
+		fPosY = aTransform[1] * -1
+		fPosZ = aTransform[2] * -1
 	endif
 	rCamera.SetNifTrans "ItemInspectMenuOffset" fPosX fPosY fPosZ
-	fTargetSize = aNiBounds[3] + 20
+	fTargetSize = aTransform[3] + 20
 	rCamera.SetNifTrans "ItemInspectMenu" 0 fTargetSize 0
 
 	; Orthographic camera
 	if eval Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 9
-		fTemp = GetMaxOf (aNiBounds[3]) 0.1
+		fTemp = GetMaxOf (aTransform[3]) 0.1
 		fTargetSize = 0.12 / (Fsqrt fTemp)
 		fTargetSize = Clamp fTargetSize 0.001 0.04
 		rCamera.SetNifScale "ItemInspectMenu" fTargetSize
 	endif
 	Goo1.AuxVarSetFlt "*ItemInspectMenu" fTargetSize 2
-
-	aNiBounds = Ar_Null
 
 	; Apply starting rotation
 	if eval iRotation == 0
@@ -362,6 +371,7 @@ begin Function {iToggle}
 		SetUIFloatAlt "BarterMenu\visible" 0
 	endif
 
+	aTransform = ar_Null
 	sv_Destruct sModelPath sDescription sTemp
 
 end
