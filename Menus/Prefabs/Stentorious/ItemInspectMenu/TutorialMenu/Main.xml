@@ -23,6 +23,7 @@
 		<x>
 			<copy src="screen()" trait="width" />
 			<div> 2 </div>
+			<sub> 11 </sub>
 		</x>
 		<y> 75 </y>
 		<justify> &center; </justify>
@@ -72,7 +73,7 @@
 		<locus> 1 </locus>
 		<x>
 			<copy src="screen()" trait="width" />
-			<sub src="child(WindowBackground)" trait="width" />
+			<sub src="me()" trait="_width" />
 			<div> 2 </div>
 		</x>
 		<y>
