@@ -25,6 +25,7 @@ ref rItem
 ref rBase
 ref rMessage
 array_var aTransform
+array_var aTemp
 string_var sModelPath
 string_var sDescription
 string_var sTemp
@@ -158,6 +159,10 @@ begin Function {iToggle}
 			fPosZ = aTransform["position"]["z"]
 			iPosition = 1
 		endif
+		if eval ar_HasKey aTransform "hideBlocks"
+			aTemp = aTransform["hideBlocks"]
+			Goo1.AuxVarSetFromArr "*ItemInspectMenu_Temp" aTemp
+		endif
 	endif
 
 	InsertNode rCamera 3 "ItemInspectMenu"
@@ -206,15 +211,7 @@ begin Function {iToggle}
 
 	; Attach mesh
 	AttachModel rCamera 3 ("ItemInspectMenuOffset|" + sModelPath)
-	CallAfterFrames 0 (begin function {}
-		ref rTemp = Goo1.AuxVarGetRef "*ItemInspectMenu" 6
-		array_var aWeaponBlocks = rTemp.GetChildBlocks "ItemInspectMenuOffset"
-		int iSize = ar_Size aWeaponBlocks
-		while (iSize -= 1) > -1
-			rTemp.SetNifBlockFlag (aWeaponBlocks[iSize]) 0 0
-		loop
-		aWeaponBlocks = Ar_Null
-	end) 1
+	CallAfterFrames 0 (CompileScript "ItemInspectMenu\UpdateMesh.gek") 1
 
 	; Reset inertia
 	Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 3
@@ -371,7 +368,7 @@ begin Function {iToggle}
 		SetUIFloatAlt "BarterMenu\visible" 0
 	endif
 
-	aTransform = ar_Null
+	aTransform = aTemp = ar_Null
 	sv_Destruct sModelPath sDescription sTemp
 
 end

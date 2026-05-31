@@ -1,0 +1,33 @@
+int iSize
+ref rItem
+array_var aBlocks
+array_var aHiddenBlocks
+string_var sBlock
+
+begin Function {}
+
+	; Selectively toggle the culled flag on all blocks
+	rItem = Goo1.AuxVarGetRef "*ItemInspectMenu" 6
+	aBlocks = rItem.GetChildBlocks "ItemInspectMenuOffset"
+	aHiddenBlocks = Goo1.AuxVarGetAsArr "*ItemInspectMenu_Temp"
+	iSize = Ar_Size aBlocks
+
+	; hideBlocks override
+	if eval (Ar_Size aHiddenBlocks) > 0
+		while (iSize -= 1) > -1
+			sBlock = aBlocks[iSize]
+			rItem.SetNifFlag (sBlock) 0 (eval (Ar_Find (sBlock) aHiddenBlocks) != Ar_BadNumericIndex)
+		loop
+
+	; Force visible
+	else
+		while (iSize -= 1) > -1
+			rItem.SetNifFlag (aBlocks[iSize]) 0 0
+		loop
+	endif
+
+	Goo1.AuxVarErase "*ItemInspectMenu_Temp"
+	aBlocks = aHiddenBlocks = Ar_Null
+	sv_Destruct sBlock
+
+end
