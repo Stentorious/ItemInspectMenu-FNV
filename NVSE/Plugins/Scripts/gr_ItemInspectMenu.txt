@@ -118,7 +118,6 @@ if eval (iSize = ar_Size aFiles) > 0
 
 				; Check valid form
 				if eval IsFormValid (rItem = EditorIDToFormID (aForE["key"])) == 0 || IsBaseForm rItem == 0
-					PrintC "Invalid: %z" (aForE["key"])
 					continue
 				endif
 				aTemp = *aForE
