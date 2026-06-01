@@ -45,7 +45,7 @@ begin Function {iToggle}
 		if eval ModelHasBlock Player "PipBoyArm1"
 			Player.SetNifScale "PipBoyArm1" 1 2
 		elseif ModelHasBlock Player "pipboyscreen:0"
-			Player.SetNifTrans "pipboyscreen:0" 0 (Goo1.AuxVarGetFlt "*ItemInspectMenu" 9) 0 2
+			Player.SetNifTrans "pipboyscreen:0" (Goo1.AuxVarGetFlt "*ItemInspectMenu" 9) (Goo1.AuxVarGetFlt "*ItemInspectMenu" 10) (Goo1.AuxVarGetFlt "*ItemInspectMenu" 11) 2
 		endif
 
 		if eval ModelHasBlock rCamera "ItemInspectMenu"
@@ -139,7 +139,9 @@ begin Function {iToggle}
 			Player.SetNifScale "PipBoyArm1" 0 2
 		elseif ModelHasBlock Player "pipboyscreen:0"
 			aTransform = Player.GetNifTrans "pipboyscreen:0" 0 2
-			Goo1.AuxVarSetFlt "*ItemInspectMenu" (aTransform[1]) 9
+			Goo1.AuxVarSetFlt "*ItemInspectMenu" (aTransform[0]) 9
+			Goo1.AuxVarSetFlt "*ItemInspectMenu" (aTransform[1]) 10
+			Goo1.AuxVarSetFlt "*ItemInspectMenu" (aTransform[2]) 11
 			Player.SetNifTrans "pipboyscreen:0" 0 1000 0 2
 		endif
 	endif
