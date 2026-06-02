@@ -1096,6 +1096,9 @@
     "Weap32CaliberPistol": {
         "transform": "speedLoader"
     },
+    "Weap44MagnumScoped": {
+        "transform": "speedLoader"
+    },
     "WeapBaseballBat": {
         "transform": "meleeWeap"
     },
@@ -1149,6 +1152,9 @@
     },
     "WeapMissileLauncher": {
         "transform": "brassKnuckles"
+    },
+    "WeapNV44Revolver": {
+        "transform": "speedLoader"
     },
     "WeapNV44RevolverUnique": {
         "transform": "speedLoader"
@@ -1257,6 +1263,9 @@
     },
     "WeapNVTeslaCannonUnique": {
         "transform": "brassKnuckles"
+    },
+    "WeapNVThatGun": {
+        "transform": "speedLoader"
     },
     "WeapNVThrowingHatchet": {
         "transform": "meleeWeap"
