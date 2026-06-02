@@ -34,7 +34,7 @@ Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (eval GetINIFloat_Cached "Controls:bHol
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (eval IsModLoaded "B42Descriptions.esp") 11
 SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Vignette" (GetINIFloat_Cached "Menu:iVignetteIntensity" "Stentorious\ItemInspectMenu.ini" 50)
 SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Name" (eval GetINIFloat_Cached "Menu:bShowItemName" "Stentorious\ItemInspectMenu.ini" 1)
-SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Name" (eval GetINIFloat_Cached "Menu:bShowItemDescription" "Stentorious\ItemInspectMenu.ini" 1)
+SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Description" (eval GetINIFloat_Cached "Menu:bShowItemDescription" "Stentorious\ItemInspectMenu.ini" 1)
 SetUIFloatAlt "HUDMainMenu\_ItemInspectMenu+Controls" (eval GetINIFloat_Cached "Menu:bShowMenuControls" "Stentorious\ItemInspectMenu.ini" 1)
 
 ; Event handlers
