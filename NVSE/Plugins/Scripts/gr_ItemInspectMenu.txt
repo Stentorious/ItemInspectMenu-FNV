@@ -1,23 +1,10 @@
 ; Item Inspect Menu - Stentorious
 
 ; Check for requirements
-if eval GetNVSEVersionFull < 6.48
-	MessageBoxEx "Item Inspect Menu missing requirement!%rInstall xNVSE 6.4.8+."
-	return
-endif
-if GetPluginVersion "JohnnyGuitarNVSE" < 528
-	MessageBoxEx "Item Inspect Menu missing requirement!%rInstall latest JohnnyGuitar NVSE plugin."
-	return
-endif
-if GetPluginVersion "ShowOffNVSE Plugin" < 145
-	MessageBoxEx "Item Inspect Menu missing requirement!%rInstall latest ShowOff NVSE plugin."
-	return
-endif
 if GetPluginVersion "NewVegasReloaded" > -1 && GetPluginVersion "NewVegasReloaded" < 441
 	MessageBoxEx "Item Inspect Menu incompatibility detected!%r%rInstall New Vegas Reloaded 4.4.1+"
 	return
 endif
-
 
 ; Load INI settings
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:iKeyBind" "Stentorious\ItemInspectMenu.ini" 20) 0
