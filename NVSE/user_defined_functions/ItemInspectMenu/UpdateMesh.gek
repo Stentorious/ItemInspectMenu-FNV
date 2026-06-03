@@ -26,6 +26,11 @@ begin Function {}
 		loop
 	endif
 
+	; Known blocks to hide
+	if eval ModelHasBlock rItem "##SpeedLoader"
+		rItem.SetNifFlag "##SpeedLoader" 0 1
+	endif
+
 	Goo1.AuxVarErase "*ItemInspectMenu_Temp"
 	aBlocks = aHiddenBlocks = Ar_Null
 	sv_Destruct sBlock

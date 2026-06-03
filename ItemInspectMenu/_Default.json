@@ -278,9 +278,6 @@
     "DLC01WeapSteelSaw": {
         "transform": "meleeWeap"
     },
-    "DLC01WeapUniqueBill32CalPistol": {
-        "transform": "speedLoader"
-    },
     "DLC02WeapKnifeCombatWasteland": {
         "transform": "meleeWeap"
     },
@@ -304,9 +301,6 @@
     },
     "DLC03WeapTeslaCannon": {
         "transform": "brassKnuckles"
-    },
-    "DLC03WeapUniqueCallahansMagnum": {
-        "transform": "speedLoader"
     },
     "DLC04WeapAxe": {
         "transform": "meleeWeap"
@@ -732,9 +726,6 @@
     "NVDLC01WeapKnifeSpearClean": {
         "transform": "meleeWeap"
     },
-    "NVDLC01WeapPolicePistol": {
-        "transform": "speedLoader"
-    },
     "NVDLC01WeapSpaceAgeKnife": {
         "transform": "meleeWeap"
     },
@@ -1014,9 +1005,6 @@
     "NVDLC05WeapKatanaCustom": {
         "transform": "meleeWeap"
     },
-    "NVDLC05WeapNV556mmPistolCustom": {
-        "transform": "speedLoader"
-    },
     "NVDLC05WeapNVBallisticFistUnique": {
         "transform": "deathclawGauntlet"
     },
@@ -1093,12 +1081,6 @@
         "showOnce": 1,
         "transform": "bobblehead"
     },
-    "Weap32CaliberPistol": {
-        "transform": "speedLoader"
-    },
-    "Weap44MagnumScoped": {
-        "transform": "speedLoader"
-    },
     "WeapBaseballBat": {
         "transform": "meleeWeap"
     },
@@ -1152,12 +1134,6 @@
     },
     "WeapMissileLauncher": {
         "transform": "brassKnuckles"
-    },
-    "WeapNV44Revolver": {
-        "transform": "speedLoader"
-    },
-    "WeapNV44RevolverUnique": {
-        "transform": "speedLoader"
     },
     "WeapNV9iron": {
         "transform": "meleeWeap"
@@ -1216,9 +1192,6 @@
     "WeapNVHatchet": {
         "transform": "meleeWeap"
     },
-    "WeapNVHuntingRevolver": {
-        "transform": "speedLoader"
-    },
     "WeapNVKnifeCombatUnique": {
         "transform": "meleeWeap"
     },
@@ -1246,9 +1219,6 @@
     "WeapNVMissileLauncherUnique": {
         "transform": "brassKnuckles"
     },
-    "WeapNVRangerSequoia": {
-        "transform": "speedLoader"
-    },
     "WeapNVRebarClub": {
         "transform": "meleeWeap"
     },
@@ -1263,9 +1233,6 @@
     },
     "WeapNVTeslaCannonUnique": {
         "transform": "brassKnuckles"
-    },
-    "WeapNVThatGun": {
-        "transform": "speedLoader"
     },
     "WeapNVThrowingHatchet": {
         "transform": "meleeWeap"
@@ -1339,9 +1306,6 @@
     "WeapUniqueAntSting": {
         "transform": "meleeWeap"
     },
-    "WeapUniqueBlackhawk": {
-        "transform": "speedLoader"
-    },
     "WeapUniqueBoardOfEducation": {
         "transform": "meleeWeap"
     },
@@ -1374,9 +1338,6 @@
     },
     "WeapUniqueKnifeCombat": {
         "transform": "meleeWeap"
-    },
-    "WeapUniqueLawDog32CalPistol": {
-        "transform": "speedLoader"
     },
     "WeapUniqueLoveTap": {
         "transform": "steelKnuckles"

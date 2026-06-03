@@ -137,11 +137,6 @@
             "z": 165.0
         }
     },
-    "speedLoader": {
-        "hideBlocks": [
-			"##SpeedLoader"
-		]
-    },
     "steelKnuckles": {
         "rotation": {
             "x": 0.0,
