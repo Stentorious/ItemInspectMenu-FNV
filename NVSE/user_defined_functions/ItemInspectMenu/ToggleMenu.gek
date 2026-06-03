@@ -92,8 +92,10 @@ begin Function {iToggle}
 				SetUIFloatAlt "ContainerMenu\visible" 1
 			elseif eval iMenuID == 1009
 				SetUIFloatAlt "DialogMenu\visible" 1
-			elseif eval iMenuID == 1053
+			elseif eval iMenuID == 1053 || (iMenuID == 1059 && Goo1.AuxVarSetFlt "*PVR_Flt" 0 == 1)
 				SetUIFloatAlt "BarterMenu\visible" 1
+			elseif eval iMenuID == 1077
+				SetUIFloatAlt "RecipeMenu\visible" 1
 			endif
 		endif
 
@@ -214,6 +216,7 @@ begin Function {iToggle}
 	; Attach mesh
 	AttachModel rCamera 3 ("ItemInspectMenuOffset|" + sModelPath)
 	CallAfterFrames 0 (CompileScript "ItemInspectMenu\UpdateMesh.gek") 1
+	;rCamera.ApplyModelTextureSwap rBase rItem "ItemInspectMenu"
 
 	; Reset inertia
 	Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 3
@@ -358,16 +361,13 @@ begin Function {iToggle}
 
 	SetUIStringAlt "TutorialMenu\ItemInspectMenu\Description\string" (sDescription)
 
-	; Toggle menus
+	; Hide menus
 	if eval Goo1.AuxVarGetFlt "*ItemInspectMenu_INI" 5 == 0
 		SetUIFloatAlt "HUDMainMenu\visible" 0
 	endif
-	if eval iMenuID == 1008
-		SetUIFloatAlt "ContainerMenu\visible" 0
-	elseif eval iMenuID == 1009
-		SetUIFloatAlt "DialogMenu\visible" 0
-	elseif eval iMenuID == 1053
-		SetUIFloatAlt "BarterMenu\visible" 0
+	aTemp = Ar_Map 1008::"ContainerMenu" 1009::"DialogMenu" 1053::"BarterMenu" 1077::"RecipeMenu"
+	if eval Ar_HasKey aTemp iMenuID
+		SetUIFloatAlt ((aTemp[iMenuID]) + "\visible") 0
 	endif
 
 	aTransform = aTemp = ar_Null
