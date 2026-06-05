@@ -23,7 +23,7 @@ float fTemp
 ref rCamera
 ref rItem
 ref rBase
-ref rMessage
+ref rTemp
 array_var aTransform
 array_var aTemp
 string_var sModelPath
@@ -178,7 +178,13 @@ begin Function {iToggle}
 	if eval sModelPath == ""
 		if eval iType == 40
 			if eval (sModelPath = GetWeaponWorldModelPath rBase) == ""
-				sModelPath = GetWeaponModel rBase (rItem.GetWeaponRefModFlags)
+				iTemp = rItem.GetWeaponRefModFlags
+				rTemp = GetWeapon1stPersonModel rBase iTemp
+				if eval IsFormValid rTemp
+					sModelPath = GetModelPath rTemp
+				else
+					sModelPath = GetWeaponModel rBase iTemp
+				endif
 			endif
 		else
 			sModelPath = GetModelPath rBase
@@ -330,8 +336,8 @@ begin Function {iToggle}
 	; First pick-up
 	if eval AuxVarType "*ItemInspectMenu" 3 rBase == 4 && iToggle == 2
 		sDescription = AuxVarGetStr "*ItemInspectMenu" 3 rBase
-		if eval IsFormValid (rMessage = EditorIDToFormID (sDescription)) && (GetType rMessage == 98 || GetType rMessage == 103)
-			sDescription = GetFormDescription rMessage
+		if eval IsFormValid (rTemp = EditorIDToFormID (sDescription)) && (GetType rTemp == 98 || GetType rTemp == 103)
+			sDescription = GetFormDescription rTemp
 		endif
 	endif
 
@@ -354,8 +360,8 @@ begin Function {iToggle}
 	; Default
 	if eval sDescription == "" && AuxVarType "*ItemInspectMenu" 2 rBase == 4
 		sDescription = AuxVarGetStr "*ItemInspectMenu" 2 rBase
-		if eval IsFormValid (rMessage = EditorIDToFormID (sDescription)) && (GetType rMessage == 98 || GetType rMessage == 103)
-			sDescription = GetFormDescription rMessage
+		if eval IsFormValid (rTemp = EditorIDToFormID (sDescription)) && (GetType rTemp == 98 || GetType rTemp == 103)
+			sDescription = GetFormDescription rTemp
 		endif
 	endif
 
