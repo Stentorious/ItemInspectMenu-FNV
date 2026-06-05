@@ -84,7 +84,7 @@
 
 		<text name="Rotate">
 			<visible>
-				<copy src="io()" trait="_ItemInspectMenu+Enabled"/>
+				<copy src="io()" trait="_ItemInspectMenu+Enabled" />
 				<neq> 3 </neq>
 			</visible>
 			<depth> 2 </depth>
@@ -95,10 +95,10 @@
 			</y>
 			<font> <copy src="grandparent()" trait="_Font" /> </font>
 			<justify> &left; </justify>
-			<string> <copy src="me()" trait="_prompt"/> </string>
+			<string> <copy src="me()" trait="_prompt" /> </string>
 			<_prompt>
-				<copy src="globals" trait="_Has360Controller"/>
-				<copy src="me()" trait="_prompt_"/>
+				<copy src="globals" trait="_Has360Controller" />
+				<copy src="me()" trait="_prompt_" />
 			</_prompt>
 			<_prompt_0> Rotate: Mouse) </_prompt_0>
 			<_prompt_1> Rotate: RS) </_prompt_1>
@@ -116,17 +116,17 @@
 			<y> <copy src="sibling(Rotate)" trait="y" /> </y>
 			<font> <copy src="grandparent()" trait="_Font" /> </font>
 			<justify> &left; </justify>
-			<string> <copy src="me()" trait="_prompt"/> </string>
+			<string> <copy src="me()" trait="_prompt" /> </string>
 			<_prompt>
-				<copy src="globals" trait="_Has360Controller"/>
+				<copy src="globals" trait="_Has360Controller" />
 				<add>
 					<copy> 2 </copy>
 					<onlyif>
-						<copy src="io()" trait="_ItemInspectMenu+Enabled"/>
+						<copy src="io()" trait="_ItemInspectMenu+Enabled" />
 						<eq> 3 </eq>
 					</onlyif>
 				</add>
-				<copy src="me()" trait="_prompt_"/>
+				<copy src="me()" trait="_prompt_" />
 			</_prompt>
 			<_prompt_0> Zoom: Wheel) </_prompt_0>
 			<_prompt_1> Zoom: LT/RT) </_prompt_1>
@@ -145,10 +145,10 @@
 			<y> <copy src="sibling(Rotate)" trait="y" /> </y>
 			<font> <copy src="grandparent()" trait="_Font" /> </font>
 			<justify> &left; </justify>
-			<string> <copy src="me()" trait="_prompt"/> </string>
+			<string> <copy src="me()" trait="_prompt" /> </string>
 			<_prompt>
-				<copy src="globals" trait="_Has360Controller"/>
-				<copy src="me()" trait="_prompt_"/>
+				<copy src="globals" trait="_Has360Controller" />
+				<copy src="me()" trait="_prompt_" />
 			</_prompt>
 			<_prompt_0> Exit: Tab) </_prompt_0>
 			<_prompt_1> Exit: B) </_prompt_1>
@@ -191,8 +191,8 @@
 			<depth> 1 </depth>
 			<x> 0 </x>
 			<y> 0 </y>
-			<width> <copy src="parent()" trait="_width"/> </width>
-			<height> <copy src="parent()" trait="_height"/> </height>
+			<width> <copy src="parent()" trait="_width" /> </width>
+			<height> <copy src="parent()" trait="_height" /> </height>
 			<zoom> -1 </zoom>
 			<brightness> 255 </brightness>
 			<filename> Interface\Shared\solid.dds </filename>

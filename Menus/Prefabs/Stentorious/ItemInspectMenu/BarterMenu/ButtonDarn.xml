@@ -1,5 +1,5 @@
 <hotrect name="BM_InspectButton">
-	<include src="darn\text_box.xml"/>
+	<include src="darn\text_box.xml" />
 	<target>
 		<copy src="BM_Items_InventoryList" trait="_highlight_y" />
 		<gt> -1 </gt>

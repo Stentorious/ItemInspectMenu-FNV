@@ -1,5 +1,5 @@
 <hotrect name="CM_InspectButton">
-	<include src="text_box.xml"/>
+	<include src="text_box.xml" />
 	<target>
 		<copy src="CM_Items_InventoryList" trait="_highlight_y" />
 		<gt> -1 </gt>

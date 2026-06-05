@@ -1,23 +1,23 @@
 <hotrect name="IM_InspectButton">
-	<include src="darn\text_box.xml"/>
+	<include src="darn\text_box.xml" />
 	<visible>
-		<not src="globals" trait="_Has360Controller"/>
-		<and src="IM_ItemInfoRect" trait="visible"/>
+		<not src="globals" trait="_Has360Controller" />
+		<and src="IM_ItemInfoRect" trait="visible" />
 	</visible>
 	<depth> 3 </depth>
 	<_line_alpha>
 		<copy> 127 </copy>
 		<add>
 			<copy> 128 </copy>
-			<onlyif src="me" trait="target"/>
+			<onlyif src="me" trait="target" />
 		</add>
 	</_line_alpha>
 	<clicksound> UIMenuPrevNext </clicksound>
 	<_y>
-		<copy src="IM_ModButton" trait="y"/>
+		<copy src="IM_ModButton" trait="y" />
 		<add>
-			<copy src="IM_ModButton" trait="height"/>
-			<onlyif src="IM_ModButton" trait="visible"/>
+			<copy src="IM_ModButton" trait="height" />
+			<onlyif src="IM_ModButton" trait="visible" />
 		</add>
 	</_y>
 	<_horbuf> 20 </_horbuf>
