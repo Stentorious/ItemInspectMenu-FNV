@@ -81,6 +81,10 @@
             "z": 90.0
         }
     },
+    "headSack": {
+        "model": "ItemInspectMenu/HeadSack.nif",
+		"animation" : { "rootNode": "Root", "sequence": "InspectAnim" }
+    },
     "mantisGauntlet": {
         "rotation": {
             "x": 55.0,

@@ -151,6 +151,13 @@ begin Function {iToggle}
 	; Override rotation
 	if eval AuxVarType "*ItemInspectMenu" 0 rBase == 4
 		aTransform = ReadFromJSON "Data\ItemInspectMenu\_Cache\Transforms.json" ("/" + (AuxVarGetStr "*ItemInspectMenu" 0 rBase)) 0 1
+		if eval ar_HasKey aTransform "model"
+			sModelPath = aTransform["model"]
+		endif
+		if eval ar_HasKey aTransform "animation"
+			Goo1.AuxVarSetStr "*ItemInspectMenu_Anim" (aTransform["animation"]["rootNode"]) 0
+			Goo1.AuxVarSetStr "*ItemInspectMenu_Anim" (aTransform["animation"]["sequence"]) 1
+		endif
 		if eval ar_HasKey aTransform "rotation"
 			fRotX = aTransform["rotation"]["x"]
 			fRotY = aTransform["rotation"]["y"]
@@ -171,52 +178,54 @@ begin Function {iToggle}
 
 	InsertNode rCamera 3 "ItemInspectMenu"
 	InsertNode rCamera 3 "ItemInspectMenu|ItemInspectMenuOffset"
-	sModelPath = "ItemInspectMenu|"
 
 	; Attach model
-	sModelPath = GetBipedModelPath 2 rBase
 	if eval sModelPath == ""
-		if eval iType == 40
-			if eval (sModelPath = GetWeaponWorldModelPath rBase) == ""
-				iTemp = rItem.GetWeaponRefModFlags
-				rTemp = GetWeapon1stPersonModel rBase iTemp
-				if eval IsFormValid rTemp
-					sModelPath = GetModelPath rTemp
-				else
-					sModelPath = GetWeaponModel rBase iTemp
-				endif
-			endif
-		else
-			sModelPath = GetModelPath rBase
-			if eval sModelPath == ""
-				; Note fallback
-				if eval iType == 49
-					sTemp = GetTexturePath rBase
-					if eval sTemp == "Interface\Icons\PipboyImages\Items\items_note.dds"
-						sModelPath = "clutter\junk\paper01.nif"
-					elseif eval sTemp == "Interface\Icons\PipboyImages\Items\item_holotap.dds"
-						sModelPath = "Clutter\Holodisk\Holodisk01.nif"
-					elseif eval GetNoteType rBase == 1
-						sModelPath = "clutter\junk\paper01.nif"
+		sModelPath = GetBipedModelPath 2 rBase
+		if eval sModelPath == ""
+			if eval iType == 40
+				if eval (sModelPath = GetWeaponWorldModelPath rBase) == ""
+					iTemp = rItem.GetWeaponRefModFlags
+					rTemp = GetWeapon1stPersonModel rBase iTemp
+					if eval IsFormValid rTemp
+						sModelPath = GetModelPath rTemp
 					else
-						sModelPath = "Clutter\Holodisk\Holodisk01.nif"
+						sModelPath = GetWeaponModel rBase iTemp
+					endif
+				endif
+			else
+				sModelPath = GetModelPath rBase
+				if eval sModelPath == ""
+					; Note fallback
+					if eval iType == 49
+						sTemp = GetTexturePath rBase
+						if eval sTemp == "Interface\Icons\PipboyImages\Items\items_note.dds"
+							sModelPath = "clutter\junk\paper01.nif"
+						elseif eval sTemp == "Interface\Icons\PipboyImages\Items\item_holotap.dds"
+							sModelPath = "Clutter\Holodisk\Holodisk01.nif"
+						elseif eval GetNoteType rBase == 1
+							sModelPath = "clutter\junk\paper01.nif"
+						else
+							sModelPath = "Clutter\Holodisk\Holodisk01.nif"
+						endif
 					endif
 				endif
 			endif
-		endif
 
-	; Default biped model rotation
-	else
-		if eval (GetBit (GetEquipmentSlotsMask rBase) 2)
-			fRotX = 20
-			fRotY = -55
-			fRotZ = 55
-		else
-			fRotX = -20
-			fRotY = -5
-			fRotZ = 160
+		; Default biped model rotation
+		elseif eval iRotation == 0
+			; Torso armor
+			if eval (GetBit (GetEquipmentSlotsMask rBase) 2)
+				fRotX = 20
+				fRotY = -55
+				fRotZ = 55
+			else
+				fRotX = -20
+				fRotY = -5
+				fRotZ = 160
+			endif
+			iRotation = 1
 		endif
-		iRotation = 1
 	endif
 
 	; Attach mesh

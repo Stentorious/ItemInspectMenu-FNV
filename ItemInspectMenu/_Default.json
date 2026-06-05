@@ -344,6 +344,24 @@
     "DLC05WeapSpanner": {
         "transform": "meleeWeap"
     },
+    "HeadCookCook": {
+        "transform": "headSack"
+    },
+    "HeadCookCookMangled": {
+        "transform": "headSack"
+    },
+    "HeadDriverNephi": {
+        "transform": "headSack"
+    },
+    "HeadDriverNephiMangled": {
+        "transform": "headSack"
+    },
+    "HeadViolet": {
+        "transform": "headSack"
+    },
+    "HeadVioletMangled": {
+        "transform": "headSack"
+    },
     "IrradiatedSSBottleFull": {
         "transform": "nukaCola"
     },

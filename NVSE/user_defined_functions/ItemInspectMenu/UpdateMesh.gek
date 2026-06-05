@@ -1,5 +1,5 @@
 int iSize
-ref rItem
+ref rCamera
 array_var aBlocks
 array_var aHiddenBlocks
 string_var sBlock
@@ -7,8 +7,8 @@ string_var sBlock
 begin Function {}
 
 	; Selectively toggle the culled flag on all blocks
-	rItem = Goo1.AuxVarGetRef "*ItemInspectMenu" 6
-	aBlocks = rItem.GetChildBlocks "ItemInspectMenuOffset"
+	rCamera = Goo1.AuxVarGetRef "*ItemInspectMenu" 6
+	aBlocks = rCamera.GetChildBlocks "ItemInspectMenuOffset"
 	aHiddenBlocks = Goo1.AuxVarGetAsArr "*ItemInspectMenu_Temp"
 	iSize = Ar_Size aBlocks
 
@@ -16,23 +16,29 @@ begin Function {}
 	if eval (Ar_Size aHiddenBlocks) > 0
 		while (iSize -= 1) > -1
 			sBlock = aBlocks[iSize]
-			rItem.SetNifFlag (sBlock) 0 (eval (Ar_Find (sBlock) aHiddenBlocks) != Ar_BadNumericIndex)
+			rCamera.SetNifFlag (sBlock) 0 (eval (Ar_Find (sBlock) aHiddenBlocks) != Ar_BadNumericIndex)
 		loop
 
 	; Force visible
 	else
 		while (iSize -= 1) > -1
-			rItem.SetNifFlag (aBlocks[iSize]) 0 0
+			rCamera.SetNifFlag (aBlocks[iSize]) 0 0
 		loop
 	endif
 
 	; Known blocks to hide
-	if eval ModelHasBlock rItem "##SpeedLoader"
-		rItem.SetNifFlag "##SpeedLoader" 0 1
+	if eval ModelHasBlock rCamera "##SpeedLoader"
+		rCamera.SetNifFlag "##SpeedLoader" 0 1
 	endif
 
 	Goo1.AuxVarErase "*ItemInspectMenu_Temp"
 	aBlocks = aHiddenBlocks = Ar_Null
 	sv_Destruct sBlock
+
+	; Play anim sequence
+	if eval Goo1.AuxVarType "*ItemInspectMenu_Anim" 0 == 4
+		rCamera.PlayAnimSequence (Goo1.AuxVarGetStr "*ItemInspectMenu_Anim" 1) (Goo1.AuxVarGetStr "*ItemInspectMenu_Anim" 0)
+		Goo1.AuxVarErase "*ItemInspectMenu_Anim"
+	endif
 
 end
