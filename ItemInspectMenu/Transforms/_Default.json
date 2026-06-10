@@ -41,6 +41,11 @@
             "z": -90.0
         }
     },
+    "chinesePistol": {
+        "hideBlocks": [
+            "##cmClip"
+        ]
+    },
     "deathclawGauntlet": {
         "rotation": {
             "x": 0.0,

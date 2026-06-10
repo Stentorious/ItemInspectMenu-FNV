@@ -1117,6 +1117,9 @@
     "WeapChineseOfficerSword": {
         "transform": "meleeWeap"
     },
+    "WeapChinesePistol": {
+        "transform": "chinesePistol"
+    },
     "WeapDCBumperSword": {
         "transform": "meleeWeap"
     },
