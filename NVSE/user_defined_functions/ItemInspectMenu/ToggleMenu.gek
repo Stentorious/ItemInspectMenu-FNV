@@ -44,7 +44,7 @@ begin Function {iToggle}
 		Player.SetActorAlpha 1
 		if eval ModelHasBlock Player "PipBoyArm1"
 			Player.SetNifScale "PipBoyArm1" 1 2
-		elseif ModelHasBlock Player "pipboyscreen:0"
+		elseif eval Goo1.AuxVarGetFlt "*ItemInspectMenu" 0 == 1 && ModelHasBlock Player "pipboyscreen:0"
 			Player.SetNifTrans "pipboyscreen:0" (Goo1.AuxVarGetFlt "*ItemInspectMenu" 9) (Goo1.AuxVarGetFlt "*ItemInspectMenu" 10) (Goo1.AuxVarGetFlt "*ItemInspectMenu" 11) 2
 		endif
 
@@ -61,7 +61,7 @@ begin Function {iToggle}
 		SetNumericGameSetting "iJG_Overlay_OverrideLighting" 0
 
 		; Reset world inspect
-		if eval Goo1.AuxVargetFlt "*ItemInspectMenu" 0 == 3
+		if eval Goo1.AuxVarGetFlt "*ItemInspectMenu" 0 == 3
 			TapControl 27
 		endif
 		if eval Goo1.AuxVarGetFlt "*ItemInspectMenu" 8 > 0
@@ -140,10 +140,12 @@ begin Function {iToggle}
 		if eval ModelHasBlock Player "PipBoyArm1"
 			Player.SetNifScale "PipBoyArm1" 0 2
 		elseif ModelHasBlock Player "pipboyscreen:0"
-			aTransform = Player.GetNifTrans "pipboyscreen:0" 0 2
-			Goo1.AuxVarSetFlt "*ItemInspectMenu" (aTransform[0]) 9
-			Goo1.AuxVarSetFlt "*ItemInspectMenu" (aTransform[1]) 10
-			Goo1.AuxVarSetFlt "*ItemInspectMenu" (aTransform[2]) 11
+			if eval Goo1.AuxVarType "*ItemInspectMenu" 11 == 0
+				aTransform = Player.GetNifTrans "pipboyscreen:0" 0 2
+				Goo1.AuxVarSetFlt "*ItemInspectMenu" (aTransform[0]) 9
+				Goo1.AuxVarSetFlt "*ItemInspectMenu" (aTransform[1]) 10
+				Goo1.AuxVarSetFlt "*ItemInspectMenu" (aTransform[2]) 11
+			endif
 			Player.SetNifTrans "pipboyscreen:0" 0 1000 0 2
 		endif
 	endif

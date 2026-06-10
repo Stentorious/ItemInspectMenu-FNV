@@ -60,9 +60,9 @@ Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 5	; Background blur
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 6	; Camera ref
 Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 7	; Item baseform
 Goo1.AuxVarSetFlt "*ItemInspectMenu" -1 8	; Activate key
-Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 9	; pipboyscreen:0 x
-Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 10	; pipboyscreen:0 y
-Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 11	; pipboyscreen:0 z
+;Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 9	; pipboyscreen:0 x
+;Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 10	; pipboyscreen:0 y
+;Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 11	; pipboyscreen:0 z
 
 ; Sensitivity update
 if eval Goo1.AuxVarType "*_Controls:fMouseSensitivity" == 0
