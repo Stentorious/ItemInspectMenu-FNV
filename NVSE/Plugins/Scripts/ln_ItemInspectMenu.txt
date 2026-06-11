@@ -1,7 +1,9 @@
-; Reset queue
+; Reset menu
+Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 0
 Goo1.AuxVarErase "*ItemInspectMenu_Queue"
 
 SetEventHandlerAlt "ShowOff:OnPreActivate" (CompileScript "ItemInspectMenu\OnActivate.gek") 1::Player 2::1
+SetEventHandlerAlt "ShowOff:OnAdd" (CompileScript "ItemInspectMenu\OnAdd.gek") 2::Player
 
 ; Aux timers
 Goo1.SetOnAuxTimerUpdateHandler 1 (CompileScript "ItemInspectMenu\InputLoop.gek") "*ItemInspectMenu_Loop"

@@ -33,7 +33,6 @@ SetOnKeyDownEventHandler (CompileScript "ItemInspectMenu\OnKeyDown.gek") 1 265	;
 SetEventHandler "OnButtonDown:45072" (CompileScript "ItemInspectMenu\OnButtonDown.gek")
 SetOnMenuCloseEventHandler (CompileScript "ItemInspectMenu\OnMenuClose.gek") 1 1059
 SetOnMenuCloseEventHandler (CompileScript "ItemInspectMenu\OnMenuClose.gek") 1 1013
-SetEventHandler "ShowOff:OnAdd" (CompileScript "ItemInspectMenu\OnAdd.gek") "second"::Player
 
 ; Debug
 if eval GetINIFloat_Cached "Developer:bDebug" "Stentorious\ItemInspectMenu.ini" 0

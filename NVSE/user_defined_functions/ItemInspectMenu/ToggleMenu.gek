@@ -113,8 +113,6 @@ begin Function {iToggle}
 		return
 	endif
 
-	Goo1.AuxVarSetFlt "*ItemInspectMenu" iToggle 0
-
 	; Get item ref
 	; Item queue
 	if eval Goo1.AuxVarSize "*ItemInspectMenu_Queue" > 0
@@ -128,7 +126,13 @@ begin Function {iToggle}
 		PlaySound UIPopUpExperienceUp 1
 	else
 		rItem = Goo1.AuxVarGetRef "*ItemInspectMenu" 1
+		if eval IsReference rItem == 0
+			return
+		endif
 	endif
+
+	Goo1.AuxVarSetFlt "*ItemInspectMenu" iToggle 0
+
 	rBase = rItem.GBO
 	Goo1.AuxVarSetRef "*ItemInspectMenu" rBase 7
 	iType = GetType rBase
