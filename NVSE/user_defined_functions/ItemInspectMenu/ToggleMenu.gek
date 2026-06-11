@@ -104,12 +104,12 @@ begin Function {iToggle}
 
 	; MessageMenu fix
 	if eval iMenuID == 1001
-		CallWhen (CompileScript "ItemInspectMenu\ToggleMenu.gek") ({} => MenuMode 1001 == 0) 1 2
+		CallWhen (CompileScript "ItemInspectMenu\ToggleMenu.gek") ({} => GetActiveMenuMode != 1001) 1 2
 		return
 
 	; BookMenu fix
 	elseif eval iMenuID == 1026
-		CallWhen (CompileScript "ItemInspectMenu\ToggleMenu.gek") ({} => MenuMode 1026 == 0) 1 2
+		CallWhen (CompileScript "ItemInspectMenu\ToggleMenu.gek") ({} => GetActiveMenuMode != 1026) 1 2
 		return
 	endif
 
