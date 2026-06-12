@@ -44,6 +44,12 @@
     "AmmoSmallEnergyCellOverCharge": {
         "transform": "energyCell"
     },
+    "armorZebumperCigWearableCig": {
+        "blacklist": 1
+    },
+    "armorZebumperCigWearableCigNoSmoke": {
+        "blacklist": 1
+    },
     "B42BArrowCraft": {
         "blacklist": 1
     },
