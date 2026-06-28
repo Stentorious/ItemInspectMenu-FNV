@@ -237,7 +237,7 @@ begin Function {iToggle}
 	; Attach mesh
 	AttachModel rCamera 3 ("ItemInspectMenuOffset|" + sModelPath)
 	CallAfterFrames 0 (CompileScript "ItemInspectMenu\UpdateMesh.gek") 1
-	;rCamera.ApplyModelTextureSwap rBase rItem "ItemInspectMenu"
+	rCamera.ApplyModelTextureSwap rBase "ItemInspectMenu" rItem
 
 	; Reset inertia
 	Goo1.AuxVarSetFlt "*ItemInspectMenu" 0 3
