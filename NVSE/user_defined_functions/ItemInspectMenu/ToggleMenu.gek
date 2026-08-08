@@ -235,7 +235,8 @@ begin Function {iToggle}
 	endif
 
 	; Attach mesh
-	AttachModel rCamera 3 ("ItemInspectMenuOffset|" + sModelPath)
+	Sv_Replace "meshes\|" sModelPath 0 7 0 1
+	AttachModel rCamera 3 ("ItemInspectMenuOffset|" + (sModelPath))
 	CallAfterFrames 0 (CompileScript "ItemInspectMenu\UpdateMesh.gek") 1
 	rCamera.ApplyModelTextureSwap rBase "ItemInspectMenu" rItem
 
@@ -333,6 +334,10 @@ begin Function {iToggle}
 	SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Init" 1
 	SetUIFloatAlt "TutorialMenu\_ItemInspectMenu+Enabled" iToggle
 	SetUIFloatAlt "TutorialMenu\_PCButton_E" 0
+	;SetUIStringAlt "TutorialMenu\ItemInspectMenu\Controls\Rotate\_prompt_0" "%z:S &sDeviceMouse)" (AuxStringMapGetStr "*TransStr" "Rotate")
+	;SetUIStringAlt "TutorialMenu\ItemInspectMenu\Controls\Rotate\_prompt_1" "%z: RS)" (AuxStringMapGetStr "*TransStr" "Rotate")
+	;SetUIStringAlt "TutorialMenu\ItemInspectMenu\Controls\Zoom\_prompt_0" "%z: &sMouseMiddleButton)" (AuxStringMapGetStr "*TransStr" "Zoom")
+	;SetUIStringAlt "TutorialMenu\ItemInspectMenu\Controls\Zoom\_prompt_1" "%z: LT/RT)" (AuxStringMapGetStr "*TransStr" "Zoom")
 
 	; Take item handling
 	if eval iToggle == 3
