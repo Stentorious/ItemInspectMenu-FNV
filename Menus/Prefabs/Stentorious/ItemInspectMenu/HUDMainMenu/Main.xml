@@ -4,3 +4,6 @@
 <_ItemInspectMenu+Description> 1 </_ItemInspectMenu+Description>
 <_ItemInspectMenu+Vignette> 100 </_ItemInspectMenu+Vignette>
 <_ItemInspectMenu+PCPrompt> T) </_ItemInspectMenu+PCPrompt>
+
+<!-- Translation Strings -->
+<_TransStr+Inspect> Inspect </_TransStr+Inspect>

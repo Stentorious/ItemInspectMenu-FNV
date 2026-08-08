@@ -16,5 +16,5 @@
 	<justify> &right; </justify>
 	<_xbox_button> &xbuttony; </_xbox_button>
 	<_PCButtonText> <copy src="io()" trait="_ItemInspectMenu+PCPrompt" /> </_PCButtonText>
-	<string> Inspect </string>
+	<string> <copy src="io()" trait="_TransStr+Inspect" /> </string>
 </hotrect>

@@ -100,7 +100,7 @@
 				<copy src="globals" trait="_Has360Controller" />
 				<copy src="me()" trait="_prompt_" />
 			</_prompt>
-			<_prompt_0> Rotate: Mouse) </_prompt_0>
+			<_prompt_0> Rotate: &sDeviceMouse;) </_prompt_0>
 			<_prompt_1> Rotate: RS) </_prompt_1>
 		</text>
 
@@ -128,10 +128,10 @@
 				</add>
 				<copy src="me()" trait="_prompt_" />
 			</_prompt>
-			<_prompt_0> Zoom: Wheel) </_prompt_0>
+			<_prompt_0> Zoom: &sMouseMiddleButton;) </_prompt_0>
 			<_prompt_1> Zoom: LT/RT) </_prompt_1>
-			<_prompt_2> Take: &-sUActnActivate;) </_prompt_2>
-			<_prompt_3> Take: A) </_prompt_3>
+			<_prompt_2> &sTargetTypeTake;: &sUActnActivate;) </_prompt_2>
+			<_prompt_3> &sTargetTypeTake;: &sKBA;) </_prompt_3>
 		</text>
 
 		<text name="Exit">
@@ -150,8 +150,8 @@
 				<copy src="globals" trait="_Has360Controller" />
 				<copy src="me()" trait="_prompt_" />
 			</_prompt>
-			<_prompt_0> Exit: Tab) </_prompt_0>
-			<_prompt_1> Exit: B) </_prompt_1>
+			<_prompt_0> &sExit;: &sKBTab;) </_prompt_0>
+			<_prompt_1> &sExit;: &sKBB;) </_prompt_1>
 		</text>
 
 		<image name="WindowBackground">

@@ -4,7 +4,7 @@
 		<not src="globals" trait="_Has360Controller" />
 		<and src="IM_ItemInfoRect" trait="visible" />
 	</visible>
-	<depth> 3 </depth>
+	<depth> 1 </depth>
 	<_line_alpha>
 		<copy> 127 </copy>
 		<add>
@@ -25,5 +25,5 @@
 	<justify> &right; </justify>
 	<_xbox_button> &xbuttony; </_xbox_button>
 	<_PCButtonText> <copy src="io()" trait="_ItemInspectMenu+PCPrompt" /> </_PCButtonText>
-	<string> Inspect </string>
+	<string> <copy src="io()" trait="_TransStr+Inspect" /> </string>
 </hotrect>

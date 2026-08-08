@@ -6,6 +6,12 @@ if GetPluginVersion "NewVegasReloaded" > -1 && GetPluginVersion "NewVegasReloade
 	return
 endif
 
+; Load translation strings
+SetUIStringAlt "HUDMainMenu\_TransStr+Inspect" (GetINIString_Cached "Translations:$Inspect" "..\MCM\Translations\ItemInspectMenu.ini")
+;AuxStringMapSetStr "*TransStr" "Zoom" (GetINIString_Cached "Translations:$Zoom" "..\MCM\Translations\ItemInspectMenu.ini")
+;AuxStringMapSetStr "*TransStr" "Rotate" (GetINIString_Cached "Translations:$Rotate" "..\MCM\Translations\ItemInspectMenu.ini")
+CloseFileSO "..\MCM\Translations\ItemInspectMenu.ini" 0
+
 ; Load INI settings
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:iKeyBind" "Stentorious\ItemInspectMenu.ini" 20) 0
 Goo1.AuxVarSetFlt "*ItemInspectMenu_INI" (GetINIFloat_Cached "Controls:fSensitivityRotationMouse" "Stentorious\ItemInspectMenu.ini" 1) 1
