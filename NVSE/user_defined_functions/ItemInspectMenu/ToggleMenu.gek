@@ -369,10 +369,10 @@ begin Function {iToggle}
 			iType = 1
 		elseif iType == 47 || iType == 25
 			iType = 2
-		elseif iType == 31
-			iType = 3
 		elseif iType == 41
 			iType = 4
+		else
+			iType = 3
 		endif
 		sDescription = GetINIString ("All\" + (GetEditorID rBase)) ("B42Descriptions\" + (GetModName (GetSourceModIndex rBase)) + "\" + $iType)
 	endif
