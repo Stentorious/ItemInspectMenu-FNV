@@ -130,7 +130,7 @@
 			</_prompt>
 			<_prompt_0> Zoom: &sMouseMiddleButton;) </_prompt_0>
 			<_prompt_1> Zoom: LT/RT) </_prompt_1>
-			<_prompt_2> &sTargetTypeTake;: &sUActnActivate;) </_prompt_2>
+			<_prompt_2> &sTargetTypeTake;: &-sUActnActivate;) </_prompt_2>
 			<_prompt_3> &sTargetTypeTake;: &sKBA;) </_prompt_3>
 		</text>
 
