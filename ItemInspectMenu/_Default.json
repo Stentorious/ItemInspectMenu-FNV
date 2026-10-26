@@ -284,6 +284,12 @@
     "DLC01WeapSteelSaw": {
         "transform": "meleeWeap"
     },
+    "DLC02WeapChinesePistol": {
+        "transform": "chinesePistol"
+    },
+    "DLC02WeapChinesePistolWasteland": {
+        "transform": "chinesePistol"
+    },
     "DLC02WeapKnifeCombatWasteland": {
         "transform": "meleeWeap"
     },
@@ -739,7 +745,7 @@
     },
     "NVDLC01Snowglobe": {
         "showOnce": 1,
-        "transform": "bobblehead"
+        "transform": "snowglobeNVDLC"
     },
     "NVDLC01WeapBearTrapFist": {
         "transform": "deathclawGauntlet"
@@ -764,7 +770,7 @@
     },
     "NVDLC02SnowGlobe": {
         "showOnce": 1,
-        "transform": "bobblehead"
+        "transform": "snowglobeNVDLC"
     },
     "NVDLC02WastelandTequila": {
         "transform": "nukaCola"
@@ -773,7 +779,7 @@
         "transform": "nukaCola"
     },
     "NVDLC02WeapPowerFistUnique": {
-        "transform": "deathclawGauntlet"
+        "transform": "powerFist"
     },
     "NVDLC02WeapTomahawk": {
         "transform": "meleeWeap"
@@ -801,31 +807,31 @@
     },
     "NVDLC03SnowGlobe": {
         "showOnce": 1,
-        "transform": "bobblehead"
+        "transform": "snowglobeNVDLC"
     },
     "NVDLC03WeapAntenna": {
         "transform": "meleeWeap"
     },
     "NVDLC03WeapCyberdogGun": {
-        "transform": "deathclawGauntlet"
+        "transform": "flamer"
     },
     "NVDLC03WeapCyberdogGunFido": {
-        "transform": "deathclawGauntlet"
+        "transform": "flamer"
     },
     "NVDLC03WeapGlovesCorrosive": {
-        "transform": "deathclawGauntlet"
+        "transform": "displacerGlove"
     },
     "NVDLC03WeapGlovesDrKleinL": {
-        "transform": "deathclawGauntlet"
+        "transform": "displacerGlove"
     },
     "NVDLC03WeapGlovesDrMobiusL": {
-        "transform": "deathclawGauntlet"
+        "transform": "displacerGlove"
     },
     "NVDLC03WeapGlovesScientist": {
-        "transform": "deathclawGauntlet"
+        "transform": "displacerGlove"
     },
     "NVDLC03WeapGlovesSterilizer": {
-        "transform": "deathclawGauntlet"
+        "transform": "displacerGlove"
     },
     "NVDLC03WeapProtonAxe": {
         "transform": "meleeWeap"
@@ -840,10 +846,10 @@
         "transform": "meleeWeap"
     },
     "NVDLC03WeapSaturniteFist": {
-        "transform": "deathclawGauntlet"
+        "transform": "powerFist"
     },
     "NVDLC03WeapSaturniteFistHeat": {
-        "transform": "deathclawGauntlet"
+        "transform": "powerFist"
     },
     "NVDLC03WeapTeslaCannonUniqueElijah": {
         "transform": "brassKnuckles"
@@ -856,10 +862,10 @@
     },
     "NVDLC04Snowglobe": {
         "showOnce": 1,
-        "transform": "bobblehead"
+        "transform": "snowglobeNVDLC"
     },
     "NVDLC04WeapArcWelder": {
-        "transform": "deathclawGauntlet"
+        "transform": "flamer"
     },
     "NVDLC04WeapBladeWest": {
         "transform": "meleeWeap"
@@ -880,7 +886,7 @@
         "transform": "meleeWeap"
     },
     "NVDLC04WeapIndustrialHand": {
-        "transform": "deathclawGauntlet"
+        "transform": "powerFist"
     },
     "NVDLC04WeapRedGlare": {
         "transform": "brassKnuckles"
@@ -1024,13 +1030,13 @@
         "transform": "flamer"
     },
     "NVDLC05WeapGatlingLaserUnique": {
-        "transform": "deathclawGauntlet"
+        "transform": "flamer"
     },
     "NVDLC05WeapKatanaCustom": {
         "transform": "meleeWeap"
     },
     "NVDLC05WeapNVBallisticFistUnique": {
-        "transform": "deathclawGauntlet"
+        "transform": "ballisticFist"
     },
     "NVDLC05WeapNVMantisGauntletUnique": {
         "transform": "mantisGauntletAlt"
@@ -1039,7 +1045,7 @@
         "transform": "meleeWeap"
     },
     "NVDLC05WeapPowerFistUnique": {
-        "transform": "deathclawGauntlet"
+        "transform": "powerFist"
     },
     "NVDLC05WeapShishkebabUnique": {
         "transform": "meleeWeap"
@@ -1079,34 +1085,43 @@
     },
     "SnowglobeFortmormon": {
         "showOnce": 1,
-        "transform": "bobblehead"
+        "transform": "snowglobeFortmormon"
     },
     "SnowglobeGoodsprings": {
         "showOnce": 1,
-        "transform": "bobblehead"
+        "transform": "snowglobeGoodsprings"
     },
     "SnowglobeHooverDam": {
         "showOnce": 1,
-        "transform": "bobblehead"
+        "transform": "snowglobeHooverDam"
     },
     "SnowglobeMtCharleston": {
         "showOnce": 1,
-        "transform": "bobblehead"
+        "transform": "snowglobeMtCharleston"
     },
     "SnowglobeNellis": {
         "showOnce": 1,
-        "transform": "bobblehead"
+        "transform": "snowglobeNellis"
     },
     "SnowglobeTestSite": {
         "showOnce": 1,
-        "transform": "bobblehead"
+        "transform": "snowglobeTestSite"
     },
     "SnowglobeTheStrip": {
         "showOnce": 1,
-        "transform": "bobblehead"
+        "transform": "snowglobeTheStrip"
     },
     "WeapBaseballBat": {
         "transform": "meleeWeap"
+    },
+    "WeapBBGun": {
+        "transform": "bbGun"
+    },
+    "WeapNVBBGunUnique": {
+        "transform": "bbGun"
+    },
+    "WeapUniqueBlackBartsBBGun": {
+        "transform": "bbGun"
     },
     "WeapBladedGauntlet": {
         "transform": "deathclawGauntlet"
@@ -1150,6 +1165,9 @@
     "WeapLeadPipe": {
         "transform": "meleeWeap"
     },
+    "WeapMineFrag": {
+        "transform": "mine"
+    },
     "WeapMinePlasma": {
         "transform": "mine"
     },
@@ -1157,7 +1175,7 @@
         "transform": "mine"
     },
     "WeapMinigun": {
-        "transform": "deathclawGauntlet"
+        "transform": "flamer"
     },
     "WeapMissileLauncher": {
         "transform": "brassKnuckles"
@@ -1166,19 +1184,19 @@
         "transform": "meleeWeap"
     },
     "WeapNVBallisticFist": {
-        "transform": "deathclawGauntlet"
+        "transform": "ballisticFist"
     },
     "WeapNVBinoculars": {
         "transform": "binoculars"
     },
     "WeapNVBoxingGloves": {
-        "transform": "flamer"
+        "transform": "boxingGloves"
     },
     "WeapNVBoxingGoldenGloves": {
-        "transform": "flamer"
+        "transform": "boxingGloves"
     },
     "WeapNVBoxingTape": {
-        "transform": "default"
+        "transform": "boxingTape"
     },
     "WeapNVBumperSword": {
         "transform": "meleeWeap"
@@ -1193,10 +1211,10 @@
         "transform": "meleeWeap"
     },
     "WeapNVDisplacerGlove": {
-        "transform": "deathclawGauntlet"
+        "transform": "displacerGlove"
     },
     "WeapNVDisplacerGloveUnique": {
-        "transform": "deathclawGauntlet"
+        "transform": "displacerGlove"
     },
     "WeapNVDogTagFist": {
         "transform": "steelKnuckles"
@@ -1250,7 +1268,7 @@
         "transform": "meleeWeap"
     },
     "WeapNVSpikedKnucklesUnique": {
-        "transform": "book"
+        "transform": "spikedKnucklesAlt"
     },
     "WeapNVStraightRazor": {
         "transform": "meleeWeap"
@@ -1271,10 +1289,10 @@
         "transform": "meleeWeap"
     },
     "WeapNVZapGlove": {
-        "transform": "deathclawGauntlet"
+        "transform": "displacerGlove"
     },
     "WeapNVZapGloveUnique": {
-        "transform": "deathclawGauntlet"
+        "transform": "ballisticFist"
     },
     "WeapNailBoard": {
         "transform": "meleeWeap"
@@ -1295,7 +1313,7 @@
         "transform": "ripper"
     },
     "WeapRockItLauncher": {
-        "transform": "deathclawGauntlet"
+        "transform": "flamer"
     },
     "WeapRollingPin": {
         "transform": "meleeWeap"
@@ -1373,7 +1391,7 @@
         "transform": "brassKnuckles"
     },
     "WeapUniqueMS18Minigun": {
-        "transform": "deathclawGauntlet"
+        "transform": "flamer"
     },
     "WeapUniqueMissLauncher": {
         "transform": "brassKnuckles"
@@ -1398,6 +1416,9 @@
     },
     "WeapUniqueVancesChineseSword": {
         "transform": "meleeWeap"
+    },
+    "WeapUniqueZhuRongChinesePistol": {
+        "transform": "chinesePistol"
     },
     "WeapUniqueVengeance": {
         "transform": "flamer"

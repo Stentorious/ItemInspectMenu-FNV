@@ -1,4 +1,17 @@
 {
+    "ballisticFist": {
+        "rotation": {
+            "x": 1.0,
+            "y": -8.0,
+            "z": 180.0
+        },
+        "showWorldModel": 1
+    },
+    "bbGun": {
+        "hideBlocks": [
+            "##BBCarton"
+        ]
+    },
     "binoculars": {
         "rotation": {
             "x": -35.0,
@@ -11,7 +24,31 @@
             "x": 0.0,
             "y": 0.0,
             "z": 175.0
-        }
+        },
+        "hideBlocks": [
+            "BobbleHead_AGL_Activator",
+            "Bobblehead_Barter_Activator",
+            "BobbleHead_BGUN_Activator",
+            "BobbleHead_EXPL_Activator",
+            "BobbleHead_ERGW_Activator",
+            "BobbleHead_EXPL_Activator",
+            "BobbleHead_INT_Activator",
+            "BobbleJead_LOCK_Activator",
+            "BobbleHead_LUK_Activator",
+            "BobbleHead_EXPL_Activator",
+            "BobbleHead_MELE_Activator",
+            "BobbleHead_PER_Activator",
+            "BobbleHead_REPR_Activator",
+            "BobbleHead_SCNC_Actiavtor",
+            "BobbleHead_SGUN_Activator",
+            "BobbleHead_SNEK_Activator",
+            "BobbleHead_SPCH_Activator",
+            "BobbleHead_STR_Activator",
+            "BobbleHead_SUR_Activator",
+            "BobbleHead_UARM_Activator",
+            "BobbleHeadCHAR_Activator"
+        ],
+        "animation" : { "rootNode": "Scene Root", "sequence": "SpecialIdle" }
     },
     "book": {
         "rotation": {
@@ -20,12 +57,29 @@
             "z": 0.0
         }
     },
+    "boxingGloves": {
+        "rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 90.0
+        },
+        "showWorldModel": 1
+    },
+    "boxingTape": {
+        "rotation": {
+            "x": 90.0,
+            "y": 90.0,
+            "z": 0.0
+        },
+        "showWorldModel": 1
+    },
     "brassKnuckles": {
         "rotation": {
             "x": -90.0,
             "y": -90.0,
             "z": 0.0
-        }
+        },
+        "showWorldModel": 1
     },
     "camera": {
         "rotation": {
@@ -51,7 +105,8 @@
             "x": 0.0,
             "y": 0.0,
             "z": 180.0
-        }
+        },
+        "showWorldModel": 1
     },
     "default": {
         "rotation": {
@@ -62,15 +117,23 @@
     },
     "droneCannon": {
         "position": {
-            "x": -84.0,
-            "y": -27.5,
-            "z": 15.0
+            "x": -30.0,
+            "y": 16,
+            "z": 0.0
         },
         "rotation": {
-            "x": 0.0,
+            "x": 90.0,
             "y": 0.0,
-            "z": 90.0
+            "z": 180.0
         }
+    },
+    "displacerGlove": {
+        "rotation": {
+            "x": -9.0,
+            "y": -9.0,
+            "z": 180.0
+        },
+        "showWorldModel": 1
     },
     "energyCell": {
         "rotation": {
@@ -81,14 +144,14 @@
     },
     "flamer": {
         "rotation": {
-            "x": 0.0,
+            "x": 90.0,
             "y": 0.0,
-            "z": 90.0
+            "z": 180.0
         }
     },
     "headSack": {
         "model": "ItemInspectMenu/HeadSack.nif",
-		"animation" : { "rootNode": "Root", "sequence": "InspectAnim" }
+        "animation" : { "rootNode": "Root", "sequence": "InspectAnim" }
     },
     "mantisGauntlet": {
         "rotation": {
@@ -101,7 +164,7 @@
         "rotation": {
             "x": -21.0,
             "y": -8.0,
-            "z": -169.0
+            "z": 169.0
         }
     },
     "meleeWeap": {
@@ -134,9 +197,9 @@
     },
     "powerFist": {
         "rotation": {
-            "x": 90.0,
-            "y": 0.0,
-            "z": 180.0
+            "x": 171.0,
+            "y": 4.0,
+            "z": 176.5
         }
     },
     "ripper": {
@@ -146,12 +209,85 @@
             "z": 165.0
         }
     },
+    "snowglobeFortmormon": {
+        "rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 175.0
+        },
+        "animation" : { "rootNode": "FortMormon", "sequence": "Idle" }
+    },
+    "snowglobeGoodsprings": {
+        "rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 175.0
+        },
+        "animation" : { "rootNode": "Goodsprings", "sequence": "Idle" }
+    },
+    "snowglobeHooverDam": {
+        "rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 175.0
+        },
+        "animation" : { "rootNode": "HooverDam", "sequence": "Idle" }
+    },
+    "snowglobeMtCharleston": {
+        "rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 175.0
+        },
+        "animation" : { "rootNode": "MtCharleston", "sequence": "Idle" }
+    },
+    "snowglobeNellis": {
+        "rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 175.0
+        },
+        "animation" : { "rootNode": "NelisAFB", "sequence": "Idle" }
+    },
+    "snowglobeNVDLC": {
+        "rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 175.0
+        },
+        "animation" : { "rootNode": "SceneRoot", "sequence": "Idle" }
+    },
+    "snowglobeTestSite": {
+        "rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 175.0
+        },
+        "animation" : { "rootNode": "TestSite", "sequence": "Idle" }
+    },
+    "snowglobeTheStrip": {
+        "rotation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 175.0
+        },
+        "animation" : { "rootNode": "TheStrip", "sequence": "Idle" }
+    },
+    "spikedKnucklesAlt": {
+        "rotation": {
+            "x": -90.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        "showWorldModel": 1
+    },
     "steelKnuckles": {
         "rotation": {
             "x": 0.0,
             "y": -90.0,
             "z": 0.0
-        }
+        },
+        "showWorldModel": 1
     },
     "throwingKnife": {
         "rotation": {
