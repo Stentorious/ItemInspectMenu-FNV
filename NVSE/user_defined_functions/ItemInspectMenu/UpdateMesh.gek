@@ -27,6 +27,9 @@ begin Function {}
 	endif
 
 	; Known blocks to hide
+	if eval ModelHasBlock rCamera "Backpack"
+		rCamera.SetNifFlag "Backpack" 0 1
+	endif
 	if eval ModelHasBlock rCamera "##SpeedLoader"
 		rCamera.SetNifFlag "##SpeedLoader" 0 1
 	endif
