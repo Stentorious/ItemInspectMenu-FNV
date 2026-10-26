@@ -61,7 +61,6 @@
             "default": "BobbleheadAGLMessage",
             "first": "BobbleheadAGLBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadBART": {
@@ -69,7 +68,6 @@
             "default": "BobbleheadBARTMessage",
             "first": "BobbleheadBARTBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadBGUN": {
@@ -77,7 +75,6 @@
             "default": "BobbleheadBGUNMessage",
             "first": "BobbleheadBGUNBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadCHA": {
@@ -85,7 +82,6 @@
             "default": "BobbleheadCHAMessage",
             "first": "BobbleheadCHABuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadEND": {
@@ -93,7 +89,6 @@
             "default": "BobbleheadENDMessage",
             "first": "BobbleheadENDBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadERGW": {
@@ -101,7 +96,6 @@
             "default": "BobbleheadERGWMessage",
             "first": "BobbleheadERGWBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadEXPL": {
@@ -109,7 +103,6 @@
             "default": "BobbleheadEXPLMessage",
             "first": "BobbleheadEXPLBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadINT": {
@@ -117,7 +110,6 @@
             "default": "BobbleheadINTMessage",
             "first": "BobbleheadINTBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadLOCK": {
@@ -125,7 +117,6 @@
             "default": "BobbleheadLOCKMessage",
             "first": "BobbleheadLOCKBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadLUK": {
@@ -133,7 +124,6 @@
             "default": "BobbleheadLUKMessage",
             "first": "BobbleheadLUKBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadMEDI": {
@@ -141,7 +131,6 @@
             "default": "BobbleheadMEDIMessage",
             "first": "BobbleheadMEDIBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadMELE": {
@@ -149,7 +138,6 @@
             "default": "BobbleheadMELEMessage",
             "first": "BobbleheadMELEBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadPER": {
@@ -157,7 +145,6 @@
             "default": "BobbleheadPERMessage",
             "first": "BobbleheadPERBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadREPR": {
@@ -165,7 +152,6 @@
             "default": "BobbleheadREPRMessage",
             "first": "BobbleheadREPRBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadSCNC": {
@@ -173,7 +159,6 @@
             "default": "BobbleheadSCNCMessage",
             "first": "BobbleheadSCNCBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadSGUN": {
@@ -181,7 +166,6 @@
             "default": "BobbleheadSGUNMessage",
             "first": "BobbleheadSGUNBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadSNEK": {
@@ -189,7 +173,6 @@
             "default": "BobbleheadSNEKMessage",
             "first": "BobbleheadSNEKBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadSPCH": {
@@ -197,7 +180,6 @@
             "default": "BobbleheadSPCHMessage",
             "first": "BobbleheadSPCHBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadSTR": {
@@ -205,7 +187,6 @@
             "default": "BobbleheadSTRMessage",
             "first": "BobbleheadSTRBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadSUR": {
@@ -213,7 +194,6 @@
             "default": "BobbleheadSURMessage",
             "first": "BobbleheadSURBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BobbleheadUARM": {
@@ -221,7 +201,6 @@
             "default": "BobbleheadUARMMessage",
             "first": "BobbleheadUARMBuffMessage"
         },
-        "showOnce": 1,
         "transform": "bobblehead"
     },
     "BookSkillBarter": {
@@ -744,7 +723,6 @@
         "transform": "nukaCola"
     },
     "NVDLC01Snowglobe": {
-        "showOnce": 1,
         "transform": "snowglobeNVDLC"
     },
     "NVDLC01WeapBearTrapFist": {
@@ -769,7 +747,6 @@
         "transform": "meleeWeap"
     },
     "NVDLC02SnowGlobe": {
-        "showOnce": 1,
         "transform": "snowglobeNVDLC"
     },
     "NVDLC02WastelandTequila": {
@@ -806,7 +783,6 @@
         "transform": "weaponMod"
     },
     "NVDLC03SnowGlobe": {
-        "showOnce": 1,
         "transform": "snowglobeNVDLC"
     },
     "NVDLC03WeapAntenna": {
@@ -861,7 +837,6 @@
         "transform": "nukaCola"
     },
     "NVDLC04Snowglobe": {
-        "showOnce": 1,
         "transform": "snowglobeNVDLC"
     },
     "NVDLC04WeapArcWelder": {
@@ -1084,31 +1059,24 @@
         "transform": "nukaCola"
     },
     "SnowglobeFortmormon": {
-        "showOnce": 1,
         "transform": "snowglobeFortmormon"
     },
     "SnowglobeGoodsprings": {
-        "showOnce": 1,
         "transform": "snowglobeGoodsprings"
     },
     "SnowglobeHooverDam": {
-        "showOnce": 1,
         "transform": "snowglobeHooverDam"
     },
     "SnowglobeMtCharleston": {
-        "showOnce": 1,
         "transform": "snowglobeMtCharleston"
     },
     "SnowglobeNellis": {
-        "showOnce": 1,
         "transform": "snowglobeNellis"
     },
     "SnowglobeTestSite": {
-        "showOnce": 1,
         "transform": "snowglobeTestSite"
     },
     "SnowglobeTheStrip": {
-        "showOnce": 1,
         "transform": "snowglobeTheStrip"
     },
     "WeapBaseballBat": {
